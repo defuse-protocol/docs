@@ -1,0 +1,15 @@
+# Table of contents
+
+* [Overview](README.md)
+* [Smart Contracts API](smart-contracts-api/README.md)
+  * [Intent flow](smart-contracts-api/intent-flow.md)
+  * [Deposits & Withdrawals](smart-contracts-api/deposits-and-withdrawals.md)
+* [Solver-Relayer API](solver-relayer-api/README.md)
+  * [Introduction](solver-relayer-api/introduction.md)
+  * [Solver Relay](solver-relayer-api/solver-relay.md)
+  * [Solvers](solver-relayer-api/solvers.md)
+* [PoA bridge](poa-bridge.md)
+* [SDK](sdk/README.md)
+  * [Deposit](sdk/deposit.md)
+  * [Withdraw](sdk/withdraw.md)
+* [FAQs](faqs.md)
