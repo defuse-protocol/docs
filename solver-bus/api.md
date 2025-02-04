@@ -1,6 +1,6 @@
-# Solver Relay
+# API
 
-Solver Relay is an additional system component that optimizes frontends←→solvers quoting, and intent discovery process. Any frontend app may use a generic foundation-hosted Solver Relay or launch its own instance to customize preferred solver accounts.
+Solver Bus is an additional system component that optimizes frontends←→solvers quoting, and intent discovery process. Any frontend app may use a generic foundation-hosted Solver Bus or launch its own instance to customize preferred solver accounts.
 
 Defuse protocol may operate without a Solver Relay component:
 
