@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Overview](README.md)
-* [Smart contract](smart-contract.md)
+* [Verifier](verifier.md)
 * [Examples](examples.md)
 * [Architecture](architecture/README.md)
   * [Intent flow](architecture/intent-flow.md)

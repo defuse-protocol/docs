@@ -1,8 +1,10 @@
 ---
-description: Source code and deployment
+description: Source code and deployment for the verifier smart contract
 ---
 
-# Smart contract
+# Verifier
+
+
 
 {% hint style="info" %}
 The protocol has been renamed from Defuse to "NEAR Intents".&#x20;
