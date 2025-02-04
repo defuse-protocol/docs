@@ -1,10 +1,10 @@
 ---
-description: Defuse is a protocol for multichain financial products.
+description: NEAR Intents is a protocol for multichain financial products.
 ---
 
 # Overview
 
-This document explains the architecture of Defuse smart contracts that will be used for spot trading of fungible tokens on multiple chains.
+This document explains the architecture of NEAR Intents protocol for spot trading of fungible tokens on multiple chains.
 
 ## High level architecture
 
