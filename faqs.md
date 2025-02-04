@@ -4,6 +4,10 @@ description: Frequently Asked Questions
 
 # FAQs
 
+## Is there a testnet deployment?
+
+There's no testnet deployment and no plans for it. We recommend testing on NEAR mainnet with using separate dev/test NEAR accounts.&#x20;
+
 ## Do intents not support native NEAR deposits?
 
 Only  `ft_transfer_call` can be used to deposit NEP-141 tokens from Near to `intents.near` :\
