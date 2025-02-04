@@ -6,7 +6,7 @@ description: Deposited assets
 
 <figure><img src="../.gitbook/assets/off-chain-arch-4 (4).png" alt=""><figcaption><p>Intent flow for deposited assets</p></figcaption></figure>
 
-1. Initial state: user has a Defuse account with FT1 token deposited; user wants to swap 1 FT1 to FT2
+1. Initial state: user has an account with FT1 token deposited; user wants to swap 1 FT1 to FT2
 2. FE sends an RFQ to solver bus
 3. router receives the RFQ request and starts to search for the most optimal path for such swap by sending RFQ requests to “trader” solvers.
 4. “Trader” solvers reply with signed messages “I’m ok to swap X of token A to Y of token B” (along with nonce, deadline, etc…)
