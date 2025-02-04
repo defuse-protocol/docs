@@ -8,10 +8,10 @@ The PoA Bridge is a solution for transferring asset tokens between blockchain ne
 
 ### How to use
 
-1. _Get supported assets_. The bridge only works with a specific list of tokens that are available for transfer to Defuse. The list of supported tokens and networks can be obtained using this request.
-2. _Get deposit address._ Once you have verified that your token is supported by the bridge, you can use the request to obtain a deposit address. After receiving the address, transfer the tokens to it, and they will soon be available in Defuse.
+1. _Get supported assets_. The bridge only works with a specific list of tokens that are available for transfer to NEAR Intents. The list of supported tokens and networks can be obtained using this request.
+2. _Get deposit address._ Once you have verified that your token is supported by the bridge, you can use the request to obtain a deposit address. After receiving the address, transfer the tokens to it, and they will soon be available in NEAR Intents.
 3. _Get recent deposit._ The API service allows you to get the status of the most recent deposits. Simply send a request to retrieve this information.
-4. _Get withdrawal status_. The bridge supports token withdrawals from Defuse to the supported network. To do this, call the 'withdrawal' contract method or use Defuse's user interface. The status of the withdrawal can be obtained upon request.
+4. _Get withdrawal status_. The bridge supports token withdrawals from NEAR Intents to the supported network. To do this, call the 'withdrawal' contract method or use the frontend. The status of the withdrawal can be obtained upon request.
 
 ***
 
