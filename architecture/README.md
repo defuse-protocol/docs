@@ -2,11 +2,11 @@
 description: Spot trading architecture
 ---
 
-# Smart Contracts API
+# Architecture
 
-This document explains the architecture of Defuse smart contracts that will be used for spot trading of fungible tokens on multiple chains.
+This document explains the architecture of NEAR Intents smart contracts that is used for spot trading of fungible tokens on multiple chains.
 
-## Requirements
+## Design choices
 
 1. Speed. The solution prioritises speed.
 2. Security & Decentralisation. The solution is as decentralised and secure as possible. Speed matters more.
