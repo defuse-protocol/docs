@@ -1,6 +1,8 @@
 # Table of contents
 
 * [Overview](README.md)
+* [Smart contract](smart-contract.md)
+* [Examples](examples.md)
 * [Smart Contracts API](smart-contracts-api/README.md)
   * [Intent flow](smart-contracts-api/intent-flow.md)
   * [Deposits & Withdrawals](smart-contracts-api/deposits-and-withdrawals.md)
