@@ -4,6 +4,10 @@ description: Build a dapp
 
 # SDK
 
+{% hint style="info" %}
+SDK is under heavy development and the API is highly unstable.
+{% endhint %}
+
 ### High Level Architecture
 
 The Defuse Protocol SDK is built on two core components that work together to provide a robust and flexible solution for cross-chain asset swaps:

@@ -5,7 +5,11 @@ description: NEAR Intents is a protocol for multichain financial products.
 # Overview
 
 {% hint style="info" %}
-The NEAR intents protocol and the documentation are under active development
+The NEAR intents protocol and the documentation are under active development.
+
+The protocol has been renamed from Defuse to "NEAR Intents".&#x20;
+
+Any mentions of Defuse in the source code and documentation are to be replaced
 {% endhint %}
 
 ## Terminology
