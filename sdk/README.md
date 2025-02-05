@@ -29,19 +29,21 @@ Key benefits of using state machines:
 * Improved testability and maintainability
 * Framework-agnostic implementation
 
-#### &#x20;Deposit Machine Chart
+
+
+**Deposit Machine Chart**
 
 {% embed url="https://stately.ai/registry/editor/embed/8675c51c-3db8-471c-87b4-71331e02e51c?machineId=06cd9c41-9736-41b8-a783-c1f78f420349&mode=design" %}
 
 <figure><img src="../.gitbook/assets/deposit-ui.png" alt=""><figcaption><p>Deposit Machine</p></figcaption></figure>
 
-Swap Machine Chart
+**Swap Machine Chart**
 
 {% embed url="https://stately.ai/registry/editor/embed/8675c51c-3db8-471c-87b4-71331e02e51c?machineId=f396c943-2595-4fdd-b245-32a06d3b85a1" %}
 
 <figure><img src="../.gitbook/assets/swap-ui.png" alt=""><figcaption><p>Swap machine</p></figcaption></figure>
 
-Withdraw Machine Chart
+**Withdraw Machine Chart**
 
 {% embed url="https://stately.ai/registry/editor/embed/8675c51c-3db8-471c-87b4-71331e02e51c?machineId=5f2320b2-484c-4d97-b966-1544f9e09248&mode=design" %}
 
