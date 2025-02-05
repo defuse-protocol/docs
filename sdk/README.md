@@ -14,10 +14,11 @@ The Defuse Protocol SDK is built on two core components that work together to pr
 
 #### 1. State Machines (XState)
 
-Our swap logic is driven by two core state machines, implemented using XState:
+Our swap logic is driven by three core state machines, implemented using XState:
 
-* **Quote Machine**: Handles the process of obtaining and managing swap quotes.
-* **Swap Machine**: Manages the entire swap process from initiation to completion.
+* **Deposit Machine:** Manages the entire deposit process from initiation to completion.
+* **Swap Machine:** Manages the entire swap process from initiation to completion.
+* **Withdraw Machine:** Manages the entire withdrawal process from initiation to completion.
 
 These state machines are framework-agnostic and can be used on both client and server sides. They provide a clear and predictable flow for complex cross-chain swap operations, handling various states, transitions, and edge cases.
 
@@ -28,17 +29,23 @@ Key benefits of using state machines:
 * Improved testability and maintainability
 * Framework-agnostic implementation
 
-#### Swap machine chart
+#### &#x20;Deposit Machine Chart
 
-{% embed url="https://stately.ai/registry/editor/embed/3d7d6777-d1ae-4298-9500-6a1d42f656b0?colorMode=light&machineId=548544a1-43c7-4476-b372-0785c72caf13&mode=design" %}
+{% embed url="https://stately.ai/registry/editor/embed/8675c51c-3db8-471c-87b4-71331e02e51c?machineId=06cd9c41-9736-41b8-a783-c1f78f420349&mode=design" %}
 
-<figure><img src="../.gitbook/assets/swap_machine.png" alt=""><figcaption><p>Swap machine</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/deposit-ui.png" alt=""><figcaption><p>Deposit Machine</p></figcaption></figure>
 
-#### Quote machine chart
+Swap Machine Chart
 
-{% embed url="https://stately.ai/registry/editor/embed/3d7d6777-d1ae-4298-9500-6a1d42f656b0?colorMode=light&machineId=847c7bd7-8d43-4d36-8194-3b9273d128f3&mode=design" %}
+{% embed url="https://stately.ai/registry/editor/embed/8675c51c-3db8-471c-87b4-71331e02e51c?machineId=f396c943-2595-4fdd-b245-32a06d3b85a1" %}
 
-<figure><img src="../.gitbook/assets/quote_machine.png" alt=""><figcaption><p>Quote machine</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/swap-ui.png" alt=""><figcaption><p>Swap machine</p></figcaption></figure>
+
+Withdraw Machine Chart
+
+{% embed url="https://stately.ai/registry/editor/embed/8675c51c-3db8-471c-87b4-71331e02e51c?machineId=5f2320b2-484c-4d97-b966-1544f9e09248&mode=design" %}
+
+<figure><img src="../.gitbook/assets/withdraw-ui.png" alt=""><figcaption><p>Withdraw Machine</p></figcaption></figure>
 
 #### 2. Defuse SDK
 
@@ -92,20 +99,22 @@ Now that you’ve installed the SDK, you can use it in your application:
 
 ```javascript
 "use client"
-import { SwapWidgetProvider, SwapWidget } from "@defuse-protocol/defuse-sdk"
+
+import { SwapWidget } from "@defuse-protocol/defuse-sdk"
 
 export default function MyApp() {
   return (
     <div>
-      <SwapWidgetProvider>
-        <h1>Welcome to my app</h1>
         <SwapWidget
-          theme="dark"
-          tokenList={tokenList}
-          event={eventListener}
-          onSign={signMessage}
-        />
-      </SwapWidgetProvider>
+            tokenList={tokenList}
+            userAddress={userAddress}
+            sendNearTransaction={sendNearTransaction}
+            signMessage={signMessage}
+            onSuccessSwap={onSuccessSwap}
+            onNavigateDeposit={onNavigateDeposit}
+            userChainType={userChainType}
+            referral={referral}
+          />
     </div>
   )
 }
