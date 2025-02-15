@@ -5,7 +5,7 @@ Currently, the Verifier contract uses Near `AccountId` to identify users, which 
 ### Named Account: `user.near`&#x20;
 
 \
-The only way to start using Named Account is to send a real tx `defuse.near::add_public_key(pk)` from user's Near wallet. Others can still deposit/transfer you money before you "claim" it.
+The only way to start using Named Account is to send a real tx `intents.near::add_public_key(pk)` from user's Near wallet. Others can still deposit/transfer you money before you "claim" it.
 
 ### &#x20;Implicit Account
 
@@ -44,10 +44,10 @@ So, when a user `user1` opens the Frontend for the first time and clicks "Connec
 
 Now, when a user wants to swap tokens, i.e. sign a state\_change:
 
-1. Firstly, check if this pair `(account_id, public_key)` is already registered in Defuse contract on-chain by calling `get_account_public_keys(account_id) -> Vec<Pubkey>` method on `defuse.near` contract.
-   1. If there is no such user or if public\_key was not registered for him, the user should be "registered" in Defuse contract. For that we should ask user's wallet to `signMessage("user1 is an owner of public_key ed25519:abcd...")`
-   2. Then we should send this signed message in the transaction (can be done by relay) to `defuse.near` calling `add_public_key({"account_id": "user1", "public_key": "ed25519:abcd...", "signature": "xyz123..."})` method. This transaction would add `ed25519:abcd...` to the list of public\_keys that belongs to `user1`
-2. Ask user's wallet to `signMessage({"account_id": "user1", "state_changes": [...] })` and this state\_change along with the returned signature and public\_key would be eventually sent by solver to the `defuse.near`.
+1. Firstly, check if this pair `(account_id, public_key)` is already registered in Intents contract on-chain by calling `get_account_public_keys(account_id) -> Vec<Pubkey>` method on `intents.near` contract.
+   1. If there is no such user or if public\_key was not registered for him, the user should be "registered" in Intents contract. For that we should ask user's wallet to `signMessage("user1 is an owner of public_key ed25519:abcd...")`
+   2. Then we should send this signed message in the transaction (can be done by relay) to `intents.near` calling `add_public_key({"account_id": "user1", "public_key": "ed25519:abcd...", "signature": "xyz123..."})` method. This transaction would add `ed25519:abcd...` to the list of public\_keys that belongs to `user1`
+2. Ask user's wallet to `signMessage({"account_id": "user1", "state_changes": [...] })` and this state\_change along with the returned signature and public\_key would be eventually sent by solver to the `intents.near`.
 3. When `intents.near` receives transaction with such signature, it validates the signature for given public\_key and atomically checks whether the public\_key is registered for `user1`.
 
 Unfortunately, this brings up a new challenge: whenever the user removes his Full Access Key, it should also be unregistered on `intents.near` contract by calling `unregister_key(public_key)` method sent from user's NEAR account. We can try to make it for him with a FunctionalKey added to user's account on NEAR and call by ourselves whenever we detect that our user has deleted a key from his NEAR account on-chain.&#x20;
