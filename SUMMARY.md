@@ -1,7 +1,9 @@
 # Table of contents
 
 * [Overview](README.md)
-* [Verifier](verifier.md)
+* [Verifier](verifier/README.md)
+  * [Account Abstraction](verifier/account-abstraction.md)
+  * [Example Transactions](verifier/example-transactions.md)
 * [Solver Bus](solver-relayer-api/introduction.md)
   * [API](solver-relayer-api/solver-relay.md)
   * [Solvers](solver-relayer-api/solvers.md)
