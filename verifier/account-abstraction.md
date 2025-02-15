@@ -36,6 +36,21 @@ near contract call-function as-transaction \
   sign-as <ACCOUNT_ID> network-config mainnet sign-with-keychain send
 ```
 
+In addition to directly calling `add_public_key`method it's also possible to submit a signed intent:
+
+```
+{
+  "signer_id": "<ACCOUNT_ID>",
+  // ...
+  "intents": [
+    {
+      "intent": "add_public_key",
+      "public_key": "<PUBLIC_KEY_OF_USER>" 
+    },
+  ]
+}
+```
+
 ## Authentication Flow example via Frontends
 
 Users' wallets store their private keys and allow users to rotate them. In order to verify signatures inside of Verifier, Verifier should know which keys are associated with which "named" accounts. So,  `intents.near` contract should maintain a _copy_ of mapping of account\_ids to their public\_keys (again, each account\_id can have multiple public\_keys registered). This copy should include a subset of valid public keys that were added as Full Access Keys to each NEAR account that wants to interact with Intents.
