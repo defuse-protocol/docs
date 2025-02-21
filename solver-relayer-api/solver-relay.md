@@ -125,9 +125,7 @@ If the user is satisfied with the offer provided by the solver, they can sign th
       * `signer_id` - Defuse account id
       * `intents[]` - Intent data
         * `intent` - Intent type
-      * `deadline` - valid until
-        * `timestamp` - in seconds
-        * `block_number` - near block number
+      * `deadline` - deadline until this intent is valid, ISO-8601 string
     * `nonce` - unique nonce for operation
     * `recipient` - Defuse contract address
     * `callbackUrl`_(optional)_ - needed for some wallets
@@ -147,9 +145,7 @@ If the user is satisfied with the offer provided by the solver, they can sign th
     * `signer_id` - Defuse account id
     * `intents[]` - Intent data
       * `intent` - Intent type
-    * `deadline` - valid until
-      * `timestamp` - in seconds
-      * `block_number` - near block number
+    * `deadline` - deadline until this intent is valid, ISO-8601 string
     * `nonce` - unique nonce for operation
     * `veryfying_contract` - use "intents.near"
   * `signature` - signed content
@@ -167,9 +163,7 @@ If the user is satisfied with the offer provided by the solver, they can sign th
     * `signer_id` - Defuse account id
     * `intents[]` - Intent data
       * `intent` - Intent type
-    * `deadline` - valid until
-      * `timestamp` - in seconds
-      * `block_number` - near block number
+    * `deadline` - deadline until this intent is valid, ISO-8601 string
     * `nonce` - unique nonce for operation
     * `veryfying_contract`- use "intents.near"
   * `signature` - signed content
@@ -217,10 +211,7 @@ If the user is satisfied with the offer provided by the solver, they can sign th
         "standard": "nep413",
         "message": {
           "signer_id": "user.near",
-          "deadline": {
-            "timestamp": 1728910420,
-            "block_number": 18446744073709551615
-          },
+          "deadline": "2024-10-14T12:53:40.000Z",
           "intents": [
             {
               "intent": "token_diff",
@@ -449,9 +440,7 @@ Check the status of the intent execution.
       * `signer_id` - Defuse account id
       * `intents[]` - Intent data
         * `intent` - Intent type
-      * `deadline` - valid until
-        * `timestamp` - in seconds
-        * `block_number` - near block number
+      * `deadline` - deadline until this intent is valid, ISO-8601 string
     * `nonce` - unique nonce for operation
     * `recipient` - Defuse contract address
   * `signature` - signed content
@@ -488,10 +477,7 @@ Check the status of the intent execution.
         "standard": "nep413",
         "message": {
           "signer_id": "solver.near",
-          "deadline": {
-            "timestamp": 1728910420,
-            "block_number": 18446744073709551615
-          },
+          "deadline": "2024-10-14T12:53:40.000Z",
           "intents": [
             {
               "intent": "token_diff",
