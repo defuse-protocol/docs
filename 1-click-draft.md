@@ -2,6 +2,17 @@
 description: Work In progress!
 hidden: true
 noIndex: true
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: false
+  outline:
+    visible: false
+  pagination:
+    visible: false
 ---
 
 # 1 Click (Draft)
