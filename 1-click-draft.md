@@ -21,7 +21,7 @@ To swap asset on 1Click, you need to do the following:
 
 The swap will either succeed or fail, in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by a new transfer.
 
-
+## API Speicifcation
 
 {% openapi src="https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service" path="/quote" method="post" %}
 [https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service](https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service)
