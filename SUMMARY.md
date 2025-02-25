@@ -16,3 +16,4 @@
 * [SDK](sdk/README.md)
   * [Deposit](sdk/deposit.md)
   * [Withdraw](sdk/withdraw.md)
+* [1 Click (Draft)](1-click-draft.md)
