@@ -223,7 +223,7 @@ Returns withdrawal status.
 
 <summary>Parameters</summary>
 
-* `withdrawal_hash` - Hash
+* `withdrawal_hash` - hash of the transaction on NEAR where `ft_burn` event happened on the bridged token contract
 
 </details>
 
