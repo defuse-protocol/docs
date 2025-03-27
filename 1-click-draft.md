@@ -34,14 +34,16 @@ The swap will either succeed or fail, in case of a failure, the funds will end u
 
 ## API Speicifcation
 
-{% openapi src="https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service" path="/quote" method="post" %}
-[https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service](https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service)
+
+
+{% openapi src="https://1click.chaindefuser.com/docs/openapi.yaml" path="/quote" method="post" %}
+[https://1click.chaindefuser.com/docs/openapi.yaml](https://1click.chaindefuser.com/docs/openapi.yaml)
 {% endopenapi %}
 
-{% openapi src="https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service" path="/status" method="get" %}
-[https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service](https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service)
+{% openapi src="https://1click.chaindefuser.com/docs/openapi.yaml" path="/status" method="get" %}
+[https://1click.chaindefuser.com/docs/openapi.yaml](https://1click.chaindefuser.com/docs/openapi.yaml)
 {% endopenapi %}
 
-{% openapi src="https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service" path="/deposit/submit" method="post" %}
-[https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service](https://stoplight.io/api/v1/projects/chaindefuser/1click/nodes/reference/1click.yaml?fromExportButton=true&snapshotType=http_service)
+{% openapi src="https://1click.chaindefuser.com/docs/openapi.yaml" path="/deposit/submit" method="post" %}
+[https://1click.chaindefuser.com/docs/openapi.yaml](https://1click.chaindefuser.com/docs/openapi.yaml)
 {% endopenapi %}
