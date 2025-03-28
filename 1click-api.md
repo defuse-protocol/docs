@@ -32,7 +32,7 @@ The swap will either succeed or fail; in case of a failure, the funds will end u
 
 ## API Specification (v0)
 
-The OpenAPI spec is made [available](https://1click.chaindefuser.com/docs/v0/openapi.yaml) to auto-generate clients. Typescript, Go and Rust clients are already [available on Github](https://github.com/defuse-protocol/).
+The [OpenAPI spec](https://1click.chaindefuser.com/docs/v0/openapi.yaml) is made available to auto-generate clients. Client SDKs for [TypeScript](https://github.com/defuse-protocol/one-click-sdk-typescript), [Go](https://github.com/defuse-protocol/one-click-sdk-go) and [Rust](https://github.com/defuse-protocol/one-click-sdk-rs) are already available on GitHub.
 
 {% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-28" path="/v0/tokens" method="get" %}
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-28](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-28)
