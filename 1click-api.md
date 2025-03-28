@@ -1,4 +1,5 @@
 ---
+icon: computer-mouse
 layout:
   title:
     visible: true

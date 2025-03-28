@@ -16,4 +16,4 @@
 * [SDK](sdk/README.md)
   * [Deposit](sdk/deposit.md)
   * [Withdraw](sdk/withdraw.md)
-* [1Click API](1click-api-draft.md)
+* [1Click API](1click-api.md)
