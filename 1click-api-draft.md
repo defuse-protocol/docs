@@ -48,3 +48,7 @@ The swap will either succeed or fail; in case of a failure, the funds will end u
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml](https://1click.chaindefuser.com/docs/v0/openapi.yaml)
 {% endopenapi %}
 
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml" path="/v0/deposit/submit" method="post" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml](https://1click.chaindefuser.com/docs/v0/openapi.yaml)
+{% endopenapi %}
+
