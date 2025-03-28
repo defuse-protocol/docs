@@ -36,15 +36,15 @@ The swap will either succeed or fail; in case of a failure, the funds will end u
 
 
 
-{% openapi src="https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27" path="/quote" method="post" %}
-[https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27](https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27)
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml" path="/v0/tokens" method="get" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml](https://1click.chaindefuser.com/docs/v0/openapi.yaml)
 {% endopenapi %}
 
-{% openapi src="https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27" path="/status" method="get" %}
-[https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27](https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27)
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml" path="/v0/quote" method="post" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml](https://1click.chaindefuser.com/docs/v0/openapi.yaml)
 {% endopenapi %}
 
-{% openapi src="https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27" path="/deposit/submit" method="post" %}
-[https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27](https://1click.chaindefuser.com/docs/openapi.yaml?2025-03-27)
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml" path="/v0/status" method="get" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml](https://1click.chaindefuser.com/docs/v0/openapi.yaml)
 {% endopenapi %}
 
