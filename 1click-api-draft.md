@@ -32,7 +32,7 @@ To swap asset on 1Click, you need to do the following:
 
 The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by a new transfer.
 
-## API Specification
+## API Specification (2025-03-28)
 
 
 
