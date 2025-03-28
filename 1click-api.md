@@ -15,20 +15,17 @@ layout:
 
 # 1Click API
 
-The purpose of 1Click API is to make it easy to interact with the NEAR Intents protocol by temporarily transferring assets to the custody of a trusted agent.
+The purpose of 1Click is to make it easy to use NEAR Intents by temporarily transferring assets to the custody of a trusted agent:
 
-To swap asset on 1Click, you need to do the following:
-
-* Request a quote using **Get Quote** API:\
-  The quote response will contain the address where the tokens need to be transferred to.\
-  Deposit address is generated uniquely for each swap.
-* Transfer tokens to the address specified in the Get Quote response:\
+* Request a quote using **Get Quote** endpoint:\
+  The response will contain a deposit address, unique for each quote
+* Transfer tokens to the deposit address:\
   Once transferred, 1Click will start the swapping process automatically.
 * **Submit Deposit Tx** using deposit transaction hash:\
   This step is optional, but it can help speeding up the process.
-* **Get Execution Status** using deposit address from the first step.
+* **Get Execution Status** to see the progress.
 
-The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by a new transfer.
+The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by repeating this flow.
 
 ## API Specification (v0)
 
