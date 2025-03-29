@@ -15,7 +15,7 @@ layout:
 
 # 1Click API
 
-The purpose of 1Click is to make it easy to use NEAR Intents by temporarily transferring assets to the custody of a trusted agent:
+The purpose of 1Click is to make it easy to use NEAR Intents by temporarily transferring assets to the custody of a trusted swapping agent:
 
 * Request a quote using **Get Quote** endpoint:\
   The response will contain a deposit address, unique for each quote
