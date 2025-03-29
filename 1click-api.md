@@ -23,7 +23,7 @@ The purpose of 1Click is to make it easy to use NEAR Intents by temporarily tran
   Once transferred, 1Click will start the swapping process automatically.
 * **Submit Deposit Tx** using deposit transaction hash:\
   This step is optional, but it can help speeding up the process.
-* **Get Execution Status** to see the progress.
+* **Get Execution Status** at any time to see the progress.
 
 The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by repeating this flow.
 
