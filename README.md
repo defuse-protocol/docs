@@ -12,6 +12,26 @@ The protocol has been renamed from Defuse to "NEAR Intents".&#x20;
 Any mentions of Defuse in the source code and documentation are to be replaced
 {% endhint %}
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant Solver Bus
+    participant NEAR
+
+    User->>Solver Bus: Request a quote
+    note right of Solver Bus: Solvers sign intents <br> to fill the quote
+    Solver Bus-->>Solver Bus: 
+    Solver Bus-->>User: Return solvers' quotes
+    User->>Solver Bus: User signs an intent <br> to execute the best quote
+    Solver Bus->>NEAR: Call the verifier contract <br> to execute intents
+
+
+    note over NEAR: Smart contract <br> verifies signatures <br> and settles <br> matched intents
+    NEAR ->>User: 
+    note right of User: Intent Fulfilled! ✅
+
+```
+
 ## Terminology
 
 1. Intent Settlement:
