@@ -2,12 +2,12 @@
 
 Solver Bus is an additional system component that optimizes frontends←→solvers quoting, and intent discovery process. Any frontend app may use a generic foundation-hosted Solver Bus or launch its own instance to customize preferred solver accounts.
 
-Near Intents protocol may operate without a Solver Relay component:
+Near Intents protocol may operate without a Solver Bus component:
 
 * frontends may use any other quoting mechanisms to compose an intent for the end user
 * solvers may index Near blockchain to find intents to fill.
 
-However, using Solver Relay is recommended for speed optimization goals.
+However, using Solver Bus is recommended for speed optimization goals.
 
 ***
 
@@ -19,7 +19,7 @@ However, using Solver Relay is recommended for speed optimization goals.
 
 <mark style="color:orange;">**1. Quote asset prices from solvers**</mark>
 
-Allow the front end to estimate potential output for a given exact input or the required input for a given exact output based on user intent. The solver relay will forward a quote request to all connected solvers, wait for up to 3000 ms, and return all available quote options to the user. Only one of `exact_amount_in` or `exact_amount_out` should be provided in the request, not both.
+Allow the front end to estimate potential output for a given exact input or the required input for a given exact output based on user intent. The solver bus will forward a quote request to all connected solvers, wait for up to 3000 ms, and return all available quote options to the user. Only one of `exact_amount_in` or `exact_amount_out` should be provided in the request, not both.
 
 <details>
 
@@ -94,7 +94,7 @@ Allow the front end to estimate potential output for a given exact input or the 
 
 <mark style="color:orange;">**2. Publish intent**</mark>
 
-If the user is satisfied with the offer provided by the solver, they can sign an intent and send it to the Solver Relay for execution along with the solver's quote hash(es). Relay supports these types of signatures for publishing intents: `nep413`, `erc191`, `raw_ed25519`
+If the user is satisfied with the offer provided by the solver, they can sign an intent and send it to the Solver Bus for execution along with the solver's quote hash(es). Solver Bus supports these types of signatures for publishing intents: `nep413`, `erc191`, `raw_ed25519`
 
 <details>
 
@@ -273,7 +273,7 @@ Check the status of intent execution.
 
 <summary>Statuses</summary>
 
-* `PENDING` - the intent was successfully received by the Relay and is pending the execution
+* `PENDING` - the intent was successfully received by the Solver Bus and is pending the execution
 * `TX_BROADCASTED` - transaction for the intent has been successfully sent to the Near Intents contract
 * `SETTLED` - the intent has been successfully settled on chain
 * `NOT_FOUND_OR_NOT_VALID` - the intent wasn't received successfully, has expired, or there was an error when executing it on chain
