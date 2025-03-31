@@ -1,0 +1,608 @@
+openapi: 3.0.0
+paths:
+  /v0/tokens:
+    get:
+      description: >-
+        <p>Retrieves a list of tokens currently supported by the 1Click API for
+        asset swaps.</p>
+
+        <p>Each token entry includes its blockchain, contract address (if
+        available), price in USD, and other metadata such as symbol and
+        decimals.</p>
+      operationId: getTokens
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TokenResponse'
+      summary: Get supported tokens
+      tags:
+        - OneClick
+  /v0/quote:
+    post:
+      description: >-
+        <p>Generates a swap quote based on input parameters such as the assets,
+        amount, slippage tolerance, and recipient/refund information.</p>
+
+        <p>Returns pricing details, estimated time, and a unique <strong>deposit
+        address</strong> to which tokens must be transferred to initiate the
+        swap.</p>
+
+        <p>You can set the <code>dry</code> parameter to <code>true</code> to
+        simulate the quote request <strong>without generating a deposit
+        address</strong> or initiating the swap process. This is useful for
+        previewing swap parameters or validating input data without committing
+        to an actual swap.</p>
+
+        <p>This endpoint is the first required step in the swap process.</p>
+      operationId: getQuote
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteRequest'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '400':
+          description: Bad Request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+      summary: Request a swap quote
+      tags:
+        - OneClick
+  /v0/status:
+    get:
+      description: >-
+        <p>Retrieves the current status of a swap using the unique deposit
+        address from the quote.</p>
+
+        <p>The response includes the state of the swap (e.g., pending,
+        processing, success, refunded) and any associated swap and transaction
+        details.</p>
+      operationId: getExecutionStatus
+      parameters:
+        - name: depositAddress
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetExecutionStatusResponse'
+        '404':
+          description: Deposit address not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+      summary: Check swap execution status
+      tags:
+        - OneClick
+  /v0/deposit/submit:
+    post:
+      description: >-
+        <p>Optionally notifies the 1Click service that a deposit has been sent
+        to the specified address, using the blockchain transaction hash.</p>
+
+        <p>This step can speed up swap processing by allowing the system to
+        preemptively verify the deposit.</p>
+      operationId: submitDepositTx
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitDepositTxRequest'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitDepositTxResponse'
+        '400':
+          description: Bad Request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+      summary: Submit deposit transaction hash
+      tags:
+        - OneClick
+info:
+  title: 1Click Swap API
+  description: API for One-Click Swaps
+  version: '0.1'
+  contact: {}
+tags: []
+servers:
+  - url: https://1click.chaindefuser.com
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        assetId:
+          type: string
+          description: Unique asset identifier
+          example: nep141:wrap.near
+        decimals:
+          type: number
+          description: Number of decimals for the token
+          example: 24
+        blockchain:
+          type: string
+          enum:
+            - near
+            - eth
+            - base
+            - arb
+            - btc
+            - sol
+            - ton
+            - doge
+            - xrp
+            - zec
+            - gnosis
+            - bera
+            - bsc
+            - pol
+          description: Blockchain associated with the token
+          example: near
+        symbol:
+          type: string
+          description: Token symbol (e.g. BTC, ETH)
+          example: wNEAR
+        price:
+          type: number
+          description: Current price of the token in USD
+          example: '2.79'
+        priceUpdatedAt:
+          format: date-time
+          type: string
+          description: Date when the token price was last updated
+          example: '2025-03-28T12:23:00.070Z'
+        contractAddress:
+          type: string
+          description: Contract address of the token
+          example: wrap.near
+      required:
+        - assetId
+        - decimals
+        - blockchain
+        - symbol
+        - price
+        - priceUpdatedAt
+    QuoteRequest:
+      type: object
+      properties:
+        dry:
+          type: boolean
+          description: >-
+            <p>Flag indicating whether this is a dry run request.</p>
+
+            <p>If <code>true</code>, the response will <strong>NOT</strong>
+            contain the following fields:<ul>
+              <li><code>depositAddress</code></li>
+              <li><code>timeWhenInactive</code></li>
+              <li><code>timeEstimate</code></li>
+              <li><code>deadline</code></li>
+            </ul></p>
+          example: true
+        swapType:
+          type: string
+          description: >-
+            <p>Whether to use the amount as the output or the input for the
+            basis of the swap:<ul>
+
+            <li><code>EXACT_INPUT</code> - request output amount for exact
+            input.</li>
+
+            <li><code>EXACT_OUTPUT</code> - request output amount for exact
+            output. The <code>refundTo</code> address will always receive excess
+            tokens back even after the swap is complete.</li>
+
+            </ul></p>
+          enum:
+            - EXACT_INPUT
+            - EXACT_OUTPUT
+        slippageTolerance:
+          type: number
+          description: >-
+            Slippage tolerance for the swap. This value is in basis points
+            (1/100th of a percent), e.g. 100 for 1% slippage.
+          example: 100
+        originAsset:
+          type: string
+          description: ID of the origin asset.
+          example: nep141:arb-0xaf88d065e77c8cc2239327c5edb3a432268e5831.omft.near
+        depositType:
+          type: string
+          description: >-
+            <p>Type of the deposit address:<ul>
+
+            <li><code>ORIGIN_CHAIN</code> - deposit address on the origin
+            chain</li>
+
+            <li><code>INTENTS</code> - <strong>account ID</strong> inside near
+            intents to which you should transfer assets inside intents.</li>
+
+            </ul></p>
+          enum:
+            - ORIGIN_CHAIN
+            - INTENTS
+        destinationAsset:
+          type: string
+          description: ID of the destination asset.
+          example: nep141:sol-5ce3bf3a31af18be40ba30f721101b4341690186.omft.near
+        amount:
+          type: string
+          description: >-
+            Amount to swap as the base amount (can be switched to exact
+            input/output using the dedicated flag), denoted in the smallest unit
+            of the specified currency (e.g., wei for ETH).
+          example: '1000'
+        refundTo:
+          type: string
+          description: Address for user refund.
+          example: '0x2527D02599Ba641c19FEa793cD0F167589a0f10D'
+        refundType:
+          type: string
+          description: >-
+            <p>Type of refund address:<ul>
+
+            <li><code>ORIGIN_CHAIN</code> - assets will be refunded to
+            <code>refundTo</code> address on the origin chain</li>
+
+            <li><code>INTENTS</code> - assets will be refunded to
+            <code>refundTo</code> intents account</li>
+
+            </ul></p>
+          enum:
+            - ORIGIN_CHAIN
+            - INTENTS
+        recipient:
+          type: string
+          description: >-
+            Recipient address. The format should match
+            <code>recipientType</code>.
+          example: 13QkxhNMrTPxoCkRdYdJ65tFuwXPhL5gLS2Z5Nr6gjRK
+        recipientType:
+          type: string
+          description: >-
+            <p>Type of recipient address:<ul>
+
+            <li><code>DESTINATION_CHAIN</code> - assets will be transferred to
+            chain of <code>destinationAsset</code></li>
+
+            <li><code>INTENTS</code> - assets will be transferred to account
+            inside intents</li>
+
+            </ul></p>
+          enum:
+            - DESTINATION_CHAIN
+            - INTENTS
+        deadline:
+          format: date-time
+          type: string
+          description: >-
+            Timestamp in ISO format, that identifies when user refund will begin
+            if the swap isn't completed by then.
+          example: '2019-08-24T14:15:22Z'
+        referral:
+          type: string
+          description: Referral identifier
+          example: referral
+        quoteWaitingTimeMs:
+          type: number
+          description: Time in milliseconds user is willing to wait for quote from relay.
+          example: 3000
+          default: 3000
+      required:
+        - dry
+        - swapType
+        - slippageTolerance
+        - originAsset
+        - depositType
+        - destinationAsset
+        - amount
+        - refundTo
+        - refundType
+        - recipient
+        - recipientType
+        - deadline
+    Quote:
+      type: object
+      properties:
+        depositAddress:
+          type: string
+          description: >-
+            <p>The deposit address on the chain of <code>originAsset</code> in
+            case if <code>depositType</code> is <code>ORIGIN_CHAIN</code>.</p>
+
+            <p>The deposit address inside of near intents (the verifier smart
+            contract) in case if <code>depositType</code> is
+            <code>INTENTS</code>.</p>
+          example: '0x76b4c56085ED136a8744D52bE956396624a730E8'
+        amountIn:
+          type: string
+          description: Amount of the origin asset
+          example: '1000000'
+        amountInFormatted:
+          type: string
+          description: Amount of the origin asset in readable format
+          example: '1'
+        amountInUsd:
+          type: string
+          description: Amount of the origin assets equivalent in USD
+          example: '1'
+        minAmountIn:
+          type: string
+          description: Minimum amount of the origin asset that will be used for swap
+          example: '995000'
+        amountOut:
+          type: string
+          description: Amount of the destination asset
+          example: '9950000'
+        amountOutFormatted:
+          type: string
+          description: Amount of the destination asset in readable format
+          example: '9.95'
+        amountOutUsd:
+          type: string
+          description: Amount of the destination asset equivalent in USD
+          example: '9.95'
+        minAmountOut:
+          type: string
+          description: Minimum amount with slippage taken into account
+          example: '9900000'
+        deadline:
+          format: date-time
+          type: string
+          description: >-
+            Time when the deposit address will become inactive and funds might
+            be lost
+          example: '2025-03-04T15:00:00Z'
+        timeWhenInactive:
+          format: date-time
+          type: string
+          description: >-
+            Time when the deposit address will become cold and swap processing
+            will take more time
+          example: '2025-03-04T15:00:00Z'
+        timeEstimate:
+          type: number
+          description: >-
+            Estimated time in seconds for swap to be executed after the deposit
+            transaction is confirmed
+          example: 120
+      required:
+        - amountIn
+        - amountInFormatted
+        - amountInUsd
+        - minAmountIn
+        - amountOut
+        - amountOutFormatted
+        - amountOutUsd
+        - minAmountOut
+    QuoteResponse:
+      type: object
+      properties:
+        timestamp:
+          format: date-time
+          type: string
+          description: >-
+            Timestamp in ISO format that took part in the deposit address
+            derivation
+          example: '2019-08-24T14:15:22Z'
+        signature:
+          type: string
+          description: >-
+            Signature of the 1Click service confirming the quote for the
+            specific deposit address. Must be saved on the client side (along
+            with the whole quote) in order to resolve any disputes or mistakes.
+        quoteRequest:
+          description: User request
+          allOf:
+            - $ref: '#/components/schemas/QuoteRequest'
+        quote:
+          description: >-
+            Response that contains the deposit address to send "amount" of
+            <code>originAsset</code> and possible output amount.
+          allOf:
+            - $ref: '#/components/schemas/Quote'
+      required:
+        - timestamp
+        - signature
+        - quoteRequest
+        - quote
+    BadRequestResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: error message
+      required:
+        - message
+    TransactionDetails:
+      type: object
+      properties:
+        hash:
+          type: string
+          description: Transaction hash
+          example: '0x123abc456def789'
+        explorerUrl:
+          type: string
+          description: Explorer URL for the transaction
+      required:
+        - hash
+        - explorerUrl
+    SwapDetails:
+      type: object
+      properties:
+        intentHashes:
+          description: All intent hashes that took part in this swap
+          type: array
+          items:
+            type: string
+        nearTxHashes:
+          description: All Near transactions executed for this swap
+          type: array
+          items:
+            type: string
+        amountIn:
+          type: string
+          description: Exact amount of <code>originToken</code> after trade was settled
+          example: '1000'
+        amountInFormatted:
+          type: string
+          description: >-
+            Exact amount of <code>originToken</code> after trade was settled in
+            readable format
+          example: '0.1'
+        amountInUsd:
+          type: string
+          description: Exact amount of <code>originToken</code> equivalent in USD
+          example: '0.1'
+        amountOut:
+          type: string
+          description: >-
+            Exact amount of <code>destinationToken</code> after trade was
+            settled
+          example: '9950000'
+        amountOutFormatted:
+          type: string
+          description: Exact amount of <code>destinationToken</code> in readable format
+          example: '9.95'
+        amountOutUsd:
+          type: string
+          description: Exact amount of <code>destinationToken</code> equivalent in USD
+          example: '9.95'
+        slippage:
+          type: number
+          description: Actual slippage
+          example: 50
+        originChainTxHashes:
+          description: Hashes and explorer URLs for all transactions on the origin chain
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionDetails'
+        destinationChainTxHashes:
+          description: >-
+            Hashes and explorer URLs for all transactions on the destination
+            chain
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionDetails'
+        refundedAmount:
+          type: string
+          description: >-
+            Amount of <code>originAsset</code> that got transferred to
+            <code>refundTo</code>
+          example: '1000'
+        refundedAmountFormatted:
+          type: string
+          description: Refunded amount in readable format
+          example: '0.1'
+        refundedAmountUsd:
+          type: string
+          description: Refunded amount equivalent in USD
+          example: '0.1'
+      required:
+        - intentHashes
+        - nearTxHashes
+        - originChainTxHashes
+        - destinationChainTxHashes
+    GetExecutionStatusResponse:
+      type: object
+      properties:
+        quoteResponse:
+          description: Quote response from original request
+          allOf:
+            - $ref: '#/components/schemas/QuoteResponse'
+        status:
+          type: string
+          enum:
+            - KNOWN_DEPOSIT_TX
+            - PENDING_DEPOSIT
+            - INCOMPLETE_DEPOSIT
+            - PROCESSING
+            - SUCCESS
+            - REFUNDED
+            - FAILED
+        updatedAt:
+          format: date-time
+          type: string
+          description: Last time the state was updated
+        swapDetails:
+          description: Details of actual swaps and withdrawals
+          allOf:
+            - $ref: '#/components/schemas/SwapDetails'
+      required:
+        - quoteResponse
+        - status
+        - updatedAt
+        - swapDetails
+    SubmitDepositTxRequest:
+      type: object
+      properties:
+        txHash:
+          type: string
+          description: Transaction hash of your deposit
+          example: '0x123abc456def789'
+        depositAddress:
+          type: string
+          description: Deposit address for the quote
+          example: '0x2527D02599Ba641c19FEa793cD0F167589a0f10D'
+      required:
+        - txHash
+        - depositAddress
+    SubmitDepositTxResponse:
+      type: object
+      properties:
+        quoteResponse:
+          description: Quote response from original request
+          allOf:
+            - $ref: '#/components/schemas/QuoteResponse'
+        status:
+          type: string
+          enum:
+            - KNOWN_DEPOSIT_TX
+            - PENDING_DEPOSIT
+            - INCOMPLETE_DEPOSIT
+            - PROCESSING
+            - SUCCESS
+            - REFUNDED
+            - FAILED
+        updatedAt:
+          format: date-time
+          type: string
+          description: Last time the state was updated
+        swapDetails:
+          description: Details of actual swaps and withdrawals
+          allOf:
+            - $ref: '#/components/schemas/SwapDetails'
+      required:
+        - quoteResponse
+        - status
+        - updatedAt
+        - swapDetails
