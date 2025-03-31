@@ -31,18 +31,18 @@ The swap will either succeed or fail; in case of a failure, the funds will end u
 
 The [OpenAPI spec](https://1click.chaindefuser.com/docs/v0/openapi.yaml) is made available to auto-generate clients. Client SDKs for [TypeScript](https://github.com/defuse-protocol/one-click-sdk-typescript), [Go](https://github.com/defuse-protocol/one-click-sdk-go) and [Rust](https://github.com/defuse-protocol/one-click-sdk-rs) are already available on GitHub.
 
-{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02" path="/v0/tokens" method="get" %}
-[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02)
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/tokens" method="get" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
 
-{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02" path="/v0/quote" method="post" %}
-[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02)
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/quote" method="post" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
 
-{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02" path="/v0/status" method="get" %}
-[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02)
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/status" method="get" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
 
-{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02" path="/v0/deposit/submit" method="post" %}
-[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-29-02)
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/deposit/submit" method="post" %}
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
