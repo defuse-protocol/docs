@@ -100,7 +100,7 @@ Returns the address for depositing supported tokens or native currency.
 <summary>Parameters</summary>
 
 * `account_id` - Defuse user account
-* `chain` - network type and chain id.
+* `chain` - network type and chain id. E.g. `eth:42161` for Arbitrum or `btc:mainnet`for Bitcoin.
 
 </details>
 
