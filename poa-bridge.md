@@ -284,3 +284,50 @@ Returns withdrawal status.
 
 
 
+<mark style="color:orange;">**5. Notify about deposit transaction hash**</mark>
+
+Optional method that notifies bridge about your deposit.
+
+<details>
+
+<summary>Parameters</summary>
+
+* `deposit_address` - address which you received from bridge api previously and where you transferred tokens
+* `tx_hash`  - hash of your deposit transaction
+
+</details>
+
+<details>
+
+<summary>Response</summary>
+
+* `error`- optional field in case of wrong input
+
+</details>
+
+<details>
+
+<summary>Example</summary>
+
+<pre class="language-javascript"><code class="lang-javascript"><strong>
+</strong>// Request
+{
+  "jsonrpc": "2.0", 
+  "id": 1, 
+  "method": "notify_deposit", 
+  "params": [ 
+    {
+      "deposit_address": "address",
+      "tx_hash": "hash"
+    }
+  ]
+}
+
+// Response
+{
+  "jsonrpc": "2.0",
+  "id": 1
+}
+</code></pre>
+
+</details>
