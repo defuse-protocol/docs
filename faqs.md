@@ -46,6 +46,30 @@ Regarding BTC deposits: If you want to make a deposit to an account that hasn’
 
 It is recommended starting with a small amount for experimentation. After the deposit is completed, you can connect wallet and check the tokens.
 
+## ETH-connector migration
+
+Because of the split of ETH-connector, `aurora`contract now acts as a NEP-141 proxy to `eth.bridge.near`. This leads to some changes:
+
+* Firstly, **ALL** new deposits will be [treated](https://nearblocks.io/txns/ExLxkbRjKbSDSTVozPpSsTfRL8Aqfs8kvLxFLEx4qDzt#enhanced) as `eth.bridge.near`, even if triggered from `aurora` smart-contract. Even from inside of Aurora Mainnet (example [tx](https://explorer.aurora.dev/tx/0x9c20d9f76443ec3c12f8eb41a65caa0c1391210c539a5924215b9bdf9e0b1fd2?tab=index))! ALL withdrawals of legacy `aurora` will be received on Near as new `eth.bridge.near`.
+* Secondly, the migration of already deposited Eth@Near (`aurora`) can be done **permissionlessly** by withdrawing from `intents.near` and depositing it back right away. Luckily, it's possible to do that in a single tx thanks to [this](https://github.com/Near-One/aurora-eth-connector/blob/58d3f39cebcf6266514de3dd04efec5bafb6274e/eth-connector/src/lib.rs#L132-L143) patch on eth-connector side.
+
+Users can migrate in two ways:
+
+*   Via `ft_withdraw()` [tx](https://nearblocks.io/txns/GHrRbGsDuv86u72jHNqofZYTUssfuXyYwcJ8mYyLrq2v#enhanced) with following params:
+
+    ```
+    {
+      "token": "aurora", // legacy token
+      "receiver_id": "intents.near", // deposit back
+      "amount": "1234",
+      "memo": "Migrate ETH: aurora -> eth.bride.near",
+      "msg": "<USER_ACCOUNT_ID>", // recipient inside intents.near for eth.bridge.near tokens
+    }
+    ```
+* Via `ft_withdraw` intent with the _same_ params as in above ^
+
+The [front-end](https://app.near-intents.org) automatically detects legacy tokens on user's balance and prompts him to sign such migration intent.
+
 
 
 
