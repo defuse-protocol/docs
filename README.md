@@ -38,5 +38,5 @@ sequenceDiagram
 2. Intent Settlement:
    1. [Solver Bus.](solver-relayer-api/introduction.md) an off chain message bus used for sending quotes and signed intents between solvers and users. Each distribution channel can run their own Solver Bus with their own set of solvers.
    2. [Verifier](verifier/). Smart contract that verifies intents expressed as state changes (“diffs”) signed by corresponding owners. The combination of state changes is committed as long as the invariant (total delta is zero) was kept for each token after these changes were applied. Deployed on NEAR mainnet.
-   3. [1 Click](1click-api.md). Trusted swapping agent making it easy for distribution channels to use NEAR intents.
+   3. [1 Click](1click-api.md). Swapping agent that makes it easy for distribution channels to use NEAR intents.
 
