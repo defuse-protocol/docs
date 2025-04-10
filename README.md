@@ -8,8 +8,6 @@ description: NEAR Intents is a protocol for multichain financial products.
 The NEAR intents protocol and the documentation are under active development.
 
 The protocol has been renamed from Defuse to "NEAR Intents".&#x20;
-
-Any mentions of Defuse in the source code and documentation are to be replaced
 {% endhint %}
 
 ```mermaid
@@ -34,10 +32,10 @@ sequenceDiagram
 
 ## Terminology
 
-1. Intent Settlement:
+1. Entities:
+   1. Distribution channels. Applications that have the users, who are interested in decentralised spot trading.
+   2. Solvers. Active market participants that fill in the intents issued by users
+2. Intent Settlement:
    1. [Solver Bus.](solver-relayer-api/introduction.md) an off chain message bus used for sending quotes and signed intents between solvers and users. Each distribution channel can run their own Solver Bus with their own set of solvers.
    2. [Verifier](verifier/). Smart contract that verifies intents expressed as state changes (“diffs”) signed by corresponding owners. The combination of state changes is committed as long as the invariant (total delta is zero) was kept for each token after these changes were applied. Deployed on NEAR mainnet.
-2. Entities:
-   1. Distribution channels. Applications that have the users, who are interested in decentralised spot trading.
-   2. Solvers. Active market participants that fill in the intents issued by users.
 
