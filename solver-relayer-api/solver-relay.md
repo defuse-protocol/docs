@@ -1,13 +1,8 @@
 # API
 
-Solver Bus is an additional system component that optimizes frontends←→solvers quoting, and intent discovery process. Any frontend app may use a generic foundation-hosted Solver Bus or launch its own instance to customize preferred solver accounts.
-
-Near Intents protocol may operate without a Solver Bus component:
-
-* frontends may use any other quoting mechanisms to compose an intent for the end user
-* solvers may index Near blockchain to find intents to fill.
-
-However, using Solver Bus is recommended for speed optimization goals.
+{% hint style="danger" %}
+Using Solver Bus API is not recommended for distribution channels, consider using [1Click](../1click-api.md) instead.
+{% endhint %}
 
 ***
 
