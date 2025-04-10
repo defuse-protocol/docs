@@ -1,7 +1,7 @@
 # API
 
 {% hint style="danger" %}
-Using Solver Bus API is not recommended for distribution channels, consider using [1Click](../1click-api.md) instead.
+Not recommended for distribution channels, consider using [1Click](../1click-api.md) instead.
 {% endhint %}
 
 ***
