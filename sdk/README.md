@@ -1,11 +1,12 @@
 ---
 description: Build a dapp
+hidden: true
 ---
 
 # SDK
 
-{% hint style="info" %}
-SDK is under heavy development and the API is highly unstable.
+{% hint style="danger" %}
+SDK is under heavy development and the API is highly unstable. Not recommended to be used, Consider 1Click SDK instead.
 {% endhint %}
 
 ### High Level Architecture
