@@ -331,3 +331,71 @@ Optional method that notifies bridge about your deposit.
 </code></pre>
 
 </details>
+
+<mark style="color:orange;">**6. Estimated withdrawal fees**</mark>
+
+Convenience method that estimate amount of fees for transactions.
+
+<details>
+
+<summary>Parameters</summary>
+
+* `chain` - The blockchain network in format {network}:{chainId}
+* `token`  - The token identifier for which to estimate withdrawal fees
+* `address` - The amount to withdraw
+
+</details>
+
+<details>
+
+<summary>Response</summary>
+
+* `tokenAddress`- The address of the token contract
+* `userAddress` - The user's address
+* `withdrawalFee` - The estimated fee for withdrawal
+* `withdrawalFeeDecimals`- The decimal precision of the withdrawal fee
+* `token`- Token information details
+* `error`- Error message if estimation fails
+
+</details>
+
+<details>
+
+<summary>Example</summary>
+
+<pre class="language-javascript"><code class="lang-javascript"><strong>
+</strong>// Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "withdrawal_estimate",
+  "params": [
+    {
+      "chain": "eth:mainnet",
+      "token": "0x123abc...",
+      "amount": "1000000000000000000"
+    }
+  ]
+}
+
+// Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "tokenAddress": "0x123abc...",
+    "userAddress": "0x456def...",
+    "withdrawalFee": "12500000000000000",
+    "withdrawalFeeDecimals": 18,
+    "token": {
+      "defuse_asset_identifier": "0x123abc...",
+      "near_token_id": "eth.near",
+      "decimals": 18,
+      "asset_name": "Ethereum",
+      "min_deposit_amount": 0.001
+    }
+  }
+}
+</code></pre>
+
+</details>

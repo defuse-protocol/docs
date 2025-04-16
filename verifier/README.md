@@ -12,4 +12,4 @@ There is no testnet deployment.
 
 ## Source code
 
-{% embed url="https://github.com/near/intents" %}
+{% @github-files/github-code-block url="https://github.com/near/intents" %}
