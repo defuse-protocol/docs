@@ -342,7 +342,7 @@ Convenience method that estimate amount of fees for transactions.
 
 * `chain` - The blockchain network in format {network}:{chainId}
 * `token`  - The token identifier for which to estimate withdrawal fees
-* `address` - The amount to withdraw
+* `address` - Recepient address
 
 </details>
 
@@ -373,7 +373,7 @@ Convenience method that estimate amount of fees for transactions.
     {
       "chain": "eth:mainnet",
       "token": "0x123abc...",
-      "amount": "1000000000000000000"
+      "address": "0x456def..."
     }
   ]
 }
