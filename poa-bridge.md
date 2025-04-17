@@ -372,7 +372,7 @@ Convenience method that estimate amount of fees for transactions.
   "params": [
     {
       "chain": "eth:mainnet",
-      "token": "0x123abc...",
+      "token": "eth.omft.near",
       "address": "0x456def..."
     }
   ]
