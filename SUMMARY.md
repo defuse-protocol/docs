@@ -6,7 +6,7 @@
   * [Example Transactions](verifier/example-transactions.md)
 * [Message Bus](solver-relayer-api/introduction.md)
   * [API](solver-relayer-api/solver-relay.md)
-  * [Solvers](solver-relayer-api/solvers.md)
+  * [Market Makers](solver-relayer-api/solvers.md)
 * [PoA bridge](poa-bridge.md)
 * [Examples](examples.md)
 * [FAQs](faqs.md)

@@ -1,10 +1,10 @@
 ---
-description: Example of signing solver intent
+description: Example of signing a quote (creating a commitment).
 ---
 
-# Solvers
+# Market Makers
 
-Example of how to create response for quote for solvers using TypeScript\
+Example of how to create response for quote for market makers using TypeScript\
 \
 Here `params`  has same type as what you receive from relay in **"quote"** event
 
@@ -29,7 +29,7 @@ const generateNonce = async (): Promise<string> => {
     }
 }
 const isNonceUsed = async (nonce: string) => {
-    const account = getAccount(); //function that will return Account instance(from "near-api-js") of solver Near account
+    const account = getAccount(); //function that will return Account instance(from "near-api-js") of market makers' Near account
     return await account.viewFunction({
       contractId: defuseContract,
       methodName: 'is_nonce_used',
@@ -91,10 +91,10 @@ const signMessage = async (message: Uint8Array) { //you can implement your own w
 ```typescript
 import bs58 from 'bs58';
 
-const amount = "1000" //calculated amount solver want to propose
+const amount = "1000" //calculated amount market maker want to propose
 const standard = "nep413";
 const message = {
-  signer_id: "...", //account id of solver account that will be used for signing
+  signer_id: "...", //account id of market maker's account that will be used for signing
   deadline: {
     timestamp: 10000, //timestamp deadline in seconds
   },
