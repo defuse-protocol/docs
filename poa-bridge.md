@@ -371,7 +371,7 @@ Convenience method that estimate amount of fees for transactions.
   "method": "withdrawal_estimate",
   "params": [
     {
-      "chain": "eth:mainnet",
+      "chain": "eth:1",
       "token": "eth.omft.near",
       "address": "0x456def..."
     }
@@ -389,9 +389,9 @@ Convenience method that estimate amount of fees for transactions.
     "withdrawalFeeDecimals": 18,
     "token": {
       "defuse_asset_identifier": "0x123abc...",
-      "near_token_id": "eth.near",
+      "near_token_id": "eth.omft.near",
       "decimals": 18,
-      "asset_name": "Ethereum",
+      "asset_name": "ETH",
       "min_deposit_amount": 0.001
     }
   }
