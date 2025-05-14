@@ -1,6 +1,6 @@
 # API
 
-{% hint style="danger" %}
+{% hint style="info" %}
 Not recommended for distribution channels, consider using [1Click](../../integration/distribution-channels/1click-api.md) instead.
 {% endhint %}
 

@@ -6,7 +6,7 @@ description: How to integrate NEAR intents as a market maker
 
 Market Makers are active market participants that deposit liquidity in order to fill quotes issued by users.
 
-To start market making, you are required to perform bridging and quoting.
+To start market making, you are required to perform _bridging_ and _quoting_.
 
 ### Bridging
 
