@@ -2,7 +2,11 @@
 description: Example of signing a quote (creating a commitment).
 ---
 
-# Market Makers
+# Usage
+
+{% hint style="info" %}
+There is no SDK for Message Bus API yet
+{% endhint %}
 
 Example of how to create response for quote for market makers using TypeScript\
 \

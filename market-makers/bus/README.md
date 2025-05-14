@@ -13,7 +13,7 @@ Near Intents protocol may operate without a Message Bus component:
 * frontends may use any other quoting mechanisms to compose an intent for the end user
 * solvers may index Near blockchain to find intents to fill.
 
-However, using Solver Bus is recommended for speed optimization goals.
+However, using Message Bus is recommended for speed optimization goals.
 
 On the diagram "Message Bus" is called "Solver Relay" and "Verifier" is part of Defuse Smart contracts :)
 
