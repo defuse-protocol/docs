@@ -1,8 +1,8 @@
-# PoA bridge
+# PoA bridge API
 
 The PoA Bridge is a solution for transferring asset tokens between blockchain network and NEAR Intents. This service is designed as an alternative to the OmniBridge. It will help users take full advantage of the NEAR Intents protocol's capabilities for interacting with multi-chain financial products.
 
-<figure><img src=".gitbook/assets/poa-bridge-user-docs.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/poa-bridge-user-docs.jpg" alt=""><figcaption></figcaption></figure>
 
 ***
 

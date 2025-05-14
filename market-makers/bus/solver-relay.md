@@ -1,7 +1,7 @@
 # API
 
 {% hint style="danger" %}
-Not recommended for distribution channels, consider using [1Click](../1click-api.md) instead.
+Not recommended for distribution channels, consider using [1Click](../../integration/distribution-channels/1click-api.md) instead.
 {% endhint %}
 
 ***
