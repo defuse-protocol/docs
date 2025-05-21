@@ -22,7 +22,7 @@ It's not feasible to make these addresses different for each chain, since we onl
 
 ## Account keys
 
-Once an account is created, multiple additional keys could be added to it. Each of these keys has full control over the account and can add or remove other keys either directly via NEAR transactions or via signed intents.
+Once an account is created, multiple additional public keys could be added to it to authorize actions on that account. Each of these keys has full control over the account and can add or remove other keys either directly via NEAR transactions or via signed intents.
 
 &#x20;Here is an example of adding public keys for Explicit Near Accounts via [tx](https://nearblocks.io/txns/FBTRk6jRUSW3E1SjBfYbA71DhN5xTX1yE2foy98TafrM#execution).&#x20;
 
@@ -65,5 +65,5 @@ Now, when a user wants to swap tokens, i.e. sign a state\_change:
 2. Ask user's wallet to `signMessage({"account_id": "user1", "state_changes": [...] })` and this state\_change along with the returned signature and public\_key would be eventually sent by a market maker to the `intents.near`.
 3. When `intents.near` receives transaction with such signature, it validates the signature for given public\_key and atomically checks whether the public\_key is registered for `user1`.
 
-Unfortunately, this brings up a new challenge: whenever the user removes his Full Access Key, it should also be unregistered on `intents.near` contract by calling `unregister_key(public_key)` method sent from user's NEAR account. We can try to make it for him with a FunctionalKey added to user's account on NEAR and call by ourselves whenever we detect that our user has deleted a key from his NEAR account on-chain.&#x20;
+Unfortunately, this brings up a new challenge: whenever the user removes his Full Access Key, it should also be unregistered on `intents.near` contract by calling `remove_public_key(public_key)` method sent from user's NEAR account. We can try to make it for him with a FunctionalKey added to user's account on NEAR and call by ourselves whenever we detect that our user has deleted a key from his NEAR account on-chain.&#x20;
 
