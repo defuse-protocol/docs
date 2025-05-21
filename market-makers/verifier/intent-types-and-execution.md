@@ -33,7 +33,7 @@ The intent does not mention Alice, because _the signer_ of the intent defines th
 
 This intent goes into a payload object that looks as follows. The "intents" in there contains the same intent from above, but in an array, because users can submit multiple intents to be executed as a batch in order. Though keep in mind the [caveats explained here](intent-types-and-execution.md#note-on-ordering-of-intent-execution-and-atomicity) about the order of execution.
 
-```
+```json
 {
   "signer_id": "alice.near",
   "verifying_contract": "intents.near",
@@ -53,7 +53,7 @@ This intent goes into a payload object that looks as follows. The "intents" in t
 
 Finally, to create a valid, signed intent to submit to the Verifier contract with the `execute_intents` function, we put the payload above in a message string. Note in the example below how the message is json from above, but is a one-liner with proper escaping of quotes. This is very important.
 
-```
+```json
 {
   "standard": "nep413",
   "payload": {

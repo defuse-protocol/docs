@@ -17,7 +17,7 @@ near contract call-function as-transaction intents.near ft_withdraw json-args '{
 
 2. Using a signed withdraw intent. The following is an example of an intent to withdraw an NEP-141 token:
 
-```
+```json
 {
   "standard": "nep413",
   "payload": {

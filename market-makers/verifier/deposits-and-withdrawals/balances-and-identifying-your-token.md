@@ -20,7 +20,7 @@ Examples:
 
 After a successful deposit of any token, say `wrap.near`, you can check your balance [using the function](https://near.github.io/intents/defuse_nep245/trait.MultiTokenCore.html#tymethod.mt_balance_of) `mt_balance_of`, which adheres to the NEP-245 standard. The following are the parameters of this function:
 
-```
+```json
 {
     account_id: "alice.near",
     token_id: "nep141:wrap.near"

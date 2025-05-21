@@ -21,14 +21,14 @@ Examples of `ft_transfer_call` parametrization in json:
 
 1. With empty `msg` or non-existing `msg`, granting the tokens to the sender/creator of that transaction
 
-```
+```json
 {
     receiver_id: "alice.near",
     amount: "1000",
 }
 ```
 
-```
+```json
 {
     receiver_id: "alice.near",
     amount: "1000",
@@ -38,7 +38,7 @@ Examples of `ft_transfer_call` parametrization in json:
 
 2. With an `msg`  that explicitly assigns ownership to another account:
 
-```
+```json
 {
     receiver_id: "alice.near",
     amount: "1000",
@@ -48,7 +48,7 @@ Examples of `ft_transfer_call` parametrization in json:
 
 3. With an `msg` that is a `DepositMessage` object
 
-```
+```json
 {
     receiver_id: "alice.near",
     amount: "1000",
@@ -58,7 +58,7 @@ Examples of `ft_transfer_call` parametrization in json:
 
 or
 
-```
+```json
 {
     receiver_id: "alice.near",
     amount: "1000",
