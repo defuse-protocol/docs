@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Simulating intents
 
 Along this chapter we have discussed many ways to execute intents in the Verifier smart contract. Executing intents, using [the function](https://near.github.io/intents/defuse/intents/trait.Intents.html#tymethod.execute_intents) `execute_intents` calls a mutable function in the Verifier smart contract, which by definition, will modify the state of the contract.
@@ -10,9 +6,9 @@ However, the Verifier smart contract offers the possibility to simulate intents 
 
 ### Examples where simulations can be useful
 
-* Alice is construct an intent, and is not sure whether the format of his digital signature is valid
-* Bob is constructing an intent to withdraw her USDC coins, and wants to ensure that it will work before executing it
-* Charlie and Drake want to execute a trade using two intents with `TokenDiff`, but they are not sure how the fees will be paid to the Verifier smart contract
+* Alice constructs an intent, and is not sure whether the format of the digital signature is valid
+* Bob is constructing an intent to withdraw his USDC coins from the Verifier contract, and wants to ensure that it will work before executing it
+* Charlie and Drake want to execute a trade using two intents of `TokenDiff`, but they are not sure about the fees that will be paid to the Verifier smart contract
 
 ### Example outputs for simulating intents
 
@@ -72,4 +68,8 @@ More information can and will be added in the future to simulation outputs. This
 
 ### Accuracy of simulations
 
-To the best of the intents' team abilities, the simulated results reflect the output of executing intents. This is the intended result from the programming and heavy testing done for simulated intents. However, due to the asynchronous nature of the Near blockchain, ultimate code abstraction to simulate the intents exactly like they would be in real execution is not possible. We never had a case with results diverging between simulating and executing intents. If you ever discover such a case, please reach out and report it as a bug.
+To the best of the intents' team abilities, the simulated results reflect the output of executing intents. This is the intended outcome from the programming and heavy testing done for simulated intents. However, due to the asynchronous nature of the Near blockchain, ultimate code abstraction to simulate the intents exactly like they would be in real execution is not possible.&#x20;
+
+We never had a case with results diverging between simulating and executing intents. If you ever discover such a case, please reach out and report it as a bug.
+
+It is also note-worthy that simulation results only include the side-effects in the Verifier smart contract. It does not include the side-effects upon other asynchronously called smart contracts.
