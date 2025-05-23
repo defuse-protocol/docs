@@ -29,6 +29,7 @@
     * [Simulating intents](market-makers/verifier/simulating-intents.md)
   * [Examples](market-makers/examples.md)
 * [FAQs](faqs.md)
+* [Security](security.md)
 * [Architecture](architecture/README.md)
   * [Intent flow](architecture/intent-flow.md)
   * [Deposits & Withdrawals](architecture/deposits-and-withdrawals.md)
