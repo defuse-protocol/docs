@@ -29,20 +29,30 @@ The swap will either succeed or fail; in case of a failure, the funds will end u
 
 ```mermaid fullWidth="true"
 flowchart LR
-    PD[pending_deposit] --> ID[incomplete_deposit]
-    PD --> P[processing]
+    PD[pending_deposit]
+    ID[incomplete_deposit]
+    P[processing]
+    R[refunded]
+    S[success]
+    F[failed]
 
+    PD --> ID
+    PD --> P
     ID --> P
-    ID --> R[refunded]
-
-    P --> S[success]
-    P --> F[failed]
+  
+    P --> S
+    P --> F
     P --> R
+
+    ID --> R
 
     %% Styling for clarity
     style PD fill:#eef,stroke:#00f,stroke-width:2px
     style ID fill:#fee,stroke:#f00,stroke-width:2px
     style P fill:#ffe,stroke:#fa0,stroke-width:2px
+    style R fill:#fcc,stroke:#c00,stroke-width:2px
+    style S fill:#cfc,stroke:#0c0,stroke-width:2px
+    style F fill:#fcc,stroke:#c00,stroke-width:2px
 ```
 
 ## API Specification (v0)
