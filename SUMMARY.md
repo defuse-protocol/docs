@@ -26,6 +26,7 @@
     * [Signing Intents](market-makers/verifier/signing-intents.md)
     * [Events](market-makers/verifier/events.md)
     * [Example Transactions](market-makers/verifier/example-transactions.md)
+    * [Simulating intents](market-makers/verifier/simulating-intents.md)
   * [Examples](market-makers/examples.md)
 * [FAQs](faqs.md)
 * [Architecture](architecture/README.md)

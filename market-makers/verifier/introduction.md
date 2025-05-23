@@ -1,6 +1,6 @@
 # Introduction
 
-The Verifier contract is a smart contract on the Near blockchain that is used as the final atomic mediator of transferring assets among users in the intents echo system. Let's explain the terms we used here.
+The Verifier contract is a smart contract on the Near blockchain that is used as the final atomic mediator of transferring assets among users in the intents ecosystem. Let's explain the terms we used here.
 
 The [.](./ "mention") section is written for those who would like to interact with the Verifier smart contract directly, or would like to create payloads for the Message Bus. After all, the Message Bus acts as a matching system that brings together quotes from market makers with requests for transactions.
 
