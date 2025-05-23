@@ -27,16 +27,22 @@ The purpose of 1Click is to make it easy to use NEAR Intents by temporarily tran
 
 The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by repeating this flow.
 
-```mermaid
-stateDiagram-v2
-    [*] --> pending_deposit
-    pending_deposit --> processing
-    pending_deposit --> incomplete_deposit
-    incomplete_deposit --> processing
-    incomplete_deposit --> refunded
-    processing --> success
-    processing --> failed
-    processing --> refunded
+```mermaid fullWidth="true"
+flowchart LR
+    PD[pending_deposit] --> ID[incomplete_deposit]
+    PD --> P[processing]
+
+    ID --> P
+    ID --> R[refunded]
+
+    P --> S[success]
+    P --> F[failed]
+    P --> R
+
+    %% Styling for clarity
+    style PD fill:#eef,stroke:#00f,stroke-width:2px
+    style ID fill:#fee,stroke:#f00,stroke-width:2px
+    style P fill:#ffe,stroke:#fa0,stroke-width:2px
 ```
 
 ## API Specification (v0)
