@@ -39,20 +39,21 @@ flowchart LR
     PD --> ID
     PD --> P
     ID --> P
-  
+ 
     P --> S
     P --> F
     P --> R
-
+  
     ID --> R
 
-    %% Styling for clarity
-    style PD fill:#eef,stroke:#00f,stroke-width:2px
-    style ID fill:#fee,stroke:#f00,stroke-width:2px
-    style P fill:#ffe,stroke:#fa0,stroke-width:2px
-    style R fill:#fcc,stroke:#c00,stroke-width:2px
-    style S fill:#cfc,stroke:#0c0,stroke-width:2px
-    style F fill:#fcc,stroke:#c00,stroke-width:2px
+    %% Softer pastel-style colors
+    style PD fill:#f0f4ff,stroke:#5b8df7,stroke-width:1.5px
+    style ID fill:#fff0f0,stroke:#f57c7c,stroke-width:1.5px
+    style P  fill:#fffbe6,stroke:#f5c542,stroke-width:1.5px
+    style R  fill:#fdeaea,stroke:#e07a7a,stroke-width:1.5px
+    style S  fill:#e8fce8,stroke:#5eb95e,stroke-width:1.5px
+    style F  fill:#fdeaea,stroke:#e07a7a,stroke-width:1.5px
+
 ```
 
 ## API Specification (v0)
