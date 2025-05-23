@@ -27,6 +27,18 @@ The purpose of 1Click is to make it easy to use NEAR Intents by temporarily tran
 
 The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by repeating this flow.
 
+```mermaid
+stateDiagram-v2
+    [*] --> pending_deposit
+    pending_deposit --> processing
+    pending_deposit --> incomplete_deposit
+    incomplete_deposit --> processing
+    incomplete_deposit --> refunded
+    processing --> success
+    processing --> failed
+    processing --> refunded
+```
+
 ## API Specification (v0)
 
 The [OpenAPI spec](https://1click.chaindefuser.com/docs/v0/openapi.yaml) is made available to auto-generate clients. Client SDKs for [TypeScript](https://github.com/defuse-protocol/one-click-sdk-typescript), [Go](https://github.com/defuse-protocol/one-click-sdk-go) and [Rust](https://github.com/defuse-protocol/one-click-sdk-rs) are already available on GitHub.
