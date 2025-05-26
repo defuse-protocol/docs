@@ -1,11 +1,11 @@
 # Account Abstraction
 
-Currently, the Verifier contract uses Near `AccountId` to identify users, which supports both Named and Implicit accounts.
+Currently, the Verifier contract uses NEAR `AccountId` to identify users, which supports both Named and Implicit accounts.
 
 ### Named Account: `user.near`&#x20;
 
 \
-The only way to start using Named Account is to send a real tx `intents.near::add_public_key(pk)` from user's Near wallet. Others can still deposit/transfer you money before you "claim" it.
+The only way to start using a Named Account is to send a real tx `intents.near::add_public_key(pk)` from user's NEAR wallet. Others can still deposit or transfer funds to you before you "claim" the account.
 
 ### &#x20;Implicit Account
 
@@ -13,7 +13,7 @@ Such accounts already have a public key encoded in their names, so they can be u
 There is 1-to-1 relationship between its format and corresponding signing curve types:\
 
 
-* EdDSA: `8c5cba35f5b4db9579c39175ad34a9275758eb29d4866f395ed1a5b5afcb9ffc` (i.e. "Implicit Near")
+* EdDSA: `8c5cba35f5b4db9579c39175ad34a9275758eb29d4866f395ed1a5b5afcb9ffc` (i.e. "Implicit NEAR")
 * ECDSA: `0x85d456B2DfF1fd8245387C0BfB64Dfb700e98Ef3` (i.e. "Implicit Eth")
 
 This means that if a user logs in with Cosmos (ECDSA) wallet, then he will have an _Implicit Eth_ address inside intents.near, while Solana/Ton (EdDSA) wallets will give you _Implicit Near_ addresses.
