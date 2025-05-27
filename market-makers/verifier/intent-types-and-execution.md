@@ -2,22 +2,22 @@
 
 ### Introduction
 
-An intent is a desired action done on your account in the Verifier smart contract, performed by submitting a transaction to the Near blockchain. There are multiple possible actions that can be done, and the Verifier allows submitting a list of these actions to be done using [the function](https://near.github.io/intents/defuse/intents/trait.Intents.html#tymethod.execute_intents) `execute_intents`.
+An intent is a desired action done on your account in the `Verifier` smart contract, performed by submitting a transaction to the NEAR blockchain. There are multiple possible actions that can be done, and the `Verifier` allows submitting a list of these actions to be done using [the function](https://near.github.io/intents/defuse/intents/trait.Intents.html#tymethod.execute_intents) `execute_intents`.
 
 ### Note on ordering of intent execution and atomicity
 
-Multiple intents can be submitted to `execute_intents` in a list, as will be seen later in the examples, where all of them will be executed in the order they are provided. Given that Near is an asynchronous and sharded blockchain, submitting intents in order does not mean that they will finish in order. This is because while individual intents will be executed in order, there is no guarantee that [calls/promises (asynchronous calls)](https://docs.near.org/smart-contracts/anatomy/crosscontract) originating from the Verifier will end up finishing in order.
+Multiple intents can be submitted to `execute_intents` in a list, as will be seen later in the examples, where all of them will be executed in the order they are provided. Because NEAR is an asynchronous and sharded blockchain, intents submitted in a sequence does not mean that they will complete in that sequence. This is because while individual intents will be executed in order, there is no guarantee that [calls/promises (asynchronous calls)](https://docs.near.org/smart-contracts/anatomy/crosscontract) originating from the `Verifier` will end up finishing in order.
 
 For example: The user submits a list of intents that will do two things:
 
 1. Intent 1: Perform a [storage deposit](https://nomicon.io/Standards/StorageManagement) on usdc.near to create an account on it
-2. Intent 2: Withdraw native near from the user's account in the Verifier to usdc.near account
+2. Intent 2: Withdraw native NEAR from the user's account in the `Verifier` to `usdc.near` account
 
-In this example, there is no guarantee that the whole process will be successful, given that we quantify the success of these intent by having them all pass. This is because the usdc.near smart contract requires storage deposit to be done to be able to deposit tokens into it (i.e., have a successful withdrawal from the Verifier smart contract into it). While the intent for storage deposit will be executed first, there is no guarantee that the calls emitted from it into the usdc.near smart contract will finish by the time the withdrawal function call is made.
+In this example, there is no guarantee that the whole process will be successful, given that we quantify the success of these intent by having them all pass. The `usdc.near` contract requires a storage deposit before tokens can be deposited. While the intent for storage deposit will be executed first, there is no guarantee that the calls emitted from it into the `usdc.near` smart contract will finish by the time the withdrawal function call is made.
 
 ### Structure of intents call and their encoding
 
-Intents are submitted as json objects written as strings in a payload object. The following is an example of a [Transfer](https://near.github.io/intents/defuse_core/intents/tokens/struct.Transfer.html) intent USDC tokens from Alice to Bob.
+Intents are submitted as JSON objects written as strings in a payload object. The following is an example of a [Transfer](https://near.github.io/intents/defuse_core/intents/tokens/struct.Transfer.html) intent `USDC` tokens from Alice to Bob.
 
 ```json
 {
@@ -29,9 +29,9 @@ Intents are submitted as json objects written as strings in a payload object. Th
 }
 ```
 
-The intent does not mention Alice, because _the signer_ of the intent defines the account that will be transfer.
+The intent does not mention Alice, as _the signer_ of the intent defines the account that performs transfer.
 
-This intent goes into a payload object that looks as follows. The "intents" in there contains the same intent from above, but in an array, because users can submit multiple intents to be executed as a batch in order. Though keep in mind the [caveats explained here](intent-types-and-execution.md#note-on-ordering-of-intent-execution-and-atomicity) about the order of execution.
+This intent goes into a payload object that looks as follows. The "intents" in there contains the same intent from above, but in an array, because users can submit multiple intents to be executed as a batch in order. Keep in mind the [caveats explained here](intent-types-and-execution.md#note-on-ordering-of-intent-execution-and-atomicity) about the order of execution.
 
 ```json
 {
@@ -51,7 +51,7 @@ This intent goes into a payload object that looks as follows. The "intents" in t
 }
 ```
 
-Finally, to create a valid, signed intent to submit to the Verifier contract with the `execute_intents` function, we put the payload above in a message string. Note in the example below how the message is json from above, but is a one-liner with proper escaping of quotes. This is very important.
+Finally, to create a valid, signed intent to submit to the `Verifier` contract with the `execute_intents` function, we put the payload above in a message string. Note that the message is the same JSON as above, but serialized as a one-liner with escaped quotes. This is very important.
 
 ```json
 {
@@ -66,15 +66,15 @@ Finally, to create a valid, signed intent to submit to the Verifier contract wit
 }
 ```
 
-The field "recipient" prevents replays on other copies of the Verifier on the Near blockchain, if any. The exact cryptographic mechanisms for signing will be discussed in the [following sections](signing-intents.md).
+The field "recipient" prevents replay attacks on other copies of the `Verifier` on the NEAR blockchain. The exact cryptographic mechanisms for signing will be discussed in the [following sections](signing-intents.md).
 
 ### Types of intents
 
-There are multiple [possible intents](https://near.github.io/intents/defuse_core/intents/enum.Intent.html) that can be submitted for execution in the Verifier contract. Note that every intent has its own parametrization. The parameters needed to execute the intent can be seen in the linked docs. Note also that [PascalCase](https://en.wikipedia.org/wiki/Camel_case) object names from Rust are usually converted to [snake\_case](https://en.wikipedia.org/wiki/Snake_case) in json. Hence, an intent like `TokenDiff` becomes `token_diff`.
+There are multiple [possible intents](https://near.github.io/intents/defuse_core/intents/enum.Intent.html) that can be submitted for execution in the `Verifier` contract. Note that every intent has its own parametrization. The parameters needed to execute the intent can be seen in the linked docs. Rust [PascalCase](https://en.wikipedia.org/wiki/Camel_case) object names are usually converted to [snake\_case](https://en.wikipedia.org/wiki/Snake_case) in JSON. Hence, an intent like `TokenDiff` becomes `token_diff`.
 
 Let's discuss the available intents:
 
-* [add\_public\_key](https://near.github.io/intents/defuse/accounts/trait.AccountManager.html#tymethod.add_public_key): Given an account id in the Verifier contract, the user can add public keys to this account. The added public key's private key can sign intents on behalf of this account, even to add new ones. Warning: Implicit account ids, by default, have their corresponding public keys added. Meaning: For a leaked private key, whose implicit account id had been used in intents, the user must manually rotate the underlying public key within intents, too.
+* [add\_public\_key](https://near.github.io/intents/defuse/accounts/trait.AccountManager.html#tymethod.add_public_key): Given an account id in the `Verifier` contract, the user can add public keys to this account. The added public key's private key can sign intents on behalf of this account, even to add new ones. Warning: Implicit account ids, by default, have their corresponding public keys added. This means if a private key is leaked for an implicit account used in intents, the user must manually rotate the public key in the Verifier.
 
 Note that public keys can be added through transactions too. See [this section](account-abstraction.md) for more information.
 
@@ -95,7 +95,7 @@ Example of an intent to add a public key:
 ]
 ```
 
-* [remove\_public\_key](https://near.github.io/intents/defuse/accounts/trait.AccountManager.html#tymethod.remove_public_key): Remove the public key associated with a given account.&#x20;
+* [remove\_public\_key](https://near.github.io/intents/defuse/accounts/trait.AccountManager.html#tymethod.remove_public_key): Removes a public key associated with a given account.&#x20;
 
 Note that public keys can be removed through transactions too. See [this section](account-abstraction.md) for more information.
 
@@ -116,7 +116,7 @@ Example of an intent to remove a public key:
 ]
 ```
 
-* [invalidate\_nonces](https://near.github.io/intents/defuse_core/intents/account/struct.InvalidateNonces.html): Every intent execution requires a nonce. Each account id gets (over time, while using the intents contract) more nonces, and this ensures that nonces are not reused to avoid replay attacks. This “marks” the nonce as used.
+* [invalidate\_nonces](https://near.github.io/intents/defuse_core/intents/account/struct.InvalidateNonces.html): Every intent execution requires a nonce. Each account id gets (over time, while using the `Verifier`) more nonces, and this ensures that nonces are not reused to avoid replay attacks. This “marks” the nonce as used.
 
 Note that nonces can be invalidated [through transactions too directly to the blockchain](https://near.github.io/intents/defuse/accounts/trait.AccountManager.html#tymethod.invalidate_nonces).
 
@@ -141,7 +141,7 @@ Example of an intent to invalidate nonces:
 
 Note that transfers can be done using [through transactions too directly to the blockchain](https://near.github.io/intents/defuse_nep245/trait.MultiTokenCore.html#tymethod.mt_transfer).
 
-Example of an intent to transfer coins within the Verifier contract from Alice's account to Bob's account:
+Example of an intent to transfer coins within the `Verifier` contract from Alice's account to Bob's account:
 
 ```json
 [
@@ -160,9 +160,9 @@ Example of an intent to transfer coins within the Verifier contract from Alice's
 
 Note that token ids are specified in Multi Token format that was discussed in [this section](deposits-and-withdrawals/balances-and-identifying-your-token.md).
 
-* [FtWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.FtWithdraw.html), [NftWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.NftWithdraw.html), [MtWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.MtWithdraw.html), [NativeWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.NativeWithdraw.html) are withdraw intents to move their tokens from the Verifier contract to an arbitrary address. More information [here](deposits-and-withdrawals/withdrawals.md).
+* [FtWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.FtWithdraw.html), [NftWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.NftWithdraw.html), [MtWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.MtWithdraw.html), [NativeWithdraw](https://near.github.io/intents/defuse_core/intents/tokens/struct.NativeWithdraw.html) are withdraw intents to move their tokens from the `Verifier` contract to an arbitrary address. More information [here](deposits-and-withdrawals/withdrawals.md).
 
-Example of an intent to withdraw from Alice's account to Bob's account. Notice that on success, the tokens will be in usdc.near contract under Bob's account there. The tokens have exited the Verifier contract:
+Example of an intent to withdraw from Alice's account to Bob's account. Notice that on success, the tokens will be in `usdc.near` contract under Bob's account there. The tokens have exited the `Verifier` contract:
 
 ```json
 [
@@ -181,7 +181,7 @@ Example of an intent to withdraw from Alice's account to Bob's account. Notice t
 
 * [StorageDeposit](https://near.github.io/intents/defuse_core/intents/tokens/struct.StorageDeposit.html): Make an [NEP-145](https://nomicon.io/Standards/StorageManagement#nep-145) `storage_deposit` call for an `account_id` on `contract_id`. The `amount` will be subtracted from user’s NEP-141 `wNEAR` balance. The `wNEAR` will not be refunded in any case.&#x20;
 
-Example of an intent to perform storage deposit that will pay for storage deposit in the usdc.near smart contract. The Near token required (and specified) will be taken from alice.near account, and paid to bob.near in the usdc.near contract:
+Example of an intent to perform storage deposit that will pay for storage deposit in the usdc.near smart contract. The Near token required (and specified) will be taken from `alice.near` account, and paid to `bob.near` in the `usdc.near` contract:
 
 ```json
 [
@@ -200,7 +200,7 @@ Example of an intent to perform storage deposit that will pay for storage deposi
 
 [TokenDiff](https://near.github.io/intents/defuse_core/intents/token_diff/struct.TokenDiff.html): The user declares the will to have a set of changes done to set of tokens. For example, a simple trade of 100 of token A for 200 of token B, can be represented by `TokenDiff` of {“A”: -100, “B”: 200} (this format is just for demonstration purposes). In general, the user can submit multiple changes with many tokens, not just token A for token B.
 
-Example of two intents submitted from two users to be used with the Verifier's smart contract's `execute_intents` function. In the first intent, Alice declares that she is willing to lose 10 USDC to get 10 USDT in return. In the second intent, Bob declares their will to lose 10 USDT and get 10 USDC in return. As mentioned in the [introduction](introduction.md), there are many different ways to put these intents together for submission to the blockchain, such as in the [Message Bus](../bus/) or with third parties or any off-chain communication channel. Once a transaction is submitted calling the function `execute_intents` in the Verifier's smart contract, the Verifier solves the `TokenDiff` orders and converts them into transfers from Alice to Bob and Bob to Alice.
+Example of two intents submitted from two users to be used with the `Verifier's` smart contract's `execute_intents` function. In the first intent, Alice declares that she is willing to lose 10 `USDC` to get 10 `USDT` in return. In the second intent, Bob declares their will to lose 10 `USDT` and get 10 `USDC` in return. As mentioned in the [introduction](introduction.md), there are many different ways to put these intents together for submission to the blockchain, such as in the [Message Bus](../bus/) or with third parties or any off-chain communication channel. Once a transaction is submitted calling the function `execute_intents` in the `Verifier's` smart contract, the `Verifier` solves the `TokenDiff` orders and converts them into transfers from Alice to Bob and Bob to Alice.
 
 ```json
 [

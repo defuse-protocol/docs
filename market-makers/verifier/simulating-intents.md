@@ -1,18 +1,18 @@
 # Simulating intents
 
-Along this chapter we have discussed many ways to execute intents in the Verifier smart contract. Executing intents, using [the function](https://near.github.io/intents/defuse/intents/trait.Intents.html#tymethod.execute_intents) `execute_intents` calls a mutable function in the Verifier smart contract, which by definition, will modify the state of the contract.
+In this chapter we have discussed several methods to execute intents in the `Verifier` smart contract. The `execute_intents` function calls a mutable and modifies the `Verifier` contract’s state.
 
-However, the Verifier smart contract offers the possibility to simulate intents using [the function](https://near.github.io/intents/defuse/intents/trait.Intents.html#tymethod.simulate_intents) `simulate_intents`. Simulation of intents is the process of running the code of the intents provided, without modifying the state of the Verifier smart contract.&#x20;
+However, the `Verifier` smart contract offers the possibility to simulate intents using [the function](https://near.github.io/intents/defuse/intents/trait.Intents.html#tymethod.simulate_intents) `simulate_intents`. Simulation of intents is the process of running the code of the intents provided, without modifying the state of the `Verifier` smart contract.&#x20;
 
 ### Examples where simulations can be useful
 
 * Alice constructs an intent, and is not sure whether the format of the digital signature is valid
-* Bob is constructing an intent to withdraw his USDC coins from the Verifier contract, and wants to ensure that it will work before executing it
-* Charlie and Drake want to execute a trade using two intents of `TokenDiff`, but they are not sure about the fees that will be paid to the Verifier smart contract
+* Bob is constructing an intent to withdraw his `USDC` coins from the `Verifier` contract, and wants to ensure that it will work before executing it
+* Charlie and Drake want to execute a trade using two intents of `TokenDiff`, but they are not sure about the fees that will be paid to the `Verifier` smart contract
 
 ### Example outputs for simulating intents
 
-The following is a valid, signed intents to trade 100 USDC for 100 USDT. It has two intents, one from Charlie, expressing his intent to lose 100 USDC to get 100 USDT in return, while drake expressing the opposite. For more information about this structure, see [this section](intent-types-and-execution.md).
+The following is a valid, signed intents to trade 100 `USDC` for 100 `USDT`. It has two intents, one from Charlie, expressing his intent to lose 100 `USDC` to get 100 `USDT` in return, while drake expressing the opposite. For more information about this structure, see [this section](intent-types-and-execution.md).
 
 ```
 {
@@ -41,7 +41,7 @@ The following is a valid, signed intents to trade 100 USDC for 100 USDT. It has 
 }
 ```
 
-When calling `simulate_intents` with the above mentioned intents list, this is the output
+Calling `simulate_intents` with the above mentioned intents list produces the following output:
 
 ```
 {
@@ -62,14 +62,14 @@ When calling `simulate_intents` with the above mentioned intents list, this is t
 }
 ```
 
-The fee here is specified in pips. 100 pips is 0.01%.
+The fees are expressed in pips - 100 pips is 0.01%.
 
-More information can and will be added in the future to simulation outputs. This is just a demonstration. If you believe you need more information for your application, feel free to reach out.
+Simulation outputs may include additional data in future updates. This is a basic example. Contact NEAR Intents Team if your application requires more detailed output.
 
 ### Accuracy of simulations
 
-To the best of the intents' team abilities, the simulated results reflect the output of executing intents. This is the intended outcome from the programming and heavy testing done for simulated intents. However, due to the asynchronous nature of the Near blockchain, ultimate code abstraction to simulate the intents exactly like they would be in real execution is not possible.&#x20;
+Simulated results are designed to closely match actual execution outcomes. This is the intended outcome from the programming and heavy testing done for simulated intents. However, due to the asynchronous nature of the NEAR blockchain, ultimate code abstraction to simulate the intents exactly like they would be in real execution is not possible.&#x20;
 
-We never had a case with results diverging between simulating and executing intents. If you ever discover such a case, please reach out and report it as a bug.
+To date, simulation and execution results have always matched. If you ever discover such a case, please contact the NEAR Intents team and report it as a bug.
 
-It is also note-worthy that simulation results only include the side-effects in the Verifier smart contract. It does not include the side-effects upon other asynchronously called smart contracts.
+Note: Simulations reflect only side effects within the `Verifier` contract and exclude those from external asynchronous calls.

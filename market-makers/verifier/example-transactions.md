@@ -1,6 +1,6 @@
 # Example Transactions
 
-Here are example transactions:\
+Examples of supported transactions are listed:\
 
 
 * [add\_public\_key](https://nearblocks.io/txns/FBTRk6jRUSW3E1SjBfYbA71DhN5xTX1yE2foy98TafrM#execution)

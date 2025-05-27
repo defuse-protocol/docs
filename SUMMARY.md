@@ -17,7 +17,7 @@
   * [Verifier](market-makers/verifier/README.md)
     * [Introduction](market-makers/verifier/introduction.md)
     * [Deposits and withdrawals](market-makers/verifier/deposits-and-withdrawals/README.md)
-      * [Near Token treatment](market-makers/verifier/deposits-and-withdrawals/near-token-treatment.md)
+      * [NEAR Token treatment](market-makers/verifier/deposits-and-withdrawals/near-token-treatment.md)
       * [Deposits](market-makers/verifier/deposits-and-withdrawals/deposits.md)
       * [Balances, and identifying your token](market-makers/verifier/deposits-and-withdrawals/balances-and-identifying-your-token.md)
       * [Withdrawals](market-makers/verifier/deposits-and-withdrawals/withdrawals.md)

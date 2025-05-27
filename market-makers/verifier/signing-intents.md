@@ -1,20 +1,20 @@
 # Signing Intents
 
-After creating intents as described in [this section](intent-types-and-execution.md), we have to sign them to create a valid intent to submit to the Verifier's smart contract using the `execute_intents` [function](https://near.github.io/intents/defuse/intents/trait.Intents.html#tymethod.execute_intents). This section discusses how that works.
+After creating intents, they must be signed before submission to the `Verifier` contract via the `execute_intents` function. This section explains the signing process.
 
 ### Account abstraction
 
-As discussed in the [account abstraction section](account-abstraction.md), accounts in the Verifier contract are identified by their Near account (whether implicit, being derived from a public key, or named, like `alice.near`). Every account can add an arbitrary number of public keys. Every public key in a user's account can be used to produce signatures that authorize intents for that user. Make sure to manage your keys.
+As discussed in the [account abstraction section](account-abstraction.md), accounts in the `Verifier` contract are identified by their NEAR account (whether implicit, being derived from a public key, or named, like `alice.near`). Every account can add an arbitrary number of public keys. Every public key in a user's account can be used to produce signatures that authorize intents for that user. Proper key management is essential.
 
 ### Signing philosophy and where our choice of algorithms come from
 
-There are many digital signature algorithms out there, they differ in many, many aspects. The following are a few
+Digital signature algorithms vary significantly in design and application. Key differences include:
 
 * **Key Generation:** The type of the public/private key generation mechanisms, like RSA vs elliptic curves
 * **Curve types:** The type of curve within the elliptic curve, being a NIST curve, like secp256k1 from Bitcoin and Ethereum, or some Montgomery curve, like Ed25519
 * **Message (payload) construction for verification:** Given a payload and a specific algorithm, how do we construct the message so that anyone can verify it with the public key?
 
-Given that the goal with near intents, with any choice from the above, is to make it as easy as possible to integrate other wallets and services, we have allowed [multiple choices](https://near.github.io/intents/defuse_core/payload/multi/enum.MultiPayload.html) on how to verify payloads. Each of these choices is based on a wallet/service that can verify them.
+Given that the goal with NEAR Intents, with any choice from the above, is to make it as easy as possible to integrate other wallets and services, we have allowed [multiple choices](https://near.github.io/intents/defuse_core/payload/multi/enum.MultiPayload.html) on how to verify payloads. Each signature type corresponds to a wallet or service capable of verifying it.
 
 For example, from the [available options](https://near.github.io/intents/defuse_core/payload/multi/enum.MultiPayload.html), you see ERC-191. This exists because Ethereum wallets, like Metamask, support the [ERC-191 standard](https://eips.ethereum.org/EIPS/eip-191) for off-chain data signing.
 
@@ -37,11 +37,11 @@ A signed [Transfer](https://near.github.io/intents/defuse_core/intents/tokens/st
 }
 ```
 
-This object comes from an enum is called [MultiPayload](https://near.github.io/intents/defuse_core/payload/multi/enum.MultiPayload.html). A signed intent can be one of the possibilities provided by this enum.&#x20;
+This object conforms to the [MultiPayload](https://near.github.io/intents/defuse_core/payload/multi/enum.MultiPayload.html) enum. A signed intent can be one of the possibilities provided by this enum.&#x20;
 
 ### NEP-413
 
-The object shown above shown above is the NEP-413 [compliant standard](https://github.com/near/NEPs/blob/master/neps/nep-0413.md). This is an off-chain message signing standard that is recognized by near wallets.
+The object above follows the NEP-413 [compliant standard](https://github.com/near/NEPs/blob/master/neps/nep-0413.md). This is an off-chain message signing standard that is recognized by NEAR wallets.
 
 #### Encoding information
 
@@ -69,7 +69,7 @@ Note that there is no public key, as the public key can be recovered from the si
 
 ### Raw Ed25519
 
-This is a message signing standard used by [Phantom wallet for Solana off-chain message](https://docs.phantom.com/solana/signing-a-message).&#x20;
+This is a standard used by [Phantom wallet for Solana off-chain message signing](https://docs.phantom.com/solana/signing-a-message).&#x20;
 
 ```
 {
@@ -113,7 +113,7 @@ public\_key: prefixed with the key type, then base58
 
 ### TonConnect
 
-TonConnect uses the [standard for data signing](https://docs.tonconsole.com/academy/sign-data) for TON.
+TonConnect follows the [standard for data signing](https://docs.tonconsole.com/academy/sign-data) on TON.
 
 ```
 {
@@ -136,4 +136,4 @@ signature: prefixed with the key type, then base58
 
 ## Adding more key and signature types
 
-If your application requires different signature or key types, feel free to reach out.
+To support additional key or signature types, please contact the Near Intents team.
