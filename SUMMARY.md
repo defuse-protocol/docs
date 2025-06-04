@@ -36,4 +36,5 @@
 * [SDK](sdk/README.md)
   * [Deposit](sdk/deposit.md)
   * [Withdraw](sdk/withdraw.md)
-* [Chain and Address Type Support](chain-address-support.md)
+* [Chain Support](chain-address-support.md)
+* [System Status](https://status.near-intents.org/)
