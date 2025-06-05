@@ -15,6 +15,10 @@ layout:
 
 # 1Click API
 
+{% hint style="info" %}
+While API keys are not currently required, we encourage you to obtain one to access higher rate limits and help us maintain observability. You can apply for access [here](https://docs.google.com/forms/d/1VYMcitAY3CWQuLhLISAPdirKAN27JxUl8RHDqvE1N-U/viewform?ts=6827a83d&edit_requested=true).
+{% endhint %}
+
 The purpose of 1Click is to make it easy to use NEAR Intents by temporarily transferring assets to the custody of a trusted swapping agent:
 
 * Request a quote using **Get Quote** endpoint:\
