@@ -1,4 +1,4 @@
-# Chain and Address Type Support
+# Chain, Address Type and Signing Standard Support
 
 List of supported chains and their respective address types can be seen in the table below:
 
