@@ -18,3 +18,15 @@ List of supported chains and their respective address types can be seen in the t
 | **Tron**     | - Base58Check-encoded (starts with `T`)                                                                 | ✅ Supported           | `TQ1shhBFTN2TwaRXyH1oLyCz3Yvfbzgmbk`               |
 | **XRP**      | - Classic (starts with `r`)   <br> - Classic + Tag <br> - X-Address (starts with `X`)                   | ✅ Supported           | `rDsbeomae4FXwgQTJp9Rs64Qg9vDiTCdBv`               |
 | **ZCash**    | - Transparent (`t1`, `t3`)                                                                               | ⚠️ Partially supported | `t1ZCashExample...`, `t3ZCashExample...`           |
+
+
+This table provides an overview of supported signature standards and corresponding wallet types. For technical details on how intent signing works, see [Signing Intents](https://docs.near-intents.org/near-intents/market-makers/verifier/signing-intents).
+
+| Signing Standard      | Supported Wallets / Apps                                                | Implementation Status          |
+|-----------------------|--------------------------------------------------------------------------|-------------------------------|
+| **NEP‑413**           | NEAR wallets: MyNearWallet, Meteor, Sender, Ledger‑NEAR                 | ✅ Implemented                |
+| **ERC‑191**           | All EVM wallets: MetaMask, Rabby, Rainbow, WalletConnect‑compatible     | ✅ Implemented                |
+| **Raw Ed25519**       | Solana wallets: Phantom, Solflare, Slope                                | ✅ Implemented                |
+| **Passkeys (WebAuthn)** | Browsers/OS platforms: Chrome, Safari, Edge, Firefox, native apps      | ✅ Implemented                |
+| **TON Connect**       | TON wallets: Tonkeeper, EverWallet, other TonConnect 2.0 wallets        | ⚙️ In progress                |
+| **SEP‑53**            | Stellar wallets: Freighter, Lumens Wallet, SatoshiPay (in draft)        | ⚙️ In progress                |
