@@ -19,7 +19,7 @@ layout:
 While API keys are not currently required, we encourage you to obtain one to access higher rate limits and help us maintain observability. You can apply for access [here](https://docs.google.com/forms/d/1VYMcitAY3CWQuLhLISAPdirKAN27JxUl8RHDqvE1N-U/viewform?ts=6827a83d&edit_requested=true).
 {% endhint %}
 
-The purpose of 1Click is to make it easy to use NEAR Intents by temporarily transferring assets to the custody of a trusted swapping agent:
+
 
 * Request a quote using **Get Quote** endpoint:\
   The response will contain a deposit address, unique for each quote
@@ -31,34 +31,22 @@ The purpose of 1Click is to make it easy to use NEAR Intents by temporarily tran
 
 The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by repeating this flow.
 
-```mermaid fullWidth="true"
-flowchart LR
-    PD[pending_deposit]
-    ID[incomplete_deposit]
-    P[processing]
-    R[refunded]
-    S[success]
-    F[failed]
 
-    PD --> ID
-    PD --> P
-    ID --> P
- 
-    P --> S
-    P --> F
-    P --> R
-  
-    ID --> R
+### How 1Click API Works
 
-    %% Softer pastel-style colors
-    style PD fill:#f0f4ff,stroke:#5b8df7,stroke-width:1.5px
-    style ID fill:#fff0f0,stroke:#f57c7c,stroke-width:1.5px
-    style P  fill:#fffbe6,stroke:#f5c542,stroke-width:1.5px
-    style R  fill:#fdeaea,stroke:#e07a7a,stroke-width:1.5px
-    style S  fill:#e8fce8,stroke:#5eb95e,stroke-width:1.5px
-    style F  fill:#fdeaea,stroke:#e07a7a,stroke-width:1.5px
+<img src="../../.gitbook/assets/distribution-channels/1Click-API-flow.png" alt="1Click API Flow" width="900px">
 
-```
+The purpose of 1Click is to make it easy to use NEAR Intents by temporarily transferring assets to the custody of a trusted swapping agent:
+
+The application <> 1Click API flow is simple:
+
+1) Request a quote via `/quote` endpoint
+2) 1Click interacts with Market Makers and returns the best quote with a unique deposit address
+3) If the user is happy with the quote, they make a deposit to the provided address and the "Swap Intent" is automatically performed or tokens are refunded back to the user
+
+For the full API and Examples see [1 Click API docs](./1click-api.md)
+
+---
 
 ## API Specification (v0)
 
