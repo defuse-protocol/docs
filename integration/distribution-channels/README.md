@@ -1,21 +1,20 @@
 ---
-description: How to integrate NEAR intents into a distribution channel
+description: NEAR Intents Distribution Channels
 ---
 
 # Distribution Channels
 
-Distribution channels are applications that have the users who are interested in decentralised spot trading (dapps, wallets, mobile applications, exchanges)
-
-The best way to integrate distribution channel is through [1Click Swap API](1click-api.md).
-
-It works in the following way:
-
-You can request a quote across different chains, and if the user is happy with the offered quote, they send the tokens to an unique deposit address returned by 1Click.
-
-The swap is automatically performed or the tokens are refunded back to the user.
+<img src="../../.gitbook/assets/distribution-channels/distribution-channels.png" alt="Distribution Channel" width="900px">
 
 
+## What are Distribution Channels?
 
+Distribution Channels are the user-facing applications, wallets, and exchanges that make NEAR Intents accessible to end users. They handle intent creation, management, and asset delivery, while [Market Makers](../../market-makers/README.md) handle the actual fulfillment and pricing.
 
+## Create a Distribution Channel
 
-Take a look at [1Click Swap API](1click-api.md) for information on SDKs and usage examples.\
+The fastest way to integrate NEAR Intents into your application is through the [1Click Swap API](1click-api.md). This REST API abstracts away the complexity of intent creation, solver coordination, and transaction execution, letting you focus on your user experience.
+
+Perfect for: Wallets, dApps, and exchanges wanting to offer intent-based transactions without building infrastructure from scratch.
+
+[Get started with 1Click API →](1click-api.md)
