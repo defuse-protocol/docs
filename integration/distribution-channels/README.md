@@ -15,13 +15,6 @@ Distribution Channels are the user-facing applications, wallets, and exchanges t
 
 The fastest way to integrate NEAR Intents into your application is through the [1Click Swap API](1click-api.md). This REST API abstracts away the complexity of intent creation, solver coordination, and transaction execution, letting you focus on your user experience.
 
-What you get:
-
-- Simple REST endpoints for intent creation and management
-- Automatic solver discovery and competitive pricing
-- Built-in transaction handling and status tracking
-- Support for cross-chain intents
-
 Perfect for: Wallets, dApps, and exchanges wanting to offer intent-based transactions without building infrastructure from scratch.
 
 [Get started with 1Click API →](1click-api.md)

@@ -13,46 +13,60 @@ layout:
     visible: false
 ---
 
-# 1Click API
+# 1Click Swap API
 
-{% hint style="info" %}
-While API keys are not currently required, we encourage you to obtain one to access higher rate limits and help us maintain observability. You can apply for access [here](https://docs.google.com/forms/d/1VYMcitAY3CWQuLhLISAPdirKAN27JxUl8RHDqvE1N-U/viewform?ts=6827a83d&edit_requested=true).
-{% endhint %}
+## What is 1Click Swap API?
 
+1Click simplifies NEAR Intents by temporarily transferring assets to a trusted swapping agent that coordinates with [Market Makers](../../market-makers/README.md) to execute your intent. This REST API abstracts away the complexity of intent creation, solver coordination, and transaction execution, letting you focus on your user experience.
 
+It features:
 
-* Request a quote using **Get Quote** endpoint:\
-  The response will contain a deposit address, unique for each quote
-* Transfer tokens to the deposit address:\
-  Once transferred, 1Click will start the swapping process automatically.
-* **Submit Deposit Tx** using deposit transaction hash:\
-  This step is optional, but it can help speeding up the process.
-* **Get Execution Status** at any time to see the progress.
+- Simple REST endpoints for intent creation and management
+- Automatic solver discovery and competitive pricing
+- Built-in transaction handling and status tracking
+- Support for cross-chain intents
 
-The swap will either succeed or fail; in case of a failure, the funds will end up on the refund address and a new attempt to swap would need to be triggered by repeating this flow.
+## How 1Click API Works
 
+<img src="../../.gitbook/assets/distribution-channels/1Click-API-flow.png" alt="1Click API Flow" width="600px">
 
-### How 1Click API Works
+1. **Request a quote** - Send the user's intent request to 1Click's [`Request Quote`](#post-v0-quote) endpoint
+   - Receive the best available quote with a unique deposit address
+2. **Transfer tokens** - If provided quote is satisfactory, deposit tokens to the unique address provided
+   - 1Click automatically begins the swapping process upon receipt
+3. **Submit deposit transaction** - (optional)
+   - Use the [`Submit Deposit Tx`](#post-v0-deposit-submit) endpoint with your transaction hash to speed up processing
+4. **Monitor progress** - (optional)
+   - You can query the process at any time with the [`Get Execution Status`](#get-v0-status) endpoint
 
-<img src="../../.gitbook/assets/distribution-channels/1Click-API-flow.png" alt="1Click API Flow" width="900px">
-
-The purpose of 1Click is to make it easy to use NEAR Intents by temporarily transferring assets to the custody of a trusted swapping agent:
-
-The application <> 1Click API flow is simple:
-
-1) Request a quote via `/quote` endpoint
-2) 1Click interacts with Market Makers and returns the best quote with a unique deposit address
-3) If the user is happy with the quote, they make a deposit to the provided address and the "Swap Intent" is automatically performed or tokens are refunded back to the user
-
-For the full API and Examples see [1 Click API docs](./1click-api.md)
-
----
+**Result:** The swap either succeeds with tokens delivered to your specified address, or fails with funds automatically refunded to your refund address. Failed swaps can be retried by repeating this flow.
 
 ## API Specification (v0)
 
-The [OpenAPI spec](https://1click.chaindefuser.com/docs/v0/openapi.yaml) is made available to auto-generate clients. Client SDKs for [TypeScript](https://github.com/defuse-protocol/one-click-sdk-typescript), [Go](https://github.com/defuse-protocol/one-click-sdk-go) and [Rust](https://github.com/defuse-protocol/one-click-sdk-rs) are already available on GitHub.
+Auto-generate clients using our [OpenAPI spec](https://1click.chaindefuser.com/docs/v0/openapi.yaml).
 
-In order to use the API you need to [obtain a JWT token](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform?usp=header). It is possible to use the API without a JWT  but it's required to set it up for production workloads to ensure higher quality of service and to avoid being rate limited.
+{% hint style="info" %}
+Authentication: While testing can be done without authentication, we recommend [obtaining a JWT token](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform?usp=header) for higher rate limits, reliable service, and to help us maintain service quality.
+{% endhint %}
+
+### SDKs
+
+Pre-built SDKs for popular languages:
+
+- [TypeScript SDK](https://github.com/defuse-protocol/one-click-sdk-typescript)
+- [Go SDK](https://github.com/defuse-protocol/one-click-sdk-go)
+- [Rust SDK](https://github.com/defuse-protocol/one-click-sdk-rs)
+
+### API Endpoints
+
+**Base URL:** https://1click.chaindefuser.com/
+
+| Name                 | Route         | Description                                         |
+|----------------------|--------------|-----------------------------------------------------|
+| [Get supported tokens](#get-v0-tokens) | /v0/tokens  | Retrieves list of tokens currently supported by 1Click |
+| [Request a swap quote](#post-v0-quote) | /v0/quote | Generates a swap quote based on input parameters (Intent) | 
+| [Submit deposit tx hash](#post-v0-deposit-submit) | /v0/deposit/submit | Optional route to speed up process with early deposit notification to 1Click |
+| [Check swap status](#get-v0-status) | /v0/status | Gets current status of a swap using unique deposit address |
 
 {% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/tokens" method="get" %}
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
@@ -62,10 +76,10 @@ In order to use the API you need to [obtain a JWT token](https://docs.google.com
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
 
-{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/status" method="get" %}
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/deposit/submit" method="post" %}
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
 
-{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/deposit/submit" method="post" %}
+{% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/status" method="get" %}
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
