@@ -28,7 +28,10 @@ It features:
 
 ## How 1Click API Works
 
-<img src="../../.gitbook/assets/distribution-channels/1Click-API-flow.png" alt="1Click API Flow" width="600px">
+<figure>
+  <img src="../../.gitbook/assets/distribution-channels/1Click-API-flow.png" alt="1Click API Flow" width="600px">
+  <figcaption></figcaption>
+</figure>
 
 1. **Request a quote** - Send the user's intent request to 1Click's [`Request Quote`](#post-v0-quote) endpoint
    - Receive the best available quote with a unique deposit address

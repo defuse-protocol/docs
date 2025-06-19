@@ -4,8 +4,10 @@ description: NEAR Intents Distribution Channels
 
 # Distribution Channels
 
-<img src="../../.gitbook/assets/distribution-channels/distribution-channels.png" alt="Distribution Channel" width="900px">
-
+<figure>
+    <img src="../../.gitbook/assets/distribution-channels/distribution-channels.png" alt="Distribution Channel" width="900px">
+    <figcaption></figcaption>
+</figure>
 
 ## What are Distribution Channels?
 

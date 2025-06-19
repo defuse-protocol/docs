@@ -5,7 +5,10 @@ description: >-
 
 # Intents Overview
 
-<img src=".gitbook/assets/overview/intents-overview.png" alt="NEAR Intents Overview" width="900px">
+<figure>
+  <img src=".gitbook/assets/overview/intents-overview.png" alt="NEAR Intents Overview" width="900px">
+  <figcaption></figcaption>
+</figure>
 
 {% hint style="info" %}
 
@@ -18,7 +21,10 @@ Read more about it in this [NEAR Intents Deep Dive blogpost](https://www.near.or
 
 ## NEAR Intents Components
 
-<img src=".gitbook/assets/overview/core-components.png" alt="NEAR Intents Overview" width="900px">
+<figure>
+  <img src=".gitbook/assets/overview/core-components.png" alt="NEAR Intents Overview" width="900px">
+  <figcaption></figcaption>
+</figure>
 
 There are three core components of NEAR Intents:
 
