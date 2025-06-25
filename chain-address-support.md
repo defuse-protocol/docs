@@ -1,4 +1,4 @@
-# Chain, Address Type and Signing Standard Support
+# Chain Support
 
 List of supported chains and their respective address types can be seen in the table below:
 
@@ -29,6 +29,6 @@ This table provides an overview of supported signature standards and correspondi
 | **ERC‑191**           | All EVM wallets: MetaMask, Rabby, Rainbow, WalletConnect‑compatible      | ✅ Implemented                |
 | **Raw Ed25519**       | Solana wallets: Phantom, Solflare, Slope                                 | ✅ Implemented                |
 | **Passkeys (WebAuthn)** | Browsers/OS platforms: Chrome, Safari, Edge, Firefox, native apps      | ✅ Implemented                |
-| **TON Connect**       | TON wallets: Tonkeeper, EverWallet, other TonConnect 2.0 wallets         | ⚙️ In progress                |
-| **SEP‑53**            | Stellar wallets: Freighter, Lumens Wallet, SatoshiPay (in draft)         | ⚙️ In progress                |
+| **TON Connect**       | TON wallets: Tonkeeper, EverWallet, other TonConnect 2.0 wallets         | ✅ Implemented                |
+| **SEP‑53**            | Stellar wallets: Freighter, Lumens Wallet, SatoshiPay (in draft)         | ✅ Implemented                |
 | **BIP‑322**           | Bitcoin wallets: Sparrow, Bitcoin Knots, Bitcoin Core                    | ⚙️ In progress                |
