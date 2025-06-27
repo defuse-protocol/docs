@@ -32,5 +32,5 @@ This table provides an overview of supported signature standards and correspondi
 | **Passkeys (WebAuthn)** | Browsers/OS platforms: Chrome, Safari, Edge, Firefox, native apps      | ✅ Implemented                |
 | **SEP‑53**            | Stellar wallets: Freighter, Lumens Wallet, SatoshiPay                    | ✅ Implemented                |
 | **TIP‑191**           | TRON wallets: TronLink, Klever, Trust Wallet                             | ✅ Implemented                |
-| **TON Connect**       | TON wallets: Tonkeeper, EverWallet, other TonConnect 2.0 wallets         | ✅ Implemented                |
+| **TON Connect**       | TON wallets: Tonkeeper, EverWallet, HOT Wallet and other TonConnect 2.0 wallets         | ✅ Implemented                |
 | **BIP‑322**           | Bitcoin wallets: Sparrow, Bitcoin Knots, Bitcoin Core                    | ⚙️ In progress                |
