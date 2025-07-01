@@ -15,7 +15,7 @@ layout:
 
 # Intents Explorer API
 
-## What is Intents Explorer API
+## What is Intents Explorer API?
 
 The **Intents Explorer API** provides programmatic access to historical 1Click Swap transactions and their statuses, mirroring the data available on the [NEAR Intents Explorer](https://explorer.near-intents.org/). This API is read-only and features a single HTTP GET endpoint designed specifically for distribution channels and analytical services to fetch and filter 1Click Swap history.
 
