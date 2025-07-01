@@ -1,5 +1,5 @@
 ---
-icon: computer-mouse
+icon: history
 layout:
   title:
     visible: true
