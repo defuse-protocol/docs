@@ -28,7 +28,7 @@ The **Intents Explorer API** provides programmatic access to historical 1Click S
 ### Documentation & Access
 - **Swagger UI**: [https://explorer.near-intents.org/api/docs](https://explorer.near-intents.org/api/docs)  
 - **OpenAPI Spec (YAML)**: [https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
-- **API Key Form**: [https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform (https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform)
+- **API Key Form**: [https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform] (https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform)
 
 ## API Specification (v0)
 
