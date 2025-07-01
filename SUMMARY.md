@@ -6,6 +6,7 @@
 
 * [Distribution Channels](integration/distribution-channels/README.md)
   * [1Click API](integration/distribution-channels/1click-api.md)
+  * [Intents Explorer API](integration/distribution-channels/intents-explorer-api.md)
 
 ***
 
