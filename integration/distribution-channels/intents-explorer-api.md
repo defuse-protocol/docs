@@ -35,7 +35,7 @@ The **Intents Explorer API** provides programmatic access to historical 1Click S
 Auto-generate clients using our [OpenAPI spec](https://explorer.near-intents.org/api/v0/openapi.yaml).
 
 {% hint style="info" %}
-Authentication: It is mandatory to [obtain a JWT token](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform) for higher rate limits, reliable service, and to help us maintain service quality.
+Authentication: It is mandatory to [obtain a JWT token](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform) and use it for all requests.
 {% endhint %}
 
 ### API Endpoints
