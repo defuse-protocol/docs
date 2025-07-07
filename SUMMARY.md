@@ -14,7 +14,7 @@
   * [Message Bus](market-makers/bus/README.md)
     * [API](market-makers/bus/solver-relay.md)
     * [Usage](market-makers/bus/usage-examples.md)
-  * [Passive Deposit/Withdrawal Service](market-makers/market-makers/passive-deposit-withdrawal-service.md)
+  * [Passive Deposit/Withdrawal Service](market-makers/passive-deposit-withdrawal-service.md)
   * [Verifier](market-makers/verifier/README.md)
     * [Introduction](market-makers/verifier/introduction.md)
     * [Deposits and withdrawals](market-makers/verifier/deposits-and-withdrawals/README.md)
