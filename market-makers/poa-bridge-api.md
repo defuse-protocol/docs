@@ -1,6 +1,6 @@
-# Passive Deposits/Withdrawals Service
+# Passive Deposit/Withdrawal Service
 
-The Passive Deposits/Withdrawals Service enables seamless asset movement between [supported blockchain networks](chain-address-support.md) and NEAR Intents. It provides a lightweight mechanism for moving tokens in and out of the protocol.
+The Passive Deposit/Withdrawal Service enables seamless asset movement between [supported blockchain networks](../chain-address-support.md) and NEAR Intents. It provides a lightweight mechanism for moving tokens in and out of the protocol.
 
 <figure><img src="../.gitbook/assets/poa-bridge-user-docs.jpg" alt=""><figcaption></figcaption></figure>
 
