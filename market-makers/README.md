@@ -8,11 +8,11 @@ Market Makers are active market participants that deposit liquidity in order to 
 
 To start market making, you are required to perform _bridging_ and _quoting_.
 
-### Bridging
+### Passive Deposit/Withdrawal Service
 
-In order to deposit and withdraw liquidity, market makers need to bridge funds yourself or do it via one of the distribution channels (e.g.[ https://apps.near-intents.org](https://apps.near-intents.org/)) .
+In order to deposit and withdraw liquidity, market makers need to send funds themselves or do it via one of the distribution channels (e.g.[ https://apps.near-intents.org](https://apps.near-intents.org/)) .
 
-To bridge yourself, you need to get familiar with [PoA bridge API ](poa-bridge-api.md)for deposits and with specific bridge (PoA, Omni or HOT) API for withdrawals. More information on that and an SDK will be come soon.
+To send the liqudity, please get familiar with [Passive Deposit/Withdrawal Service ](passive-deposit-withdrawal-service.md)for deposits and with specific bridge (PoA, Omni or HOT) API for withdrawals. More information on that and an SDK will be come soon.
 
 ### Quoting
 
