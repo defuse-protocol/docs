@@ -1,6 +1,6 @@
-# PoA bridge API
+# Passive Deposits/Withdrawals Service
 
-The PoA Bridge is a solution for transferring asset tokens between blockchain network and NEAR Intents. This service is designed as an alternative to the OmniBridge. It will help users take full advantage of the NEAR Intents protocol's capabilities for interacting with multi-chain financial products.
+The Passive Deposits/Withdrawals Service enables seamless asset movement between [supported blockchain networks](chain-address-support.md) and NEAR Intents. It provides a lightweight mechanism for moving tokens in and out of the protocol.
 
 <figure><img src="../.gitbook/assets/poa-bridge-user-docs.jpg" alt=""><figcaption></figcaption></figure>
 
@@ -8,10 +8,10 @@ The PoA Bridge is a solution for transferring asset tokens between blockchain ne
 
 ### How to use
 
-1. _Get supported assets_. The bridge only works with a specific list of tokens that are available for transfer to NEAR Intents. The list of supported tokens and networks can be obtained using this request.
-2. _Get deposit address._ Once you have verified that your token is supported by the bridge, you can use the request to obtain a deposit address. After receiving the address, transfer the tokens to it, and they will soon be available in NEAR Intents.
+1. _Get supported assets_. The service only works with a specific list of tokens that are available for transfer to NEAR Intents. The list of supported tokens and networks can be obtained using this request.
+2. _Get deposit address._ Once you have verified that your token is supported by the service, you can use the request to obtain a deposit address. After receiving the address, transfer the tokens to it, and they will soon be available in NEAR Intents.
 3. _Get recent deposit._ The API service allows you to get the status of the most recent deposits. Simply send a request to retrieve this information.
-4. _Get withdrawal status_. The bridge supports token withdrawals from NEAR Intents to the supported network. To do this, call the 'withdrawal' contract method or use the frontend. The status of the withdrawal can be obtained upon request.
+4. _Get withdrawal status_. The service supports token withdrawals from NEAR Intents to the supported network. To do this, call the 'withdrawal' contract method or use the frontend. The status of the withdrawal can be obtained upon request.
 
 ***
 
@@ -25,7 +25,7 @@ The PoA Bridge is a solution for transferring asset tokens between blockchain ne
 
 <mark style="color:orange;">**1. Get supported assets**</mark>
 
-Returns a list of tokens that are supported by the PoA bridge in each network.
+Returns a list of tokens that are supported by the service in each network.
 
 <details>
 
@@ -223,7 +223,7 @@ Returns withdrawal status.
 
 <summary>Parameters</summary>
 
-* `withdrawal_hash` - hash of the transaction on NEAR where `ft_burn` event happened on the bridged token contract
+* `withdrawal_hash` - hash of the transaction on NEAR where `ft_burn` event happened on the token contract
 
 </details>
 
@@ -286,13 +286,13 @@ Returns withdrawal status.
 
 <mark style="color:orange;">**5. Notify about deposit transaction hash**</mark>
 
-Optional method that notifies bridge about your deposit.
+Optional method that notifies service about your deposit.
 
 <details>
 
 <summary>Parameters</summary>
 
-* `deposit_address` - address which you received from bridge api previously and where you transferred tokens
+* `deposit_address` - address which you received from service api previously and where you transferred tokens
 * `tx_hash`  - hash of your deposit transaction
 
 </details>
