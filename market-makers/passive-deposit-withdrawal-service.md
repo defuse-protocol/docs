@@ -15,10 +15,6 @@ There is an SDK for integrating the Passive Deposits/Withdrawals Service: [Bridg
 3. _Get recent deposit._ The API service allows you to get the status of the most recent deposits. Simply send a request to retrieve this information.
 4. _Get withdrawal status_. The service supports token withdrawals from NEAR Intents to the supported network. To do this, call the 'withdrawal' contract method or use the frontend. The status of the withdrawal can be obtained upon request.
 
-{% hint style="info" %}
-Centralized exchanges (CEXes) often use intermediate or per-user deposit addresses. These may not credit deposits sent via NEAR Intents until they are recognized or whitelisted. We recommend sending a small test amount before attempting full-scale transfers.
-{% endhint %}
-
 ***
 
 ### **JSON-RPC Endpoint**
