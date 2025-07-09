@@ -1,6 +1,6 @@
 # Passive Deposit/Withdrawal Service
 
-The Passive Deposit/Withdrawal Service enables seamless asset movement between [supported blockchain networks](../chain-address-support.md) and NEAR Intents. It provides a lightweight mechanism for moving tokens in and out of the protocol.
+The Passive Deposit/Withdrawal Service enables seamless asset movement between [supported blockchain networks](../chain-address-support.md) and NEAR Intents. It provides a lightweight mechanism for moving tokens in and out of the protocol. This service only moves funds to/from the [treasury](../treasury-addresses.md) on behalf of the user.
 
 {% hint style="info" %}
 There is an SDK for integrating the Passive Deposits/Withdrawals Service: [Bridge SDK on GitHub](https://github.com/defuse-protocol/sdk-monorepo/tree/main/packages/bridge-sdk). This SDK is under active development and may introduce breaking changes.
@@ -14,6 +14,10 @@ There is an SDK for integrating the Passive Deposits/Withdrawals Service: [Bridg
 2. _Get deposit address._ Once you have verified that your token is supported by the service, you can use the request to obtain a deposit address. After receiving the address, transfer the tokens to it, and they will soon be available in NEAR Intents.
 3. _Get recent deposit._ The API service allows you to get the status of the most recent deposits. Simply send a request to retrieve this information.
 4. _Get withdrawal status_. The service supports token withdrawals from NEAR Intents to the supported network. To do this, call the 'withdrawal' contract method or use the frontend. The status of the withdrawal can be obtained upon request.
+
+{% hint style="info" %}
+Centralized exchanges (CEXes) often use intermediate or per-user deposit addresses. These may not credit deposits sent via NEAR Intents until they are recognized or whitelisted. We recommend sending a small test amount before attempting full-scale transfers.
+{% endhint %}
 
 ***
 
