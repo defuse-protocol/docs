@@ -1,6 +1,6 @@
 # Treasury Addresses
 
-For transparency and AML compliance, below are the treasury contract addresses used by **NEAR Intents** and **HOT Bridge**, listed by network. Some networks use only NEAR Intents treasury, while others also include HOT Bridge addresses.
+For transparency and AML compliance, below are the treasury addresses used by **NEAR Intents** and **HOT Bridge**, listed by network. Some 
 
 | Network            | NEAR Intents Treasury Address                                                                                      | HOT Bridge Treasury Address                                                                                                      |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
