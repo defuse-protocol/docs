@@ -1,6 +1,6 @@
 # Treasury Addresses
 
-For transparency and AML compliance, below are the treasury addresses used by **NEAR Intents** and **HOT Bridge**, listed by network. Some 
+For transparency and AML compliance, below are the treasury addresses used by **NEAR Intents** and **HOT Bridge**, listed by network. 
 
 | Network            | NEAR Intents Treasury Address                                                                                      | HOT Bridge Treasury Address                                                                                                      |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
