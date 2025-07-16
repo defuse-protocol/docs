@@ -15,7 +15,7 @@ List of supported chains and their respective address types can be seen in the t
 | **Gnosis**   | - EVM address                                                                                           | ✅ Supported           | `0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4`       |
 | **NEAR**     | - Named (`something.near`) <br> - Implicit (64-char hex, SHA-256 of pubkey)                             | ✅ Supported           | `alice.near`, `ed25519:...`                        |
 | **Polygon**  | - EVM address                                                                                           | ✅ Supported           | `0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4`       |
-| **Sui**   | - Sui Address (32 bytes hex)                                                                               | ✅ Supported           | `0xcc64b79a3adf4d3c21ad25a97e3ecbe83e659e68964f62e6a1da8a037346a4ce`    
+| **Sui**   | - Sui Address (32-char hex)                                                                                | ✅ Supported           | `0xcc64b79a3adf4d3c21ad25a97e3ecbe83e659e68964f62e6a1da8a037346a4ce`    
 | **Solana**   | - Base58-encoded Ed25519 public key (typically 44 chars)                                                | ✅ Supported           | `4Z9fE3tx...7AVkHb`                                |
 | **TON**      | - TON Addresses                                                                                         | ✅ Supported           | `EQAWzEKcdnykvXfUNouqdS62tvrp32bCxuKS6eQrS6ISgcLo`  |
 | **Tron**     | - Base58Check-encoded (starts with `T`)                                                                 | ✅ Supported           | `TQ1shhBFTN2TwaRXyH1oLyCz3Yvfbzgmbk`               |
