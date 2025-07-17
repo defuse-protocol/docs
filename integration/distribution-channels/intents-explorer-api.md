@@ -40,7 +40,10 @@ Authentication: It is mandatory to [obtain a JWT token](https://docs.google.com/
 
 ### API Endpoints
 
-{% openapi src="https://explorer.near-intents.org/api/v0/openapi.yaml?2025-07-17" path="/api/v0/transactions" method="get" %}
-[https://explorer.near-intents.org/api/v0/openapi.yaml?2025-07-17](https://explorer.near-intents.org/api/v0/openapi.yaml?2025-07-17)
+{% openapi src="https://explorer.near-intents.org/api/v0/openapi.yaml" path="/api/v0/transactions" method="get" %}
+[https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
 {% endopenapi %}
 
+{% openapi src="https://explorer.near-intents.org/api/v0/openapi.yaml" path="/api/v0/transactions-pages" method="get" %}
+[https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
+{% endopenapi %}
