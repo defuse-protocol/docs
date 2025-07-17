@@ -76,7 +76,7 @@ Pre-built SDKs for popular languages:
 | [Check swap status](#get-v0-status) | /v0/status | Gets current status of a swap using unique deposit address |
 
 {% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/tokens" method="get" %}
-[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
+[https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-07-17](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
 
 {% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/quote" method="post" %}
