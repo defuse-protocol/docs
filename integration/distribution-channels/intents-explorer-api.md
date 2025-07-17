@@ -26,7 +26,7 @@ The **Intents Explorer API** provides programmatic access to historical 1Click S
 - Mirrors the same real-time and historical swap data shown in the [NEAR Intents Explorer](https://explorer.near-intents.org/) interface.
 
 ### Documentation & Access
-- **Swagger UI**: [https://explorer.near-intents.org/api/docs](https://explorer.near-intents.org/api/docs)  
+- **Swagger UI**: [https://explorer.near-intents.org/api/docs](https://explorer.near-intents.org/api/docs)
 - **OpenAPI Spec (YAML)**: [https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
 - **API Key Form**: [https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform)
 
@@ -44,3 +44,6 @@ Authentication: It is mandatory to [obtain a JWT token](https://docs.google.com/
 [https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
 {% endopenapi %}
 
+{% openapi src="https://explorer.near-intents.org/api/v0/openapi.yaml" path="/api/v0/transactions-pages" method="get" %}
+[https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
+{% endopenapi %}
