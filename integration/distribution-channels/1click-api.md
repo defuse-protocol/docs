@@ -75,6 +75,10 @@ Pre-built SDKs for popular languages:
 | [Submit deposit tx hash](#post-v0-deposit-submit) | /v0/deposit/submit | Optional route to speed up process with early deposit notification to 1Click |
 | [Check swap status](#get-v0-status) | /v0/status | Gets current status of a swap using unique deposit address |
 
+{% hint style="info" %}
+Use ==dry: true== to display the quote price without generating a transaction. Set ==dry: false== only at confirmation to reduce system load.
+{% endhint %}
+
 {% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/tokens" method="get" %}
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
