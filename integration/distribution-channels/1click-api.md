@@ -76,7 +76,7 @@ Pre-built SDKs for popular languages:
 | [Check swap status](#get-v0-status) | /v0/status | Gets current status of a swap using unique deposit address |
 
 {% hint style="info" %}
-Use ==dry: true== to display the quote price without generating a transaction. Set ==dry: false== only at confirmation to reduce system load.
+Use `dry: true` to display the quote price without generating a transaction. Set `dry: false` only at confirmation to reduce system load.
 {% endhint %}
 
 {% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/tokens" method="get" %}
