@@ -6,7 +6,7 @@ description: Frequently Asked Questions
 
 ## Is there a testnet deployment?
 
-There's no testnet deployment and no plans for it. We recommend testing on NEAR mainnet with using separate dev/test NEAR accounts.&#x20;
+There is no testnet deployment and no plans for one. We recommend testing on NEAR mainnet using separate dev/test NEAR accounts.&#x20;
 
 ## Is there support for native NEAR deposits?
 

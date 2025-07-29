@@ -26,7 +26,7 @@ params: {
 const generateNonce = async (): Promise<string> => {
     const randomArray = randomBytes(32);
     return randomArray.toString('base64');
-    if (await this.isNonceUsed(nonceString)) { //this step can be skipped but if nonce is already used quote wont be taken into account
+    if (await this.isNonceUsed(nonceString)) { // this step can be skipped, but if the nonce is already used the quote won't be taken into account
       return this.generateNonce();
     } else {
      return nonceString;
