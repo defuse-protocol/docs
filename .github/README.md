@@ -55,7 +55,8 @@ We appreciate contributions that:
 3. **Reference issues** - mention any related GitHub issues
 4. **Keep changes focused** - one topic per PR when possible
 
-## Questions or Need Help?
+## Questions or need help?
 
 - [Join our community Telegram Support](https://t.me/near_intents)
 - [Open an issue](https://github.com/defuse-protocol/docs/issues) for discussion before making large changes
+

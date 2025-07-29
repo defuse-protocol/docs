@@ -6,7 +6,7 @@ hidden: true
 # SDK
 
 {% hint style="danger" %}
-SDK is under heavy development and the API is highly unstable. Not recommended to be used, Consider 1Click SDK instead.
+SDK is under heavy development and the API is highly unstable. It is not recommended for use. Consider the 1Click SDK instead.
 {% endhint %}
 
 ### High Level Architecture
