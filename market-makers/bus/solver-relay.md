@@ -127,7 +127,7 @@ If the user is satisfied with the offer provided by the solver, they can sign an
       * other data depending on intent type
     * `deadline` - deadline until which this intent is valid, ISO-8601 string
     * `nonce` - unique nonce for operation
-    * `veryfying_contract` - Near Intents contract address (`intents.near`)
+    * `verifying_contract` - Near Intents contract address (`intents.near`)
   * `signature` - signature of the payload
 
 </details>
@@ -146,7 +146,7 @@ If the user is satisfied with the offer provided by the solver, they can sign an
       * other data depending on intent type
     * `deadline` - deadline until which this intent is valid, ISO-8601 string
     * `nonce` - unique nonce for operation
-    * `veryfying_contract` - Near Intents contract address (`intents.near`)
+    * `verifying_contract` - Near Intents contract address (`intents.near`)
   * `signature` - signature of the payload
   * `public_key` - signer's public key
 
