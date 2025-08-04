@@ -53,7 +53,7 @@ Centralized exchanges (CEXes) often use intermediate or per-user deposit address
 Auto-generate clients using our [OpenAPI spec](https://1click.chaindefuser.com/docs/v0/openapi.yaml).
 
 {% hint style="info" %}
-Authentication: While testing can be done without authentication, we recommend [obtaining a JWT token](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform?usp=header) for higher rate limits, reliable service, and to help us maintain service quality.
+Authentication: Please [obtain a JWT token](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform?usp=header) to avout 0.1% (10 basis points) fee while using 1Click Swap API.
 {% endhint %}
 
 ### SDKs
