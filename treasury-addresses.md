@@ -15,4 +15,6 @@ For transparency and AML compliance, below are the treasury addresses used by **
 | **TON**           | [`UQAfoBd_f0pIvNpUPAkOguUrFWpGWV9TWBeZs_5TXE95_trZ`](https://tonscan.org/address/UQAfoBd_f0pIvNpUPAkOguUrFWpGWV9TWBeZs_5TXE95_trZ) | [`EQANEViM3AKQzi6Aj3sEeyqFu8pXqhy9Q9xGoId_0qp3CNVJ`](https://tonviewer.com/EQANEViM3AKQzi6Aj3sEeyqFu8pXqhy9Q9xGoId_0qp3CNVJ)    |
 | **Stellar (XLM)** | –                                                                                                                   | [`CCLWL5NYSV2WJQ3VBU44AMDHEVKEPA45N2QP2LL62O3JVKPGWWAQUVAG`](https://stellar.expert/explorer/public/contract/CCLWL5NYSV2WJQ3VBU44AMDHEVKEPA45N2QP2LL62O3JVKPGWWAQUVAG) |
 | **Sui (SUI)** | [`0x00ea18889868519abd2f238966cab9875750bb2859ed3a34debec37781520138`](https://suivision.xyz/account/0x00ea18889868519abd2f238966cab9875750bb2859ed3a34debec37781520138)                     |–  |
+| **Aptos (APT)** | [`0xd1a1c1804e91ba85a569c7f018bb7502d2f13d4742d2611953c9c14681af6446`](https://aptoscan.com/account/0xd1a1c1804e91ba85a569c7f018bb7502d2f13d4742d2611953c9c14681af6446)                     |–  |
+| **Cardano (ADA)** | [`addr1v8wfpcg4qfhmnzprzysj6j9c53u5j56j8rvhyjp08s53s6g07rfjm`](https://cardanoscan.io/address/61dc90e115026fb9882311212d48b8a47949535238d972482f3c291869)                     |–  |
 
