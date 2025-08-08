@@ -11,8 +11,11 @@ List of supported chains and their respective address types can be seen in the t
 | **BNB**      | - EVM address                                                                                           | ✅ Supported           | `0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4`       |
 | **Bitcoin**  | - Legacy (`1` prefix) <br> - P2SH (`3` prefix) <br> - Bech32 (`bc1`) <br> - Taproot (`bc1p`)            | ✅ Supported           | `1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa` (Legacy) <br> `bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kygt080` (Bech32) <br> `bc1p5cyxnuxmeuwuvkwfem96llyr29s8l68p7z6zgt7zdkv3g7zv3qvqz6z8h7` (Taproot) |
 | **Doge**     | - P2PKH/Legacy (starts with `D`) <br> - P2SH (starts with `A` or `9`)                                   | ✅ Supported           | `D9nssC5jR1viPZhWwFvDkjYpJZYJVydN8k`               |
+<details>
+<summary>Supported EVM Chains</summary>
 | **Ethereum** | - EVM address (`0x`-prefixed, 42-char hex)                                                              | ✅ Supported           | `0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4`       |
 | **Gnosis**   | - EVM address                                                                                           | ✅ Supported           | `0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4`       |
+</details>
 | **NEAR**     | - Named (`something.near`) <br> - Implicit (64-char hex, SHA-256 of pubkey)                             | ✅ Supported           | `alice.near`, `ed25519:...`                        |
 | **Polygon**  | - EVM address                                                                                           | ✅ Supported           | `0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4`       |
 | **Sui**   | - Sui Address (32-char hex)                                                                                | ✅ Supported           | `0xcc64b79a3adf4d3c21ad25a97e3ecbe83e659e68964f62e6a1da8a037346a4ce`    
