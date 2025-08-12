@@ -22,9 +22,9 @@ For transparency and AML compliance, below are the treasury and refill addresses
 
 | Network     | Refill Address |
 |-------------|----------------|
-| EVM Chains (Ethereum, Arbitrum, Aurora, Base, Bera, BNB, Gnosis, Polygon, Optimism) | [`0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0`](https://blockscan.com/address/0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0) |
-| TRON        | [`TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap`](https://tronscan.org/#/address/TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap) |
-| Solana      | [`9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6`](https://solscan.io/account/9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6) |
-| TON         | [`EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4`](https://tonviewer.com/EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4) |
-| SUI         | [`0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76`](https://suiscan.xyz/mainnet/account/0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76) |
-| Aptos       | [`0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43`](https://aptoscan.com/account/0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43) |
+| **EVM Chains (Ethereum, Arbitrum, Aurora, Base, Bera, BNB, Gnosis, Polygon, Optimism)** | [`0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0`](https://blockscan.com/address/0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0) |
+| **TRON**        | [`TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap`](https://tronscan.org/#/address/TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap) |
+| **Solana**      | [`9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6`](https://solscan.io/account/9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6) |
+| **TON**         | [`EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4`](https://tonviewer.com/EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4) |
+| **SUI**         | [`0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76`](https://suiscan.xyz/mainnet/account/0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76) |
+| **Aptos**       | [`0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43`](https://aptoscan.com/account/0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43) |
