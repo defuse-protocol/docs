@@ -73,6 +73,7 @@ Pre-built SDKs for popular languages:
 - SUCCESS — Funds are delivered to the specified destination chain/address. 
 - INCOMPLETE_DEPOSIT — Deposit is received but below required bridge or quoted amount.
 - REFUNDED — If the swap is not completed, funds are automatically returned to the refund address.
+- FAILED - Swap failed due to the error.
 
 <figure>
   <img src="../../.gitbook/assets/distribution-channels/1cs_state_diagram_near_intents.png" alt="NEAR Intents 1Click Swap Statuses" width="400px">
