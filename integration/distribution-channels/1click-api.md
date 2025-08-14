@@ -75,7 +75,7 @@ Pre-built SDKs for popular languages:
 - REFUNDED — If the swap is not completed, funds are automatically returned to the refund address.
 
 <figure>
-  <img src="../../.gitbook/assets/distribution-channels/1cs_state_diagram_near_intents.png" alt="NEAR Intents 1Click Swap Statuses" width="300px">
+  <img src="../../.gitbook/assets/distribution-channels/1cs_state_diagram_near_intents.png" alt="NEAR Intents 1Click Swap Statuses" width="400px">
   <figcaption></figcaption>
 </figure>
 
