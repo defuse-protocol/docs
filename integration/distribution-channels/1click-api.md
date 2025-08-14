@@ -64,7 +64,7 @@ Pre-built SDKs for popular languages:
 - [Go SDK](https://github.com/defuse-protocol/one-click-sdk-go)
 - [Rust SDK](https://github.com/defuse-protocol/one-click-sdk-rs)
 
-### Transaction Statuses
+### Swap Statuses
 
 1Click Swap goes through these states in its lifecycle:
 
