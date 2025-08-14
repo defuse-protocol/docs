@@ -64,6 +64,16 @@ Pre-built SDKs for popular languages:
 - [Go SDK](https://github.com/defuse-protocol/one-click-sdk-go)
 - [Rust SDK](https://github.com/defuse-protocol/one-click-sdk-rs)
 
+### Transaction Statuses
+
+FAILED, INCOMPLETE_DEPOSIT, PENDING_DEPOSIT, PROCESSING, REFUNDED, SUCCESS
+
+<figure>
+  <img src=".gitbook/assets/overview/distribution-channels/1cs_state_diagram_near_intents.png" alt="NEAR Intents 1Click Swap Statuses" width="500px">
+  <figcaption></figcaption>
+</figure>
+
+
 ### API Endpoints
 
 **Base URL:** https://1click.chaindefuser.com/
