@@ -66,7 +66,7 @@ Pre-built SDKs for popular languages:
 
 ### Transaction Statuses
 
-1Cick Swap goes through these states in its lifecycle:
+1Click Swap goes through these states in its lifecycle:
 
 - PENDING_DEPOSIT — Awaiting the deposit to the deposit address.
 - PROCESSING — Once the deposit on deposit address is detected, information is processed and executed by Market Makers.
