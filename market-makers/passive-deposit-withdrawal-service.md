@@ -45,9 +45,9 @@ Returns a list of tokens that are supported by the service in each network.
 * `[].tokens.near_token_id` — unique id of the token in the NEAR blockchain
 * `[].tokens.decimals` — trading asset precision. should be used for amount setup during intent creation
 * `[].tokens.asset_name` — trading asset name
-* `[].tokens.min_deposit_amount` — minimum amount of tokens to trigger transfer process&#x20;
+* `[].tokens.min_deposit_amount` — minimum amount of tokens to trigger transfer process
 * `[].tokens.min_withdrawal_amount` — minimum amount of tokens to initiate a withdrawal
-* `[].tokens.withdrawal_fee` — the fee charged for withdrawing the specified token&#x20;
+* `[].tokens.withdrawal_fee` — the fee charged for withdrawing the specified token
 
 </details>
 
@@ -63,7 +63,7 @@ Returns a list of tokens that are supported by the service in each network.
   "method": "supported_tokens",
   "params": [
     {
-      "chains": ["CHAIN_TYPE:CHAIN_ID", "..."], //optional
+      "chains": ["CHAIN_TYPE:CHAIN_ID", "..."], // optional
     }
   ]
 }
@@ -75,7 +75,7 @@ Returns a list of tokens that are supported by the service in each network.
   "result": {
    "tokens": [
      {
-       "defuse_asset_identifier" : "eth:8453:0x123", //CHAIN_TYPE:CHAIN_ID:ADDRESS
+       "defuse_asset_identifier" : "eth:8453:0x123", // CHAIN_TYPE:CHAIN_ID:ADDRESS
        "near_token_id": "...",
        "decimals" : 18,
        "asset_name" : "PEPE",
@@ -101,8 +101,8 @@ Returns the address for depositing supported tokens or native currency.
 
 <summary>Parameters</summary>
 
-* `account_id` - Defuse user account
-* `chain` - network type and chain id. E.g. `eth:42161` for Arbitrum or `btc:mainnet`for Bitcoin.
+* `account_id` - user account in NEAR Intents
+* `chain` - network type and chain id. E.g. `eth:42161` for Arbitrum or `btc:mainnet`for Bitcoin
 
 </details>
 
@@ -111,7 +111,7 @@ Returns the address for depositing supported tokens or native currency.
 <summary>Response</summary>
 
 * `address` - deposit address
-* `chain` - network type and chain id.
+* `chain` - network type and chain id
 
 </details>
 
@@ -155,8 +155,8 @@ Returns information on recent deposits
 
 <summary>Parameters</summary>
 
-* `account_id` - Defuse user account
-* `chain` - network type and chain id.
+* `account_id` - user account in NEAR Intents
+* `chain` - network type and chain id
 
 </details>
 
@@ -164,12 +164,12 @@ Returns information on recent deposits
 
 <summary>Response</summary>
 
-* `[].tx_hash` - Transaction hash \[EVM networks only]
-* `[].chain` - network type and chain id.
+* `[].tx_hash` - transaction hash \[EVM networks only]
+* `[].chain` - network type and chain id
 * `[].defuse_asset_identifier` - token identifier
 * `[].decimals` - token decimals
 * `[].amount` - asset amount
-* `[].account_id` - Defuse user account
+* `[].account_id` - user account NEAR Intents
 * `[].address` - deposit address
 * `[].status` - deposit status
 
@@ -233,14 +233,14 @@ Returns withdrawal status.
 
 <summary>Response</summary>
 
-* `status` - withdrawal status
-* `data.tx_hash` - NEAR transaction hash
-* `data.transfer_tx_hash` - Transfer transaction hash
-* `data.chain` - network type and chain id.
+* `status` - withdrawal status (`COMPLETED`, `PENDING`, `FAILED`, `NOT_FOUND`, `AWAITING`, `REJECTED`, `RETURNING`, `RETURNED`)
+* `data.tx_hash` - burn transaction hash on NEAR
+* `data.transfer_tx_hash` - transfer transaction hash on destination chain
+* `data.chain` - network type and chain id
 * `data.defuse_asset_identifier` - token identifier
 * `data.decimals` - token decimals
 * `data.amount` - asset amount
-* `data.account_id` - Defuse user account
+* `data.account_id` - user account
 * `data.address` - withdrawal address
 
 </details>
@@ -267,7 +267,7 @@ Returns withdrawal status.
   "jsonrpc": "2.0",
   "id": 1,
   "result": {
-    "status": "COMPLETED" // NOT_FOUND, PENDING, FAILED
+    "status": "COMPLETED"
     "data": {
       "tx_hash": "some_hash",
       "transfer_tx_hash": "", // if exists
