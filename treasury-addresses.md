@@ -26,6 +26,5 @@ For transparency and AML compliance, below are the treasury and refill addresses
 | **TRON**        | [`TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap`](https://tronscan.org/#/address/TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap) |
 | **Solana**      | [`9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6`](https://solscan.io/account/9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6) |
 | **TON**         | [`EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4`](https://tonviewer.com/EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4) |
-| **Stellar**     | [`GAMFELTI7TCHYDPB2JZSCKACRK7SRFKAYFPZJ5QZK3G5OPNUGTC5LPBC`](https://stellar.expert/explorer/public/account/GAMFELTI7TCHYDPB2JZSCKACRK7SRFKAYFPZJ5QZK3G5OPNUGTC5LPBC) |
 | **SUI**         | [`0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76`](https://suiscan.xyz/mainnet/account/0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76) |
 | **Aptos**       | [`0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43`](https://aptoscan.com/account/0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43) |
