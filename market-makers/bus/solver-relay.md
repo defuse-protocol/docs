@@ -373,6 +373,8 @@ Check the status of intent execution.
 
 <mark style="color:orange;">**3. Respond to quote requests**</mark>
 
+Please note that unique `id` is required in the JSON-RPC message when using this method.
+
 <details>
 
 <summary>Parameters</summary>
