@@ -50,7 +50,10 @@ Centralized exchanges (CEXes) often use intermediate or per-user deposit address
 
 ## Quickstart 1Click Tutorial
 
-To quickly get started with 1Click see this example repo breaking down each step above: https://github.com/near-examples/near-intents-examples. This repo will show you how to quickly get started performing cross-chain swaps using 1Click's TypeScript SDK.
+To quickly get started with 1Click API, see this example breaking down each of the above steps: 
+- [github.com/near-examples/near-intents-examples](https://github.com/near-examples/near-intents-examples)
+
+This repo will show you how to quickly get started performing cross-chain swaps using 1Click's TypeScript SDK.
 
 ## API Specification (v0)
 
