@@ -28,7 +28,6 @@
     * [Events](market-makers/verifier/events.md)
     * [Example Transactions](market-makers/verifier/example-transactions.md)
     * [Simulating intents](market-makers/verifier/simulating-intents.md)
-  * [Examples](market-makers/examples.md)
 * [FAQs](faqs.md)
 * [Security](security.md)
 * [Architecture](architecture/README.md)
@@ -39,4 +38,5 @@
   * [Withdraw](sdk/withdraw.md)
 * [Chain Support](chain-address-support.md)
 * [Treasury Addresses](treasury-addresses.md)
+* [Examples](examples.md)
 * [System Status](https://status.near-intents.org/)
