@@ -40,3 +40,4 @@
 * [Treasury Addresses](treasury-addresses.md)
 * [Examples](examples.md)
 * [System Status](https://status.near-intents.org/)
+* [Fees Calculation](fees-calculation.md)
