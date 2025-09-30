@@ -6,6 +6,7 @@
 
 * [Distribution Channels](integration/distribution-channels/README.md)
   * [1Click API](integration/distribution-channels/1click-api.md)
+  * [1Click App Fees Calculation](integration/distribution-channels/1click-app-fees-calculation.md)
   * [Intents Explorer API](integration/distribution-channels/intents-explorer-api.md)
 
 ***
@@ -40,4 +41,3 @@
 * [Treasury Addresses](treasury-addresses.md)
 * [Examples](examples.md)
 * [System Status](https://status.near-intents.org/)
-* [Fees Calculation](fees-calculation.md)
