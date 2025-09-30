@@ -16,7 +16,6 @@ This page describes all fees that apply to NEAR Intents transactions and integra
 
 * **0.2%** fee on swaps executed through [near-intents.org](https://near-intents.org).
 * Collected by the proprietary distribution channel in addition to the protocol fee.
-* Collected fees visible on [app-fee.near](https://near-intents.org/account?user=near:app-fee.near) account.
 
 ---
 
