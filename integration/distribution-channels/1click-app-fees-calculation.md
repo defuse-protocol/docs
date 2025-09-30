@@ -1,5 +1,5 @@
 ---
-icon: bar_chart
+icon: wallet
 layout:
   title:
     visible: true
