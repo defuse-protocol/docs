@@ -1,3 +1,18 @@
+---
+icon: bar_chart
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: false
+---
+
 # 1Click Swap API - App Fees Calculation
 
 A concise guide to how setup 1Click Swap API app fees distribution during quoting and execution as a distribution channel.
