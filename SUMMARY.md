@@ -37,6 +37,7 @@
 * [SDK](sdk/README.md)
   * [Deposit](sdk/deposit.md)
   * [Withdraw](sdk/withdraw.md)
+* [Risk and Compliance](risk-and-compliance.md)
 * [Chain Support](chain-address-support.md)
 * [Treasury Addresses](treasury-addresses.md)
 * [Fees](fees.md)
