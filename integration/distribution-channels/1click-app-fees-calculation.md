@@ -1,6 +1,4 @@
-# App Fees Calculation
-
-## 1Click Swap API — App Fees
+# 1Click Swap API - App Fees Calculation
 
 A concise guide to how setup 1Click fees during quoting and execution as a distribution channel.
 
