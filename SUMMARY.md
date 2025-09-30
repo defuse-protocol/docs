@@ -39,5 +39,6 @@
   * [Withdraw](sdk/withdraw.md)
 * [Chain Support](chain-address-support.md)
 * [Treasury Addresses](treasury-addresses.md)
+* [Fees](fees.md)
 * [Examples](examples.md)
 * [System Status](https://status.near-intents.org/)
