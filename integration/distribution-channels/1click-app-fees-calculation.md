@@ -15,7 +15,7 @@ layout:
 
 # 1Click Swap API - App Fees Calculation
 
-A concise guide to how setup 1Click Swap API app fees distribution during quoting and execution as a distribution channel.
+A concise guide on how to setup [1Click Swap API](1click-api.md) app fees distribution during quoting and execution. As a distribution channel while asking for **quote**, you can specify the distribution of fees that come from the swap being executed.
 
 ### Parameters
 
