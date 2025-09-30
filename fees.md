@@ -16,6 +16,7 @@ This page describes all fees that apply to NEAR Intents transactions and integra
 
 * **0.2%** fee on swaps executed through [near-intents.org](https://near-intents.org).
 * Collected by the proprietary distribution channel in addition to the protocol fee.
+* These fees are converted to $NEAR and sent to multisig [intents.sputnik-dao.near](https://nearblocks.io/address/intents.sputnik-dao.near).
 
 ---
 
