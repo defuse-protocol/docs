@@ -23,6 +23,7 @@ For transparency and AML compliance, below are the treasury and refill addresses
 | Network     | Refill Address |
 |-------------|----------------|
 | **EVM Chains (Ethereum, Arbitrum, Aurora, Base, Bera, BNB, Gnosis, Polygon, Optimism)** | [`0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0`](https://blockscan.com/address/0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0) |
+| **Cardano**        | [`addr1v92k8ex6m7yykq6j0psqlrxxeq23220g9x8yeqd4g65qq3shttpln`](https://cardanoscan.io/address/615563e4dadf884b035278600f8cc6c8151529e8298e4c81b546a80046) |
 | **TRON**        | [`TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap`](https://tronscan.org/#/address/TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap) |
 | **Solana**      | [`9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6`](https://solscan.io/account/9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6) |
 | **TON**         | [`EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4`](https://tonviewer.com/EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4) |
