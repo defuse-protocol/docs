@@ -9,7 +9,7 @@ This page describes all fees that apply to NEAR Intents transactions and integra
 * **0.0001% (1 pip)** per transaction.
 * Collected on-chain by the [`intents.near`](https://nearblocks.io/address/intents.near) smart contract.
 * Applies to every transfer, swap, or transaction.
-* These fees are sent to the [fee_collector](https://near-intents.org/account?user=near:7066024d3f20f94de601c003163367873cca78507eeca4df66d9be645f197f05).
+* These fees are sent to the [`fee_collector`](https://near-intents.org/account?user=near:7066024d3f20f94de601c003163367873cca78507eeca4df66d9be645f197f05).
 
 
 ---
@@ -18,7 +18,7 @@ This page describes all fees that apply to NEAR Intents transactions and integra
 
 * **0.2%** fee on swaps executed through [near-intents.org](https://near-intents.org).
 * Collected by the proprietary distribution channel in addition to the protocol fee.
-* These fees are sent to [fefundsadmin.sputnik-dao.near](https://nearblocks.io/address/fefundsadmin.sputnik-dao.near).
+* These fees are sent to [`fefundsadmin.sputnik-dao.near`](https://nearblocks.io/address/fefundsadmin.sputnik-dao.near).
 
 ---
 
