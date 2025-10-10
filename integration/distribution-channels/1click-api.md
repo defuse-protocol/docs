@@ -83,7 +83,7 @@ Pre-built SDKs for popular languages:
 * REFUNDED — If the swap is not completed, funds are automatically returned to the refund address.
 * FAILED - Swap failed due to the error.
 
-<figure><img src="../../.gitbook/assets/distribution-channels/1cs_state_diagram_near_intents.png" alt="NEAR Intents 1Click Swap Statuses" width="400"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/distribution-channels/near_intents_1click_swap_transaction_state_diagram.png" alt="NEAR Intents 1Click Swap Statuses" width="400"><figcaption></figcaption></figure>
 
 ### API Endpoints
 
