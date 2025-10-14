@@ -24,6 +24,20 @@ It's not feasible to differentiate these addresses by chain, since we only know 
 
 Once an account is created, multiple additional public keys could be added to it to authorize actions on that account. Each of these keys has full control over the account and can add or remove other keys either directly via NEAR transactions or via signed intents.
 
+{% hint style="warning" %}
+Encoding Requirements for the Verifier Contract
+
+| Curve     | Public Key              | Signature              |
+|-----------|-------------------------|------------------------|
+| Ed25519   | 32 bytes                | 64 bytes               |
+| Secp256k1 | 64 bytes (uncompressed) | 65 bytes (r || s || v) |
+| P256      | 64 bytes (uncompressed) | 64 bytes (r || s)      |
+
+Important: Compressed public keys are not supported for ECDSA curves (Secp256k1, P256). Public keys must be in uncompressed format (raw 64-byte x || y coordinates without prefix bytes).
+
+Signatures must be in raw concatenated byte format, not DER-encoded.
+{% endhint %}
+
 &#x20;Here is an example of adding public keys for Explicit NEAR Accounts via [tx](https://nearblocks.io/txns/FBTRk6jRUSW3E1SjBfYbA71DhN5xTX1yE2foy98TafrM#execution).&#x20;
 
 You can also do it manually with [near-cli](https://github.com/near/near-cli-rs):
