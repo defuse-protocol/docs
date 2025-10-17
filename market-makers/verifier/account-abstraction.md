@@ -27,11 +27,11 @@ Once an account is created, multiple additional public keys could be added to it
 {% hint style="warning" %}
 Encoding Requirements for the Verifier Contract
 
-| Curve     | Public Key              | Signature              |
-|-----------|-------------------------|------------------------|
-| Ed25519   | 32 bytes                | 64 bytes               |
-| Secp256k1 | 64 bytes (uncompressed) | 65 bytes (r || s || v) |
-| P256      | 64 bytes (uncompressed) | 64 bytes (r || s)      |
+| Curve     | Public Key              | Signature                      |
+|-----------|-------------------------|--------------------------------|
+| Ed25519   | 32 bytes                | 64 bytes                       |
+| Secp256k1 | 64 bytes (uncompressed) | 65 bytes (r \|\| s \|\| v)     |
+| P256      | 64 bytes (uncompressed) | 64 bytes (r \|\| s)            |
 
 Important: Compressed public keys are not supported for ECDSA curves (Secp256k1, P256). Public keys must be in uncompressed format (raw 64-byte x || y coordinates without prefix bytes).
 
