@@ -2,6 +2,20 @@
 
 After creating intents, they must be signed before submission to the `Verifier` contract via the `execute_intents` function. This section explains the signing process.
 
+{% hint style="warning" %}
+Encoding Requirements for the Verifier Contract
+
+| Curve     | Public Key              | Signature              |
+|-----------|-------------------------|------------------------|
+| Ed25519   | 32 bytes                | 64 bytes               |
+| Secp256k1 | 64 bytes (uncompressed) | 65 bytes (r || s || v) |
+| P256      | 64 bytes (uncompressed) | 64 bytes (r || s)      |
+
+Important: Compressed public keys are not supported for ECDSA curves (Secp256k1, P256). Public keys must be in uncompressed format (raw 64-byte x || y coordinates without prefix bytes).
+
+Signatures must be in raw concatenated byte format, not DER-encoded.
+{% endhint %}
+
 ### Account abstraction
 
 As discussed in the [account abstraction section](account-abstraction.md), accounts in the `Verifier` contract are identified by their NEAR account (whether implicit, being derived from a public key, or named, like `alice.near`). Every account can add an arbitrary number of public keys. Every public key in a user's account can be used to produce signatures that authorize intents for that user. Proper key management is essential.
