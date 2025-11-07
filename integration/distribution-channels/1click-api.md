@@ -100,6 +100,10 @@ Pre-built SDKs for popular languages:
 Use `dry: true` to display the quote price without generating a transaction. Set `dry: false` only at confirmation to reduce system load.
 {% endhint %}
 
+{% hint style="warning" %}
+The `amountOutUsd` field in quote responses should **NOT** be used in business logic or calculations. It is provided for display purposes only. Always use the actual token amounts for any programmatic operations.
+{% endhint %}
+
 {% openapi src="https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31" path="/v0/tokens" method="get" %}
 [https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31](https://1click.chaindefuser.com/docs/v0/openapi.yaml?2025-03-31)
 {% endopenapi %}
