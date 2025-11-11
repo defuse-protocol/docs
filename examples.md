@@ -6,7 +6,7 @@ description: Examples of different implementations
 
 Below are various references for NEAR Intents protocol:
 
-| Link                                                                                  | Description         |
+| Link                                                                                  | Description                                                  |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | [Defuse Frontend](https://github.com/defuse-protocol/defuse-frontend)                 | [near-intents.org](https://near-intents.org) website         |
 | [NEAR Intents Cross-Chain Swap Examples](https://github.com/near-examples/near-intents-examples)      | Tutorial demonstrating cross-chain token swaps with NEAR Intents using 1-Click API  |
@@ -16,4 +16,4 @@ Below are various references for NEAR Intents protocol:
 | [NEAR Intents TEE Solver Registry](https://github.com/aurora-is-near/tee-solver)      | Secure TEE-based solver and liquidity protocol               |
 | [Video - Near Intents 101](https://www.youtube.com/watch?v=mOGD2gzZJqE)               | A New Way to Transact - Build Smarter with AI & Blockchain   |
 | [Video - Near Intents 102](https://www.youtube.com/watch?v=U8ngm2hR4a4)               | Build Your First One-Click API App for Cross-Chain Swaps     |
-
+| [Agent Example](https://github.com/near-examples/near-intents-agent-example)          | Python tool for AI-driven NEAR swaps and multichain transactions   |
