@@ -6,14 +6,15 @@ description: Examples of different implementations
 
 Below are various references for NEAR Intents protocol:
 
-| Link                                                                                  | Description                                                  |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| [Defuse Frontend](https://github.com/defuse-protocol/defuse-frontend)                 | [near-intents.org](https://near-intents.org) website         |
-| [NEAR Intents Cross-Chain Swap Examples](https://github.com/near-examples/near-intents-examples)      | Tutorial demonstrating cross-chain token swaps with NEAR Intents using 1-Click API  |
-| [AMM Solver](https://github.com/defuse-protocol/near-intents-amm-solver)              | Sample market maker with AMM functionality                   |
-| [Python Client](https://github.com/referencedev/test-intent)                          | A Python example of interacting with the Message Bus         |
-| [Intent JSON Validator](https://app.near-intents.org/dev/multipayload-json-validator) | Tool to verify signed intent JSON correctness                |
-| [NEAR Intents TEE Solver Registry](https://github.com/aurora-is-near/tee-solver)      | Secure TEE-based solver and liquidity protocol               |
-| [Video - Near Intents 101](https://www.youtube.com/watch?v=mOGD2gzZJqE)               | A New Way to Transact - Build Smarter with AI & Blockchain   |
-| [Video - Near Intents 102](https://www.youtube.com/watch?v=U8ngm2hR4a4)               | Build Your First One-Click API App for Cross-Chain Swaps     |
-| [Agent Example](https://github.com/near-examples/near-intents-agent-example)          | Python tool for AI-driven NEAR swaps and multichain transactions   |
+| Link                                                                                  | Description                                                  | Type     |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| [Defuse Frontend](https://github.com/defuse-protocol/defuse-frontend)                 | [near-intents.org](https://near-intents.org) website         | GitHub   |
+| [Cross-Chain Swap Examples](https://github.com/near-examples/near-intents-examples)   | Tutorial for cross-chain token swaps using 1-Click API       | GitHub   |
+| [AMM Solver](https://github.com/defuse-protocol/near-intents-amm-solver)              | Sample market maker with AMM functionality                   | GitHub   |
+| [Python Client](https://github.com/referencedev/test-intent)                          | A Python example of interacting with the Message Bus         | GitHub   |
+| [Intent JSON Validator](https://app.near-intents.org/dev/multipayload-json-validator) | Tool to verify signed intent JSON correctness                | GitHub   |
+| [NEAR Intents TEE Solver Registry](https://github.com/aurora-is-near/tee-solver)      | Secure TEE-based solver and liquidity protocol               | GitHub   |
+| [Video - Near Intents 101](https://www.youtube.com/watch?v=mOGD2gzZJqE)               | A New Way to Transact - Build Smarter with AI & Blockchain   | Video    |
+| [Video - Near Intents 102](https://www.youtube.com/watch?v=U8ngm2hR4a4)               | Build Your First One-Click API App for Cross-Chain Swaps     | Video    |
+| [Agent Example](https://github.com/near-examples/near-intents-agent-example)          | Python tool for AI-driven NEAR swaps                         | GitHub   |
+
