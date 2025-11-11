@@ -31,7 +31,14 @@ Intents are submitted as JSON objects written as strings in a payload object. Th
 
 The intent does not mention Alice, as _the signer_ of the intent defines the account that performs transfer.
 
-This intent goes into a payload object that looks as follows. The "intents" in there contains the same intent from above, but in an array, because users can submit multiple intents to be executed as a batch in order. Keep in mind the [caveats explained here](intent-types-and-execution.md#note-on-ordering-of-intent-execution-and-atomicity) about the order of execution.
+This intent is part of the payload, which should have the following members:
+- signer_id - signer acount id
+- verifying_contract - contract address to which intents are sent
+- deadline - timestamp in ISO 8601 format
+- nonce - 256 bit value (which has clear [requirements](link) for structure)
+- intents - array of intents
+
+The "intents" in there contains the same intent from above, but in an array, because users can submit multiple intents to be executed as a batch in order. Keep in mind the [caveats explained here](intent-types-and-execution.md#note-on-ordering-of-intent-execution-and-atomicity) about the order of execution.
 
 ```json
 {
@@ -112,27 +119,6 @@ Example of an intent to remove a public key:
     },
     "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
     "signature": "ed25519:4JvKFxtvQQ5faTo9p5DscZJWdB5BqgfyqwsfPz9DhmEpZHe8dahwN6SNHzh4RUASxC1ap6sQg2uzNy2e1XUe2MBc"
-  }
-]
-```
-
-* [invalidate\_nonces](https://near.github.io/intents/defuse_core/intents/account/struct.InvalidateNonces.html): Every intent execution requires a nonce. Each account id gets (over time, while using the `Verifier`) more nonces, and this ensures that nonces are not reused to avoid replay attacks. This “marks” the nonce as used.
-
-Note that nonces can be invalidated [through transactions too directly to the blockchain](https://near.github.io/intents/defuse/accounts/trait.AccountManager.html#tymethod.invalidate_nonces).
-
-Example of an intent to invalidate nonces:
-
-```json
-[
-  {
-    "standard": "nep413",
-    "payload": {
-      "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T08:41:42.338139Z\",\"intents\":[{\"intent\":\"invalidate_nonces\",\"nonces\":[\"JDmc9OucOJ6T/6t5ZJKSXRTxsVF7cjTquG61B8n7U/c=\",\"c8lXTQioWz5E6jprPU0FU7YjbLt/Fs4lZ31RyzdHyg4=\"]}]}",
-      "nonce": "jnaYVzhahj0u9KbEHFasNtCyxRja5PhbAbNqw2svSqo=",
-      "recipient": "intents.near"
-    },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:2zYNyRsUMaHoCL33yZgJMwz8W5FohrkTpJcoCQLiZzqWACBGos9yHe1CnJY6XLXRzK2EhLMw14BCKiN1Usabd6c1"
   }
 ]
 ```
