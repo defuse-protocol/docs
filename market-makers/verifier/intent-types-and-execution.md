@@ -45,7 +45,7 @@ The "intents" in there contains the same intent from above, but in an array, bec
   "signer_id": "alice.near",
   "verifying_contract": "intents.near",
   "deadline": "2025-05-21T12:23:04.252814Z",
-  "nonce": "V0vLMfPYlXu81LziD9l0lCs5ydjOJfANH+3yej9wZmI=",
+  "nonce": "Vij2xgAlKBKzAMcLzEqKQRhRHXp3ThAEFTYtBmfhzvE=",
   "intents": [
     {
       "intent": "transfer",
@@ -62,14 +62,16 @@ Finally, to create a valid, signed intent to submit to the `Verifier` contract w
 
 ```json
 {
-  "standard": "nep413",
+ "standard": "nep413",
   "payload": {
-    "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T10:34:04.254392Z\",\"intents\":[{\"intent\":\"transfer\",\"receiver_id\":\"bob.near\",\"tokens\":{\"nep141:usdc.near\":\"10\"}}]}",
-    "nonce": "Op47m39Q/NzWWi8jYe4umk96OTSnY4Ao0FB/B9aPB98=",
-    "recipient": "intents.near"
+    "recipient": "intents.near",
+    "nonce": "Vij2xgAlKBKzgNPJFViEQRiSQad02gXP6pv9IQRCFeg=",
+    "message": "{\"deadline\":\"2025-05-21T10:34:04.254392Z\",\"intents\":
+    [{\"intent\":\"transfer\",\"receiver_id\":\"bob.near\",\"tokens\":{\"nep141:usdc.near\":\"10\"}}],
+    \"signer_id\":\"alice.near\"}"
   },
-  "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-  "signature": "ed25519:52oc2FD4rMsAPNSBSx6eNYrF4atreXTZxWFhAPfmZFn1eF7jbE3BrRTL3ey1M1sAKSdK8qriZiHQnhnNBCh8vVMJ"
+  "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+  "signature": "ed25519:2o7Cg7N8bEAKtEDbC9Nja8Ks1bJ9Nunh5Ems51G8oV6n96ckUVFeT81vr3TouE47R24HJSrLyxdeBEbvWeuizVBZ"
 }
 ```
 
@@ -92,12 +94,14 @@ Example of an intent to add a public key:
   {
     "standard": "nep413",
     "payload": {
-      "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T08:04:27.483198Z\",\"intents\":[{\"intent\":\"add_public_key\",\"public_key\":\"ed25519:5TagutioHgKLh7KZ1VEFBYfgRkPtqnKm9LoMnJMJugxm\"}]}",
-      "nonce": "lGirXI1Ve90zVJIuONIhqP0QDzHfULwxpXymmoR5Ehc=",
-      "recipient": "intents.near"
+      "recipient": "intents.near",
+      "nonce": "Vij2xgAlKBKzwKyKBC58QRjK3paApkNO6LU77m306Vw=",
+      "message": "{\"deadline\":\"2025-05-21T08:04:27.483198Z\",\"intents\":
+      [{\"intent\":\"add_public_key\",\"public_key\":\"ed25519:5TagutioHgKLh7KZ1VEFBYfgRkPtqnKm9LoMnJMJugxm\"}],
+      \"signer_id\":\"alice.near\"}"
     },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:5Bv5RXkqJevDE9c245QwsPZzt8upMKb6KWWpxyprMr9UM7ZQp1soL4UAUTsrivXUcgsS6KJepEYrHVuRYQi5BnXy"
+    "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+    "signature": "ed25519:M6gK8WMNBL9vnkuScshNuKF5Yro5gQNRLpTTbruadR54AQvi53xWw8NizyCRbdM3j6y9XZ7MJy4DtQ1JLDz4xGQ"
   }
 ]
 ```
@@ -113,12 +117,14 @@ Example of an intent to remove a public key:
   {
     "standard": "nep413",
     "payload": {
-      "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T08:24:47.536976Z\",\"intents\":[{\"intent\":\"remove_public_key\",\"public_key\":\"ed25519:5TagutioHgKLh7KZ1VEFBYfgRkPtqnKm9LoMnJMJugxm\"}]}",
-      "nonce": "4/NmCi3boWnXZFaf567DM8YZVZvKmDLlt+UGIchjVXU=",
-      "recipient": "intents.near"
+      "recipient": "intents.near",
+      "nonce": "Vij2xgAlKBKzAAxeFUp9QRi4FmMX9Jj6kmrjkUTtltk=",
+      "message": "{\"deadline\":\"2025-05-21T08:24:47.536976Z\",\"intents\":
+      [{\"intent\":\"remove_public_key\",\"public_key\":\"ed25519:5TagutioHgKLh7KZ1VEFBYfgRkPtqnKm9LoMnJMJugxm\"}],
+      \"signer_id\":\"alice.near\"}"
     },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:4JvKFxtvQQ5faTo9p5DscZJWdB5BqgfyqwsfPz9DhmEpZHe8dahwN6SNHzh4RUASxC1ap6sQg2uzNy2e1XUe2MBc"
+    "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+    "signature": "ed25519:3E11skwith3ub3w22FnUdcqYzDFy698qBnP8FEPjZyZKbFtqUZK17AXGSLiwnHXppGrV8wbbGafX8fqXUvefoE8p"
   }
 ]
 ```
@@ -134,12 +140,14 @@ Example of an intent to transfer coins within the `Verifier` contract from Alice
   {
     "standard": "nep413",
     "payload": {
-      "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T10:34:04.254392Z\",\"intents\":[{\"intent\":\"transfer\",\"receiver_id\":\"bob.near\",\"tokens\":{\"nep141:usdc.near\":\"10\"}}]}",
-      "nonce": "Op47m39Q/NzWWi8jYe4umk96OTSnY4Ao0FB/B9aPB98=",
-      "recipient": "intents.near"
+      "recipient": "intents.near",
+      "nonce": "Vij2xgAlKBKzgNPJFViEQRhm1GXQz/Vt+TS0PazCsJQ=",
+      "message": "{\"deadline\":\"2025-05-21T10:34:04.254392Z\",\"intents\":
+      [{\"intent\":\"transfer\",\"receiver_id\":\"bob.near\",\"tokens\":{\"nep141:usdc.near\":\"10\"}}],
+      \"signer_id\":\"alice.near\"}"
     },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:52oc2FD4rMsAPNSBSx6eNYrF4atreXTZxWFhAPfmZFn1eF7jbE3BrRTL3ey1M1sAKSdK8qriZiHQnhnNBCh8vVMJ"
+    "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+    "signature": "ed25519:4nY7kjYV11djwsZ9UmezX1eoVMnzTg2wN6jT67o5vyWnibQ7g34zti8wc9imafbAzH5v4rqmksiextQCas14uxm5"
   }
 ]
 ```
@@ -155,12 +163,14 @@ Example of an intent to withdraw from Alice's account to Bob's account. Notice t
   {
     "standard": "nep413",
     "payload": {
-      "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T10:45:30.098925Z\",\"intents\":[{\"intent\":\"ft_withdraw\",\"token\":\"usdc.near\",\"receiver_id\":\"bob.near\",\"amount\":\"1000\"}]}",
-      "nonce": "TdnN42qOTv68RqVKX64+3k8OYqLqANUcxWBdPZVCPxc=",
-      "recipient": "intents.near"
+      "recipient": "intents.near",
+      "nonce": "Vij2xgAlKBKzgNPJFViEQRiRYtwetaXk8zFqV//Lq3c=",
+      "message": "{\"deadline\":\"2025-05-21T10:45:30.098925Z\",\"intents\":
+      [{\"intent\":\"ft_withdraw\",\"token\":\"usdc.near\",\"receiver_id\":\"bob.near\",\"amount\":\"1000\"}],
+      \"signer_id\":\"alice.near\"}"
     },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:4LwjCRRcmBvBTMqc5tZSd1HPGgzhmVZi4ywvzqyPNQWsubCiiQg6CRPjv5VRS4Vqafac8EvtUwEwr6NauAGQWPnY"
+    "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+    "signature": "ed25519:XYNGWVRyGFGRVZAAn62k9r8qthzbj4a5Ct9eCjrSUW9hXpPRaBvqpLKXpaeBgsekfLFiTLdXMEitrbsZAmMmdmU"
   }
 ]
 ```
@@ -174,12 +184,14 @@ Example of an intent to perform storage deposit that will pay for storage deposi
   {
     "standard": "nep413",
     "payload": {
-      "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T11:06:28.803408Z\",\"intents\":[{\"intent\":\"storage_deposit\",\"contract_id\":\"usdc.near\",\"account_id\":\"bob.near\",\"amount\":\"1250000000000000000000\"}]}",
-      "nonce": "eOzrnSE/OAyhjnAQhqy5k2eQZo5kmr+s4ARwL3+YShY=",
-      "recipient": "intents.near"
+      "recipient": "intents.near",
+      "nonce": "Vij2xgAlKBKzgNPJFViEQRhA/qs878LtXEL9iIjJC14=",
+      "message": "{\"deadline\":\"2025-05-21T11:06:28.803408Z\",\"intents\":
+      [{\"intent\":\"storage_deposit\",\"contract_id\":\"usdc.near\",\"account_id\":\"bob.near\",\"amount\":\"1250000000000000000000\"}],
+      \"signer_id\":\"alice.near\"}"
     },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:VJjEryxLswHmfZhGGJjpxdBcQxQmRhuFg6dmPpHbJvVMvSSGDMdEDwPVJVewuB5KjPFt7cNuqUNn8iTvfybbZ1W"
+    "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+    "signature": "ed25519:4rAYXBa9UY6Zw32dKcGrXgydParzzdygEwdAaaKRg9TxXSP9541rikLWhVCtJqFHJh4Rcvpp2YrbRQ4LBaay7Xa6"
   }
 ]
 ```
@@ -193,22 +205,26 @@ Example of two intents submitted from two users to be used with the `Verifier's`
   {
     "standard": "nep413",
     "payload": {
-      "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T11:30:25.042157Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"-10\",\"nep141:usdt.near\":\"10\"}}]}",
-      "nonce": "7wtMbp+z40LFJoUeWofezV9zMRDU1NCGh2K6+Q/lNO0=",
-      "recipient": "intents.near"
+      "recipient": "intents.near",
+      "nonce": "Vij2xgAlKBKzgMh0PGuHQRiOD4cMhPLCgZfb8bCmR7s=",
+      "message": "{\"deadline\":\"2025-05-21T11:30:25.042157Z\",\"intents\":
+      [{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"-10\",\"nep141:usdt.near\":\"10\"}}],
+      \"signer_id\":\"alice.near\"}"
     },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:3Zj5dYUKtrn7stZ2g5RHXBU4akDwKWiCDt8iBLvzRfqESV4KsxfXJc7uJjJ9KqfVGZus67YX3ERXg4t7ndDXPpmd"
+    "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+    "signature": "ed25519:2tKuCpxqtx6YUY6LRkQGeqmAizA8CKhkFtYdsHsAGRjwm4tFcPHHhBRGtuQAAbAkUkwJ6n2UptTP4Mpot1cTvf2u"
   },
   {
     "standard": "nep413",
     "payload": {
-      "message": "{\"signer_id\":\"bob.near\",\"deadline\":\"2025-05-21T11:30:25.054132Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"10\",\"nep141:usdt.near\":\"-10\"}}]}",
-      "nonce": "kybrMeR6qs9+QaXMB3CV/1tZsWS4ZHDd+eJ1QaW/x5Y=",
-      "recipient": "intents"
+      "recipient": "intents.near",
+      "nonce": "Vij2xgAlKBKzgMh0PGuHQRhE5M+mHoAocV57AzeIPuQ=",
+      "message": "{\"deadline\":\"2025-05-21T11:30:25.054132Z\",\"intents\":
+      [{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"10\",\"nep141:usdt.near\":\"-10\"}}],
+      \"signer_id\":\"bob.near\"}"
     },
-    "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-    "signature": "ed25519:4KPKN8BSDfngeSdLx9qseYq5VnqM8CoUt1YCY7XMbtEuRDC2P5VHUgHQmKHS1ENfoJyGRWvGB9cbgRW4LS7YDWak"
+    "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+    "signature": "ed25519:gTrJn3CaESvDJ765SDZ7JdkXupeGApjU6t66XpwrCXKM5K7b4VEeZXxL6NSL7i5zJ2Dn1aracg9xubktcPLwHEq"
   }
 ]
 ```
