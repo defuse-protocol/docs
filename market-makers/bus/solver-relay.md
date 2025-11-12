@@ -426,23 +426,13 @@ Please note that unique `id` is required in the JSON-RPC message when using this
       },
       "signed_data": {
         "standard": "nep413",
-        "message": {
-          "signer_id": "solver.near",
-          "deadline": "2024-10-14T12:53:40.000Z",
-          "intents": [
-            {
-              "intent": "token_diff",
-              "diff": {
-                "nep141:ft2.near": "-300",
-                "nep141:ft1.near": "500"
-              }
-            },
-          ]
+        "payload": {
+          "recipient": "intents.near",
+          "nonce": "Vij2xgAlKBKzAEiS6N1S/hcQLaHzX2s1fNKhBDblXT4=",
+          "message": "{\"deadline\":\"2024-10-14T12:53:40.000Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:ft2.near\":\"-300\",\"nep141:ft1.near\":\"500\"}}],\"signer_id\":\"solver.near\"}"
         },
-        "nonce": "BJwLqfS+yJSMgjzWAXOULFgSfHWdlK4Uso65/jeVUrA=",
-        "recipient": "intents.near",
-        "signature": "ed25519:5193Sx4eC6f3YdztiUfg2MSWJBuqi9Ykbuh3NEzw9b3nQQCCkT84YmJZoN4dpjc8g4rx1D5o2asesR5ECtGa5vFQ",
-        "public_key": "ed25519:AgYQSY8hemfdL8ENQqwBrVoohB5d6j972qwgWgPgjgiZ"
+        "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+        "signature": "ed25519:WQXG37prMyT4f1vp6JSvamsjqDR5fSnDiinSPaCoq9sPcDgFGPRiMWX7csqqudDbzc8i6wrfpemgpVX2wQDmwww"
       }
     },
     "other_quote_hashes": ["00000000000000000000000000000000", ...] //optional
