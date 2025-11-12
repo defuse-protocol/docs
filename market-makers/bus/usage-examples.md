@@ -110,10 +110,11 @@ import bs58 from 'bs58';
 
 const amount = "1000" //calculated amount market maker want to propose
 const standard = "nep413";
+const timestamp = 10000;
 const message = {
   signer_id: "...", //account id of market maker's account that will be used for signing
   deadline: {
-    timestamp: 10000, //timestamp deadline in seconds
+    timestamp, //timestamp deadline in seconds
   },
   intents: [
     {
@@ -130,7 +131,7 @@ const message = {
   ],
 };
 const messageStr = JSON.stringify(message);
-const nonce = await generateNonce();
+const nonce = await generateNonce(new Date(timestamp));
 const recipient = defuseContract; //for example "intents.near"
 const quoteHash = serializeIntent(messageStr, recipient, nonce, standard);
 const signature = signMessage(quoteHash);
