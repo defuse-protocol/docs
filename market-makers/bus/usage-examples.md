@@ -23,17 +23,30 @@ params: {
 ```
 
 ```typescript
-const generateNonce = async (): Promise<string> => {
-    const randomArray = randomBytes(32);
-    return randomArray.toString('base64');
-    if (await this.isNonceUsed(nonceString)) { // this step can be skipped, but if the nonce is already used the quote won't be taken into account
-      return this.generateNonce();
-    } else {
-     return nonceString;
-    }
+import {VersionedNonceBuilder} from "@defuse-protocol/intents-sdk";
+
+const generateNonce = async (deadline: Date): Promise<string> => {
+  const account = await getAccount(); //function that will return Account instance(from "near-api-js") of market makers' Near account
+
+  const salt_hex = await account.viewFunction({
+    contractId: "intents.near",
+    methodName: "current_salt",
+  });
+
+  let salt_bytes = Uint8Array.from(Buffer.from(salt_hex, "hex"));
+  let versionedNonce = VersionedNonceBuilder.encodeNonce(salt_bytes, deadline);
+
+  if (await isNonceUsed(versionedNonce)) {
+    // this step can be skipped, but if the nonce is already used the quote won't be taken into account
+    return generateNonce(deadline);
+  } else {
+    return versionedNonce;
+  }
 }
+
 const isNonceUsed = async (nonce: string) => {
-    const account = getAccount(); //function that will return Account instance(from "near-api-js") of market makers' Near account
+    const account = await getAccount();
+
     return await account.viewFunction({
       contractId: defuseContract,
       methodName: 'is_nonce_used',
