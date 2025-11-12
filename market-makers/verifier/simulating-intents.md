@@ -52,19 +52,33 @@ Calling `simulate_intents` with the above mentioned intents list produces the fo
   "intents_executed": [
     {
       "intent_hash": "5GpL6PsUQVHFYAk5FWEwBUaEQqcZkc2SjTvPYHgHAnx8",
-      "account_id": "charlie.near"
+      "account_id": "charlie.near",
+      "nonce": "Vij2xgAlKBKzwJcGrQQYQhiLk1HU5AVNH1M3PhtxosE="
     },
     {
       "intent_hash": "4ejradLAAPBhBVAn6tBYExpuj2VCn5f5VEBfVajNXiXk",
-      "account_id": "drake.near"
+      "account_id": "drake.near",
+      "nonce": "Vij2xgAlKBKzwJcGrQQYQhjtxxGCsZQhM2DP7btPexE="
     }
+  ],
+  "logs": [
+    "EVENT_JSON:{\"data\":[{\"account_id\":\"charlie.near\",\"diff\":{\"nep141:usdc.near\":\"-100\",\"nep141:usdt.near\":\"100\"},\"intent_hash\":\"5GpL6PsUQVHFYAk5FWEwBUaEQqcZkc2SjTvPYHgHAnx8\"}],\"event\":\"token_diff\",\"standard\":\"dip4\",\"version\":\"0.3.0\"}",
+    "EVENT_JSON:{\"data\":[{\"account_id\":\"drake.near\",\"diff\":{\"nep141:usdc.near\":\"100\",\"nep141:usdt.near\":\"-100\"},\"intent_hash\":\"4ejradLAAPBhBVAn6tBYExpuj2VCn5f5VEBfVajNXiXk\"}],\"event\":\"token_diff\",\"standard\":\"dip4\",\"version\":\"0.3.0\"}",
+    "EVENT_JSON:{\"data\":[{\"account_id\":\"charlie.near\",\"intent_hash\":\"5GpL6PsUQVHFYAk5FWEwBUaEQqcZkc2SjTvPYHgHAnx8\",\"nonce\":\"Vij2xgAlKBKzwJcGrQQYQhiLk1HU5AVNH1M3PhtxosE=\"},{\"account_id\":\"drake.near\",\"intent_hash\":\"4ejradLAAPBhBVAn6tBYExpuj2VCn5f5VEBfVajNXiXk\",\"nonce\":\"Vij2xgAlKBKzwJcGrQQYQhjtxxGCsZQhM2DP7btPexE=\"}],\"event\":\"intents_executed\",\"standard\":\"dip4\",\"version\":\"0.3.0\"}"
   ],
   "min_deadline": "2025-05-23T07:40:13.735337Z",
   "state": {
-    "fee": 100
+    "fee": 100,
+    "current_salt": "252812b3"
   }
 }
 ```
+
+Where
+- intents_executed - all intents events, collected during simulation, containing signer, nonce and intent hash
+- logs - all collected defuse events which will be emitted during intent execution
+- min_deadline - minimum deadline among all intents
+- state - current state configurations containing fee and [salt](link from repo)
 
 The fees are expressed in pips - 100 pips is 0.01%.
 
