@@ -78,7 +78,7 @@ Where
 - intents_executed - all intents events, collected during simulation, containing signer, nonce and intent hash
 - logs - all collected defuse events which will be emitted during intent execution
 - min_deadline - minimum deadline among all intents
-- state - current state configurations containing fee and [salt](link from repo)
+- state - current state configurations containing fee and [salt](https://github.com/near/intents/tree/main/defuse/README.md)
 
 The fees are expressed in pips - 100 pips is 0.01%.
 

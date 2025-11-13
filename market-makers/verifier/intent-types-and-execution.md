@@ -35,7 +35,7 @@ This intent is part of the payload, which should have the following members:
 - signer_id - signer acount id
 - verifying_contract - contract address to which intents are sent
 - deadline - timestamp in ISO 8601 format
-- nonce - 256 bit value (which has clear [requirements](link) for structure)
+- nonce - 256 bit value. It is very important to include it with the correct structure.which has clear [requirements](https://github.com/near/intents/tree/main/defuse/README.md) for structure
 - intents - array of intents
 
 The "intents" in there contains the same intent from above, but in an array, because users can submit multiple intents to be executed as a batch in order. Keep in mind the [caveats explained here](intent-types-and-execution.md#note-on-ordering-of-intent-execution-and-atomicity) about the order of execution.
