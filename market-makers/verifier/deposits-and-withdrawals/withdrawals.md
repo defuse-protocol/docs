@@ -21,12 +21,14 @@ near contract call-function as-transaction intents.near ft_withdraw json-args '{
 {
   "standard": "nep413",
   "payload": {
-    "message": "{\"signer_id\":\"user1.test.near\",\"deadline\":\"2025-05-20T13:29:34.360380Z\",\"intents\":[{\"intent\":\"ft_withdraw\",\"token\":\"wrap.near\",\"receiver_id\":\"alice.near\",\"amount\":\"1000\"}]}",
-    "nonce": "D9JkDUi93utMQZ1hPAOV7gfnzx3fjehp6oNoCQURPe4=",
-    "recipient": "defuse.test.near"
+    "recipient": "intents.near",
+    "nonce": "Vij2xgAlKBKzgNPJFViEQRhPvveC+P9xRwOXFW/IK5w=",
+    "message": "{\"deadline\":\"2025-05-20T13:29:34.360380Z\",\"intents\":
+    [{\"intent\":\"ft_withdraw\",\"token\":\"wrap.near\",\"receiver_id\":\"alice.near\",\"amount\":\"1000\"}],
+    \"signer_id\":\"user1.test.near\"}"
   },
-  "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-  "signature": "ed25519:52yFEvWpttuFiPwjJR2PdMzBrT34UCH4DX4rtuVeFBdVXt3C4ndA8Xxe7BczHuyC1ACqB24de97oW5U8YUty7omF"
+  "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+  "signature": "ed25519:5op5APf9YaRznvMVwZBw6GGk9ychU3QtNRKJSxuVajHFMQths4ZZMRoAENU1zWhjinqz8KuLNyM9589c86opopyT"
 }
 ```
 

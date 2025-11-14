@@ -191,12 +191,12 @@ If the user is satisfied with the offer provided by the solver, they can sign an
       "signed_data": {
         "standard": "nep413",
         "payload": {
-          "message": "{\"signer_id\":\"user.near\",\"deadline\":\"2024-10-14T12:53:40.000Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:ft1.near\":\"300\",\"nep141:ft2.near\":\"-500\"}},{\"intent\":\"transfer\",\"receiver_id\":\"referral.near\",\"tokens\":{\"nep141:ft1.near\":\"1\"}},{\"intent\":\"ft_withdraw\",\"token\":\"ft1.near\",\"receiver_id\":\"ft1.near\",\"amount\":\"299\",\"memo\":\"WITHDRAW_TO:address_on_target_chain\"}]}",
-          "nonce": "bacFZfjWD8lm4mwAZ/TScL8HrrapeXlTSyAeD4i8Lfs=",
-          "recipient": "intents.near"
+          "recipient": "intents.near",
+          "nonce": "Vij2xgAlKBKzAEiS6N1S/hfrNi8/We0ieTmcMBti1YE=",
+          "message": "{\"deadline\":\"2024-10-14T12:53:40.000Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:ft1.near\":\"300\",\"nep141:ft2.near\":\"-500\"}},{\"intent\":\"transfer\",\"receiver_id\":\"referral.near\",\"tokens\":{\"nep141:ft1.near\":\"1\"}},{\"intent\":\"ft_withdraw\",\"token\":\"ft1.near\",\"receiver_id\":\"ft1.near\",\"amount\":\"299\",\"memo\":\"WITHDRAW_TO:address_on_target_chain\"}],\"signer_id\":\"user.near\"}"
         },
-        "signature": "ed25519:2yJ1ANYAL1yRoXk8uiDZygyH3TeRpVucwBMpUh1bsvcCLL3BBoJzqAojQNN4mxz9v5fSzbwqz7p9MFtZKNKW81Cg",
-        "public_key": "ed25519:4vyWshm6BE4uoHk7fot2iij7tFXrjWp4wDnNEJx2W4sf"
+        "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+        "signature": "ed25519:5tk3UyFcAgnd6D4ZAuzEdZqMrneRSiTqe48ptjbjYHwiCy2vTw38uDB3KusW2cEsF3TGcqZXoQmRaeNs2erhPpqu"
       }
     }
   ]
@@ -426,23 +426,13 @@ Please note that unique `id` is required in the JSON-RPC message when using this
       },
       "signed_data": {
         "standard": "nep413",
-        "message": {
-          "signer_id": "solver.near",
-          "deadline": "2024-10-14T12:53:40.000Z",
-          "intents": [
-            {
-              "intent": "token_diff",
-              "diff": {
-                "nep141:ft2.near": "-300",
-                "nep141:ft1.near": "500"
-              }
-            },
-          ]
+        "payload": {
+          "recipient": "intents.near",
+          "nonce": "Vij2xgAlKBKzAEiS6N1S/hcQLaHzX2s1fNKhBDblXT4=",
+          "message": "{\"deadline\":\"2024-10-14T12:53:40.000Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:ft2.near\":\"-300\",\"nep141:ft1.near\":\"500\"}}],\"signer_id\":\"solver.near\"}"
         },
-        "nonce": "BJwLqfS+yJSMgjzWAXOULFgSfHWdlK4Uso65/jeVUrA=",
-        "recipient": "intents.near",
-        "signature": "ed25519:5193Sx4eC6f3YdztiUfg2MSWJBuqi9Ykbuh3NEzw9b3nQQCCkT84YmJZoN4dpjc8g4rx1D5o2asesR5ECtGa5vFQ",
-        "public_key": "ed25519:AgYQSY8hemfdL8ENQqwBrVoohB5d6j972qwgWgPgjgiZ"
+        "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+        "signature": "ed25519:WQXG37prMyT4f1vp6JSvamsjqDR5fSnDiinSPaCoq9sPcDgFGPRiMWX7csqqudDbzc8i6wrfpemgpVX2wQDmwww"
       }
     },
     "other_quote_hashes": ["00000000000000000000000000000000", ...] //optional
