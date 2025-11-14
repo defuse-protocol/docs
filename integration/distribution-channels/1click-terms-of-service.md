@@ -1,5 +1,5 @@
 ---
-icon: computer-mouse
+icon: scales
 layout:
   width: default
   title:
