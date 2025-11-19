@@ -18,24 +18,28 @@ The following is a valid, signed intents to trade 100 `USDC` for 100 `USDT`. It 
 {
   "signed": [
     {
+      "standard": "nep413",
       "payload": {
-        "message": "{\"signer_id\":\"charlie.near\",\"deadline\":\"2025-05-23T07:40:13.735337Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"-100\",\"nep141:usdt.near\":\"100\"}}]}",
-        "nonce": "YYH3FpFX304MrWWNLOLJ0DGlE+fvrNmZIfMEv0Mknpo=",
-        "recipient": "intents.near"
+        "recipient": "intents.near",
+        "nonce": "Vij2xgAlKBKzwJcGrQQYQhiLk1HU5AVNH1M3PhtxosE=",
+        "message": "{\"deadline\":\"2025-05-23T07:40:13.735337Z\",\"intents\":
+        [{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"-100\",\"nep141:usdt.near\":\"100\"}}],
+        \"signer_id\":\"charlie.near\"}"
       },
-      "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-      "signature": "ed25519:5PVAsBuLFnwCLVRw3Sf2FBzUV1torFs26dA6qedexbaJQuBcqqhkZPCQb83dB4qR8tBiy69B9g8PaUyxs1qR5FNq",
-      "standard": "nep413"
+      "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+      "signature": "ed25519:617X6QMiwFohRHqEuFwZ8aGU6Gn8PsH1DM3grArCYSKSvLz4wBPPGLzLPX3SLstLB331ESGPUToaPkUE7DvgefUu"
     },
     {
+      "standard": "nep413",
       "payload": {
-        "message": "{\"signer_id\":\"drake.near\",\"deadline\":\"2025-05-23T07:40:13.753085Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"100\",\"nep141:usdt.near\":\"-100\"}}]}",
-        "nonce": "ygCgLk1UY7gvqcbjmWYt8AnttQyFIQVAeAmoIeDDv2Q=",
-        "recipient": "intents.near"
+        "recipient": "intents.near",
+        "nonce": "Vij2xgAlKBKzwJcGrQQYQhjtxxGCsZQhM2DP7btPexE=",
+        "message": "{\"deadline\":\"2025-05-23T07:40:13.753085Z\",\"intents\":
+        [{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"100\",\"nep141:usdt.near\":\"-100\"}}],
+        \"signer_id\":\"drake.near\"}"
       },
-      "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-      "signature": "ed25519:5HSGGwfv8GXrGVtiQFdFdCFoE2Rj1m6YyuBa7Rw4rViKBwkgpFDwe8osqKmdMqYUeSNZzymNt3eoZUNUeXmYvUiu",
-      "standard": "nep413"
+      "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+      "signature": "ed25519:3mLCEKyhofYLVakC9qgyb2FWh4L3jQxnUNyBHxYMTC13bo9y4AeqRh29dDYC4ZAQk4Z4mA2QZL8y7KGGKp5Pc3S1"
     }
   ]
 }
@@ -48,19 +52,33 @@ Calling `simulate_intents` with the above mentioned intents list produces the fo
   "intents_executed": [
     {
       "intent_hash": "5GpL6PsUQVHFYAk5FWEwBUaEQqcZkc2SjTvPYHgHAnx8",
-      "account_id": "charlie.near"
+      "account_id": "charlie.near",
+      "nonce": "Vij2xgAlKBKzwJcGrQQYQhiLk1HU5AVNH1M3PhtxosE="
     },
     {
       "intent_hash": "4ejradLAAPBhBVAn6tBYExpuj2VCn5f5VEBfVajNXiXk",
-      "account_id": "drake.near"
+      "account_id": "drake.near",
+      "nonce": "Vij2xgAlKBKzwJcGrQQYQhjtxxGCsZQhM2DP7btPexE="
     }
+  ],
+  "logs": [
+    "EVENT_JSON:{\"data\":[{\"account_id\":\"charlie.near\",\"diff\":{\"nep141:usdc.near\":\"-100\",\"nep141:usdt.near\":\"100\"},\"intent_hash\":\"5GpL6PsUQVHFYAk5FWEwBUaEQqcZkc2SjTvPYHgHAnx8\"}],\"event\":\"token_diff\",\"standard\":\"dip4\",\"version\":\"0.3.0\"}",
+    "EVENT_JSON:{\"data\":[{\"account_id\":\"drake.near\",\"diff\":{\"nep141:usdc.near\":\"100\",\"nep141:usdt.near\":\"-100\"},\"intent_hash\":\"4ejradLAAPBhBVAn6tBYExpuj2VCn5f5VEBfVajNXiXk\"}],\"event\":\"token_diff\",\"standard\":\"dip4\",\"version\":\"0.3.0\"}",
+    "EVENT_JSON:{\"data\":[{\"account_id\":\"charlie.near\",\"intent_hash\":\"5GpL6PsUQVHFYAk5FWEwBUaEQqcZkc2SjTvPYHgHAnx8\",\"nonce\":\"Vij2xgAlKBKzwJcGrQQYQhiLk1HU5AVNH1M3PhtxosE=\"},{\"account_id\":\"drake.near\",\"intent_hash\":\"4ejradLAAPBhBVAn6tBYExpuj2VCn5f5VEBfVajNXiXk\",\"nonce\":\"Vij2xgAlKBKzwJcGrQQYQhjtxxGCsZQhM2DP7btPexE=\"}],\"event\":\"intents_executed\",\"standard\":\"dip4\",\"version\":\"0.3.0\"}"
   ],
   "min_deadline": "2025-05-23T07:40:13.735337Z",
   "state": {
-    "fee": 100
+    "fee": 100,
+    "current_salt": "252812b3"
   }
 }
 ```
+
+Where
+- intents_executed - all intents events, collected during simulation, containing signer, [nonce](https://github.com/near/intents/tree/main/defuse#nonces) and intent hash
+- logs - all collected defuse events which will be emitted during intent execution
+- min_deadline - minimum deadline among all intents
+- state - current state configurations containing fee and [salt](https://github.com/near/intents/tree/main/defuse#salt)
 
 The fees are expressed in pips - 100 pips is 0.01%.
 

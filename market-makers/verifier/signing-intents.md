@@ -42,12 +42,14 @@ A signed [Transfer](https://near.github.io/intents/defuse_core/intents/tokens/st
 {
   "standard": "nep413",
   "payload": {
-    "message": "{\"signer_id\":\"alice.near\",\"deadline\":\"2025-05-21T10:34:04.254392Z\",\"intents\":[{\"intent\":\"transfer\",\"receiver_id\":\"bob.near\",\"tokens\":{\"nep141:usdc.near\":\"10\"}}]}",
-    "nonce": "Op47m39Q/NzWWi8jYe4umk96OTSnY4Ao0FB/B9aPB98=",
-    "recipient": "intents.near"
+    "recipient": "intents.near",
+    "nonce": "Vij2xgAlKBKzgNPJFViEQRgYyS7p2NEiYTTY4XmT8go=",
+    "message": "{\"deadline\":\"2025-05-21T10:34:04.254392Z\",\"intents\":
+    [{\"intent\":\"transfer\",\"receiver_id\":\"bob.near\",\"tokens\":{\"nep141:usdc.near\":\"10\"}}],
+    \"signer_id\":\"alice.near\"}"
   },
-  "public_key": "ed25519:Gxa24TGbJu4mqdhW3GbvLXmf4bSEyxVicrtpChDWbgga",
-  "signature": "ed25519:52oc2FD4rMsAPNSBSx6eNYrF4atreXTZxWFhAPfmZFn1eF7jbE3BrRTL3ey1M1sAKSdK8qriZiHQnhnNBCh8vVMJ"
+  "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+  "signature": "ed25519:2ns3eCikZFxFA6e9ApunuDG4XwJUPrB8q82fYViBKjheqiDYcCmLN9RnB9NhoEvCdNoS3L3qYD9FAnKd7UkTnuij"
 }
 ```
 
@@ -69,9 +71,9 @@ The object of this type is compliant with the [ERC-191 standard](https://eips.et
 
 ```
 {
-  "standard": "erc191"
-  "payload": "{\"signer_id\": \"0xccaa162a73e6e9dcfdd42c9d97c3b515c1cd34c3\", \"verifying_contract\": \"intents.near\", \"deadline\": \"2025-05-26T13:24:16.983Z\", \"nonce\": \"U3UMmW79FqTMtBx3DYLI2DUxxwAFY+Eo4kY11PEI3PU=\", \"intents\": [{ \"intent\": \"token_diff\", \"diff\": { \"nep141:usdc.near\": \"-1000\", \"nep141:usdt.near\": \"1000\" } }, { \"intent\": \"ft_withdraw\", \"token\": \"usdt.near\", \"receiver_id\": \"bob.near\", \"amount\": \"1000\" }]}",
-  "signature": "secp256k1:4jpo5EuztCFUe3gVqWpmwowoorFUmt4ynu3Z8WPo9zw2BSoHB279PZtDz934L1uCi6VfgXYJdTEfRaxyM3a1zaUw1",
+  "standard": "erc191",
+  "payload": "{\"signer_id\":\"0xca67C1Bb3FD69857E5edaF6aA1c65371bF46A464\",\"verifying_contract\":\"intents.near\",\"deadline\":\"2025-05-26T13:24:16.983Z\",\"nonce\":\"Vij2xgAlKBKzwGNqwogWQxiy87p9jW5Omfg+L9bXBDw=\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"-1000\",\"nep141:usdt.near\":\"1000\"}},{\"intent\":\"ft_withdraw\",\"token\":\"usdt.near\",\"receiver_id\":\"bob.near\",\"amount\":\"1000\"}]}",
+  "signature": "secp256k1:BoR53NKKJ2GfP8bETk427Xav8VMpUcZovLzXeq2EsUD7NnPH2sSmxWFEkDUrguJHHkiu3GwEQxxMo2Rm2ZTDHFygU"
 }
 ```
 
@@ -87,10 +89,10 @@ This is a standard used by [Phantom wallet for Solana off-chain message signing]
 
 ```
 {
-    "standard":"raw_ed25519",
-    "payload":"{\"signer_id\":\"alice.near\",\"verifying_contract\":\"intents.near\",\"deadline\":{\"timestamp\":1732035219},\"nonce\":\"XVoKfmScb3G+XqH9ke/fSlJ/3xO59sNhCxhpG821BH8=\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"-1000\",\"nep141:usdt.near\":\"998\"}}]}",
-    "public_key":"ed25519:8rVvtHWFr8hasdQGGD5WiQBTyr4iH2ruEPPVfj491RPN",
-    "signature":"ed25519:3vtbNQJHZfuV1s5DykzyjkbNLc583hnkrhTz57eDhd966iqzkor6Twgr4Loh2C195SCSEsiGfrd6KcxpjNq9ZbVj"
+    "standard": "raw_ed25519",
+    "payload": "{\"signer_id\":\"alice.near\",\"verifying_contract\":\"intents.near\",\"deadline\":{\"timestamp\":1732035219},\"nonce\":\"Vij2xgAlKBKzwGNqwogWQxi9ZuGDNBXlmdy9g3MQSMk=\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:usdc.near\":\"-1000\",\"nep141:usdt.near\":\"998\"}}]}",
+    "public_key": "ed25519:9aqyNsCRrDkq9SceVRCdW1Zs9BmEP8ieJQRJim8iRLF",
+    "signature": "ed25519:9RHRenkbYN6cfWXkou47sjAf1PuTc6nYM8amHADApfqio8dcMQu28cgfz6wkktBFoE8J7FsZ3rxifFdMdzTTJi6"
 }
 ```
 

@@ -5,7 +5,7 @@ description: Example of signing a quote (creating a commitment).
 # Usage
 
 {% hint style="info" %}
-There is no SDK for Message Bus API yet
+There is no SDK for Message Bus API yet. But intents-sdk can be used to create intents
 {% endhint %}
 
 Example of how to create response for quote for market makers using TypeScript\
@@ -22,18 +22,32 @@ params: {
 },
 ```
 
+You can read more about versioned nonces [here](https://github.com/near/intents/tree/main/defuse#nonces)
 ```typescript
-const generateNonce = async (): Promise<string> => {
-    const randomArray = randomBytes(32);
-    return randomArray.toString('base64');
-    if (await this.isNonceUsed(nonceString)) { // this step can be skipped, but if the nonce is already used the quote won't be taken into account
-      return this.generateNonce();
-    } else {
-     return nonceString;
-    }
+import {VersionedNonceBuilder} from "@defuse-protocol/intents-sdk";
+
+const generateNonce = async (deadline: Date): Promise<string> => {
+  const account = await getAccount(); //function that will return Account instance(from "near-api-js") of market makers' Near account
+
+  const salt_hex = await account.viewFunction({
+    contractId: "intents.near",
+    methodName: "current_salt",
+  });
+
+  let salt_bytes = Uint8Array.from(Buffer.from(salt_hex, "hex"));
+  let versionedNonce = VersionedNonceBuilder.encodeNonce(salt_bytes, deadline);
+
+  if (await isNonceUsed(versionedNonce)) {
+    // this step can be skipped, but if the nonce is already used the quote won't be taken into account
+    return generateNonce(deadline);
+  } else {
+    return versionedNonce;
+  }
 }
+
 const isNonceUsed = async (nonce: string) => {
-    const account = getAccount(); //function that will return Account instance(from "near-api-js") of market makers' Near account
+    const account = await getAccount();
+
     return await account.viewFunction({
       contractId: defuseContract,
       methodName: 'is_nonce_used',
@@ -46,65 +60,26 @@ const isNonceUsed = async (nonce: string) => {
 ```
 
 ```typescript
-import { BorshSchema, borshSerialize } from 'borsher';
-
-const standardNumber = {
-    ["nep413"]: 413,
-  };
-const Nep413PayloadSchema = BorshSchema.Struct({
-  message: BorshSchema.String,
-  nonce: BorshSchema.Array(BorshSchema.u8, 32),
-  recipient: BorshSchema.String,
-  callback_url: BorshSchema.Option(BorshSchema.String),
-});
-const serializeIntent = (
-  intentMessage: any,
-  recipient: string,
-  nonce: string,
-  standard: string,
-): Buffer => {
-  const payload = {
-    message: intentMessage,
-    nonce: base64ToUint8Array(nonce),
-    recipient,
-  };
-  const payloadSerialized = borshSerialize(Nep413PayloadSchema, payload);
-  const baseInt = 2 ** 31 + standardNumber[standard];
-  const baseIntSerialized = borshSerialize(BorshSchema.u32, baseInt);
-  const combinedData = Buffer.concat([baseIntSerialized, payloadSerialized]);
-  return crypto.createHash('sha256').update(combinedData).digest();
-}
-
-const base64ToUint8Array = (base64: string): Uint8Array => {
-  const binaryString = atob(base64);
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
-  }
-  return bytes;
-}
-```
-
-```typescript
-const signMessage = async (message: Uint8Array) { //you can implement your own way to sign message with near wallet
-  return (await keyStore.getKey(nearNetworkId, accountId)).sign(message); //keyStore is instance of KeyStore(from "near-api-js")
-}
-```
-
-```typescript
-import bs58 from 'bs58';
-
-const amount = "1000" //calculated amount market maker want to propose
-const standard = "nep413";
-const message = {
-  signer_id: "...", //account id of market maker's account that will be used for signing
-  deadline: {
-    timestamp: 10000, //timestamp deadline in seconds
+const getIntentPayload = async (
+  sdk: IntentsSDK,
+  deadline: Date,
+  params: {
+    defuse_asset_identifier_in: string;
+    defuse_asset_identifier_out: string;
+    exact_amount_in: string | undefined;
+    exact_amount_out: string | undefined;
+    min_deadline_ms: number;
   },
-  intents: [
-    {
-      intent: 'token_diff',
+  amount: string
+) => {
+  let nonce = await generateNonce(deadline);
+
+  return await sdk
+    .intentBuilder()
+    .setDeadline(deadline)
+    .setNonce(nonce)
+    .addIntent({
+      intent: "token_diff",
       diff: {
         [params.defuse_asset_identifier_in]: !!params.exact_amount_in
           ? params.exact_amount_in
@@ -113,28 +88,40 @@ const message = {
           !!params.exact_amount_out ? params.exact_amount_out : amount
         }`,
       },
-    },
-  ],
+    })
+    .build();
 };
-const messageStr = JSON.stringify(message);
-const nonce = await generateNonce();
-const recipient = defuseContract; //for example "intents.near"
-const quoteHash = serializeIntent(messageStr, recipient, nonce, standard);
-const signature = signMessage(quoteHash);
+```
+
+```typescript
+import bs58 from 'bs58';
+
+const amount = "1000" //calculated amount market maker want to propose
+const deadline = new Date(Date.now() + 5 * 60 * 1000)
+
+const intentSigner = createIntentSignerNearKeyPair({
+  signer,
+  accountId,
+});
+
+const sdk = new IntentsSDK({
+  env: "production",
+  referral: "your_referral",
+  intentSigner: intentSigner,
+});
+
+const payload = await getIntentPayload(
+  sdk,
+  deadline,
+  params
+);
+
+let signedPayload = await intentSigner.signIntent(payload);
 
 const resp: IQuoteObject = {
   quote_id,
   quote_output: {},
-  signed_data: {
-    standard,
-    payload: {
-      message: messageStr,
-      nonce,
-      recipient,
-    },
-    signature: `ed25519:${bs58.encode(signature.signature)}`,
-    public_key: `ed25519:${bs58.encode(signature.publicKey.data)}`,
-  },
+  signed_data: signedPayload
 };
 if (!params.exact_amount_in) {
   resp.quote_output.amount_in = amount;
