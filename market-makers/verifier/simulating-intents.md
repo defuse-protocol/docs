@@ -75,10 +75,10 @@ Calling `simulate_intents` with the above mentioned intents list produces the fo
 ```
 
 Where
-- intents_executed - all intents events, collected during simulation, containing signer, nonce and intent hash
+- intents_executed - all intents events, collected during simulation, containing signer, [nonce](https://github.com/near/intents/tree/main/defuse#nonces) and intent hash
 - logs - all collected defuse events which will be emitted during intent execution
 - min_deadline - minimum deadline among all intents
-- state - current state configurations containing fee and [salt](https://github.com/near/intents/tree/main/defuse/README.md)
+- state - current state configurations containing fee and [salt](https://github.com/near/intents/tree/main/defuse#salt)
 
 The fees are expressed in pips - 100 pips is 0.01%.
 

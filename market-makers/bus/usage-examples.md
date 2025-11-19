@@ -22,6 +22,7 @@ params: {
 },
 ```
 
+You can read more about versioned nonces [here](https://github.com/near/intents/tree/main/defuse#nonces)
 ```typescript
 import {VersionedNonceBuilder} from "@defuse-protocol/intents-sdk";
 
