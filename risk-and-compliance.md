@@ -12,8 +12,7 @@ Every quote request undergoes automated compliance checks against multiple trust
 
 - **NEAR Intents AML Portal** - ([aml.near-intents.org](https://aml.near-intents.org))
 - **Binance AML**
-- **AMLBot**
-- **PureFI**
+- **AMLBot & PureFi**
 
 These checks are designed to identify any overlap between addresses provided in the request and addresses flagged in external databases.
 
