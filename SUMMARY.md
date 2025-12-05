@@ -43,4 +43,5 @@
 * [Treasury Addresses](treasury-addresses.md)
 * [Fees](fees.md)
 * [Examples](examples.md)
+* [Partners Portal](https://partners.near-intents.org/)
 * [System Status](https://status.near-intents.org/)
