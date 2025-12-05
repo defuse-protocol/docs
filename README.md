@@ -12,7 +12,7 @@ description: >-
 </figure>
 
 
- 👉 **Get API Key on the Partners Portal](https://partners.near-intents.org)**  
+ 👉 **[Get API Key on the Partners Portal](https://partners.near-intents.org)**  
 
 {% hint style="info" %}
 
