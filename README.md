@@ -11,14 +11,12 @@ description: >-
   <figcaption></figcaption>
 </figure>
 
+
+ 👉 **Get API Key on the Partners Portal](https://partners.near-intents.org)**  
+
 {% hint style="info" %}
 
 NEAR Intents and its documentation are under active development and have recently been renamed from "Defuse" to "NEAR Intents".
-
- [!tip] Get API Key  
- 👉 **[Click here to get your API Key on the Partner Portal](https://your-partner-portal-link.com)**  
-
-[<span style="background:#2563eb;color:white;padding:10px 16px;border-radius:6px;">Get API Key on Partner Portal</span>](https://your-partner-portal-link.com)
 
 While the documentation and examples here focus on multichain token swaps, NEAR Intents extend far beyond these types of requests. Whether you want to swap tokens across chains or buy a pizza with Bitcoin, NEAR Intents serves as a protocol for ANY request where diverse solution marketplaces can naturally emerge through competitive discovery.
 
