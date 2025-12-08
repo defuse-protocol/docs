@@ -1,16 +1,5 @@
 ---
 icon: book
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: false
-  pagination:
-    visible: false
 ---
 
 # Intents Explorer API
@@ -21,14 +10,15 @@ The **Intents Explorer API** provides programmatic access to historical 1Click S
 
 ### Key Features
 
-- The API is tailored exclusively for 1Click Swap transactions and is not intended for general NEAR Intents activity.
-- Retrieve and filter swaps by token symbols, transaction hashes, timestamps, and status, enabling precise integration with your analytics or dashboarding tools.
-- Mirrors the same real-time and historical swap data shown in the [NEAR Intents Explorer](https://explorer.near-intents.org/) interface.
+* The API is tailored exclusively for 1Click Swap transactions and is not intended for general NEAR Intents activity.
+* Retrieve and filter swaps by token symbols, transaction hashes, timestamps, and status, enabling precise integration with your analytics or dashboarding tools.
+* Mirrors the same real-time and historical swap data shown in the [NEAR Intents Explorer](https://explorer.near-intents.org/) interface.
 
 ### Documentation & Access
-- **Swagger UI**: [https://explorer.near-intents.org/api/docs](https://explorer.near-intents.org/api/docs)
-- **OpenAPI Spec (YAML)**: [https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
-- **API Key Form**: [https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform)
+
+* **Swagger UI**: [https://explorer.near-intents.org/api/docs](https://explorer.near-intents.org/api/docs)
+* **OpenAPI Spec (YAML)**: [https://explorer.near-intents.org/api/v0/openapi.yaml](https://explorer.near-intents.org/api/v0/openapi.yaml)
+* **API Key Form**: [https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb\_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform](https://docs.google.com/forms/d/e/1FAIpQLSdrSrqSkKOMb_a8XhwF0f7N5xZ0Y5CYgyzxiAuoC2g4a2N68g/viewform)
 
 ## API Specification (v0)
 

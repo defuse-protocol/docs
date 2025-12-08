@@ -1,14 +1,12 @@
 # Example Transactions
 
-Examples of supported transactions are listed:\
-
+Examples of supported transactions are listed:<br>
 
 * [add\_public\_key](https://nearblocks.io/txns/FBTRk6jRUSW3E1SjBfYbA71DhN5xTX1yE2foy98TafrM#execution)
 * [remove\_public\_key](https://nearblocks.io/txns/69XiJcRtipZ2i8bkHHgCaSAkswd8Lt6VxiJuM8dKq9qn#execution)
 * [execute\_intents](https://nearblocks.io/txns/FxpbspXjRQg3gDii18ibp3w7yvbe7MWaDHQfVqVfq7xN#enhanced) (1 withdrawal intent)
 
-NEP-141:\
-
+NEP-141:<br>
 
 * [deposit](https://nearblocks.io/txns/DWv4AkrLxnbJV6paqSFR3Tt42SdVAtunBbEi2XATdXTW#enhanced)
 * [deposit-then-execute-intents](https://nearblocks.io/txns/Bn3iC9B1uUJrX59x7cfxngY1E159HspzTCyyDVwx5DMJ) (1 withdrawal intent)

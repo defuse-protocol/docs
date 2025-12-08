@@ -7,7 +7,8 @@
 * [Distribution Channels](integration/distribution-channels/README.md)
   * [1Click API](integration/distribution-channels/1click-api.md)
   * [1Click Terms of Service](integration/distribution-channels/1click-terms-of-service.md)
-  * [1Click App Fees Calculation](integration/distribution-channels/1click-app-fees-calculation.md)
+  * [1Click App Fees Calculation](integration/distribution-channels/1click-app-fees-calculation/README.md)
+    * [Aggregate fees from any token into desired asset](integration/distribution-channels/1click-app-fees-calculation/aggregate-fees-from-any-token-into-desired-asset.md)
   * [Intents Explorer API](integration/distribution-channels/intents-explorer-api.md)
 
 ***

@@ -1,6 +1,7 @@
 ---
 icon: wallet
 layout:
+  width: default
   title:
     visible: true
   description:
@@ -11,11 +12,13 @@ layout:
     visible: false
   pagination:
     visible: false
+  metadata:
+    visible: true
 ---
 
-# 1Click Swap API - App Fees Calculation
+# 1Click App Fees Calculation
 
-A concise guide on how to setup [1Click Swap API](1click-api.md) app fees distribution during quoting and execution. As a distribution channel while asking for **quote**, you can specify the distribution of fees that come from the swap being executed.
+A concise guide on how to setup [1Click Swap API](../1click-api.md) app fees distribution during quoting and execution. As a distribution channel while asking for **quote**, you can specify the distribution of fees that come from the swap being executed.
 
 ### Parameters
 
