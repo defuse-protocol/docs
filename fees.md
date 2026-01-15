@@ -22,6 +22,12 @@ This page describes all fees that apply to NEAR Intents transactions and integra
 
 ---
 
+## Withdrawals Fee
+
+* **0.1%** fee for tokens **NEAR**, **ZEC** and **STRK** to **Solana** network
+
+---
+
 ## 1Click Swap API Fees
 
 * **1Click Swap API (with API key):** Only the 0.0001% protocol fee applies.
