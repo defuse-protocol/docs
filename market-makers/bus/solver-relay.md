@@ -1,7 +1,7 @@
 # API
 
 {% hint style="info" %}
-Not recommended for distribution channels, consider using [1Click](../../integration/distribution-channels/1click-api.md) instead.
+Not recommended for distribution channels, consider using [1Click Swap API](../../integration/distribution-channels/1click-api.md) instead.
 {% endhint %}
 
 ***
