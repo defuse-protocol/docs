@@ -61,7 +61,7 @@ This repo will show you how to quickly get started performing cross-chain swaps 
 Auto-generate clients using our [OpenAPI spec](https://1click.chaindefuser.com/docs/v0/openapi.yaml).
 
 {% hint style="info" %}
-Authentication: Please register on our [Partners Portal to obtain API Key](https://partners.near-intents.org/) to avoid 0.1% (10 basis points) fee while using 1Click Swap API.
+Authentication: Please register on our [Partners Portal to obtain API Key](https://partners.near-intents.org/) to avoid 0.2% (20 basis points) fee while using 1Click Swap API.
 {% endhint %}
 
 ### SDKs
