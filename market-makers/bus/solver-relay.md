@@ -1,7 +1,11 @@
 # API
 
 {% hint style="info" %}
-Not recommended for distribution channels, consider using [1Click Swap API](../../integration/distribution-channels/1click-api.md) instead.
+For frontends/distribution channels, please consider using [1Click Swap API](../../integration/distribution-channels/1click-api.md).
+{% endhint %}
+
+{% hint style="info" %}
+Authentication: Please register on the [Partners Portal to obtain API Key](https://partners.near-intents.org/).
 {% endhint %}
 
 ***
