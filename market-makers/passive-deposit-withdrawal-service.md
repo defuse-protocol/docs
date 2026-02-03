@@ -3,7 +3,7 @@
 The Passive Deposit/Withdrawal Service enables seamless asset movement between [supported blockchain networks](../chain-address-support.md) and NEAR Intents. It provides a lightweight mechanism for moving tokens in and out of the protocol. This service only moves funds to/from the [treasury](../treasury-addresses.md) on behalf of the user.
 
 {% hint style="info" %}
-There is an SDK for integrating the Passive Deposits/Withdrawals Service: [Bridge SDK on GitHub](https://github.com/defuse-protocol/sdk-monorepo/tree/main/packages/bridge-sdk). This SDK is under active development and may introduce breaking changes.
+There is an SDK for integrating the Passive Deposits/Withdrawals Service: [Intents SDK on GitHub](https://github.com/defuse-protocol/sdk-monorepo/tree/main/packages/intents-sdk). This SDK is under active development and may introduce breaking changes.
 {% endhint %}
 
 ***
