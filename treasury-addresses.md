@@ -34,4 +34,4 @@ For transparency and AML compliance, below are the treasury and refill addresses
 | **TON**         | [`EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4`](https://tonviewer.com/EQDgTfO4pJ8LxznVfC0mHsGl94bQBU4KFcJfliAIHebQU2G4) |
 | **SUI**         | [`0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76`](https://suiscan.xyz/mainnet/account/0x1f6cd55584e6d0c19ae34bfc48b1bd9b1b8a166987e34052cfea7f3c795c6d76) |
 | **Aptos**       | [`0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43`](https://aptoscan.com/account/0x107b277f8ac97230f1e53cf3661b3f05a40c5a02d1d2b74fe77826b62b4d1c43) |
-| **Litecoin**       | [`LVUMGpKvAzC4C8KprqyUDWpk6oPd4rKFV9`](ttps://litecoinspace.org/address/LVUMGpKvAzC4C8KprqyUDWpk6oPd4rKFV9) |
+| **Litecoin**       | [`LVUMGpKvAzC4C8KprqyUDWpk6oPd4rKFV9`](https://litecoinspace.org/address/LVUMGpKvAzC4C8KprqyUDWpk6oPd4rKFV9) |
