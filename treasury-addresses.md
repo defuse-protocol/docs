@@ -4,8 +4,9 @@ For transparency and AML compliance, below are the treasury and refill addresses
 
 | Network            | NEAR Intents Treasury Address                                                                                      | HOT Bridge Treasury Address                                                                                                      |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| **EVM Chains (Ethereum, Arbitrum, Aurora, Base, Bera, BNB, Gnosis, Polygon, Optimism, XLayer, Monad)**| [`0x2CfF890f0378a11913B6129B2E97417a2c302680`](https://blockscan.com/address/0x2CfF890f0378a11913B6129B2E97417a2c302680) | [`0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd`](https://blockscan.com/address/0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd)         |
+| **EVM Chains (Arbitrum, Avalanche, ADI, Aurora, Base, Bera, BNB, Ethereum, Gnosis, Optimism, Plasma, Polygon, XLayer, Monad)**| [`0x2CfF890f0378a11913B6129B2E97417a2c302680`](https://blockscan.com/address/0x2CfF890f0378a11913B6129B2E97417a2c302680) | [`0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd`](https://blockscan.com/address/0x233c5370CCfb3cD7409d9A3fb98ab94dE94Cb4Cd)         |
 | **Bitcoin (BTC)** | [`1C6XJtNXiuXvk4oUAVMkKF57CRpaTrN5Ra`](https://www.blockchain.com/btc/address/1C6XJtNXiuXvk4oUAVMkKF57CRpaTrN5Ra)     | –                                                                                                                                |
+| **Bitcoin Cash (BCH)** | [`1LxByjYMdnogW9Nc73srT4NCbS8oPVaXvZ`](https://www.blockchain.com/explorer/addresses/bch/1LxByjYMdnogW9Nc73srT4NCbS8oPVaXvZ)     | –                                                                                                                                |
 | **Solana (SOL)**  | [`HWjmoUNYckccg9Qrwi43JTzBcGcM1nbdAtATf9GXmz16`](https://explorer.solana.com/address/HWjmoUNYckccg9Qrwi43JTzBcGcM1nbdAtATf9GXmz16) | [`8sXzdKW2jFj7V5heRwPMcygzNH3JZnmie5ZRuNoTuKQC`](https://explorer.solana.com/address/8sXzdKW2jFj7V5heRwPMcygzNH3JZnmie5ZRuNoTuKQC) |
 | **Dogecoin (DOGE)**| [`DRmCnxzL9U11EJzLmWkm2ikaZikPFbLuQD`](https://blockchair.com/dogecoin/address/DRmCnxzL9U11EJzLmWkm2ikaZikPFbLuQD) | –                                                                                                                                |
 | **XRP (XRP Ledger)**| [`r9R8jciZBYGq32DxxQrBPi5ysZm67iQitH`](https://xrpscan.com/account/r9R8jciZBYGq32DxxQrBPi5ysZm67iQitH)             | –                                                                                                                                |
@@ -26,6 +27,7 @@ For transparency and AML compliance, below are the treasury and refill addresses
 | Network     | Refill Address |
 |-------------|----------------|
 | **EVM Chains (Ethereum, Arbitrum, Aurora, Base, Bera, BNB, Gnosis, Polygon, Optimism, XLayer, Monad)** | [`0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0`](https://blockscan.com/address/0xbb2f33f73ccc2c74e3fb9bb8eb75241ac15337e0) |
+| **Bitcoin Cash**        | [`12WV95gFkfqQ7VQ6dJXYk7TNcxRicq13wx`](https://www.blockchain.com/explorer/addresses/bch/12WV95gFkfqQ7VQ6dJXYk7TNcxRicq13wx) |
 | **Cardano**        | [`addr1v92k8ex6m7yykq6j0psqlrxxeq23220g9x8yeqd4g65qq3shttpln`](https://cardanoscan.io/address/615563e4dadf884b035278600f8cc6c8151529e8298e4c81b546a80046) |
 | **TRON**        | [`TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap`](https://tronscan.org/#/address/TNzQzT8wDF1GVevMqehVDY51ucxxrNfCap) |
 | **Solana**      | [`9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6`](https://solscan.io/account/9WL2A89YBr6X47ABKYNzPentWiBA3H8tpaiuf5CaYHx6) |
