@@ -13,6 +13,7 @@ List of supported chains and their respective address types can be seen in the t
 | **NEAR**     | - Named (`something.near`) <br> - Implicit (64-char hex, SHA-256 of pubkey)                             | ✅ Supported           | `alice.near`, `ed25519:...`                        |
 | **Sui**      | - Sui Address (32-char hex)                                                                             | ✅ Supported           | `0xcc64b79a3adf4d3c21ad25a97e3ecbe83e659e68964f62e6a1da8a037346a4ce`    |
 | **Stellar**  | - 56-character base32 string                                                                            | ✅ Supported           | `GBD7QFQVR4QWNEJSHP4VN7RAAUKXTMZ4EJ4EBMCR7CP3HMF7RXEASTD7`              |
+| **Starknet**  | - 251-bit hexadecimal address starting with 0x                                                         | ✅ Supported           | `0x033068F6539f8e6e6b131e6B2B814e6c34A5224bC66947c47DaB9dFeE93b35fb`              |
 | **Solana**   | - Base58-encoded Ed25519 public key (typically 44 chars)                                                | ✅ Supported           | `BYPsjxa3YuZESQz1dKuBw1QSFCSpecsm8nCQhY5xbU1Z`                          |
 | **TON**      | - TON Addresses                                                                                         | ✅ Supported           | `EQAWzEKcdnykvXfUNouqdS62tvrp32bCxuKS6eQrS6ISgcLo` |
 | **Tron**     | - Base58Check-encoded (starts with `T`)                                                                 | ✅ Supported           | `TQ1shhBFTN2TwaRXyH1oLyCz3Yvfbzgmbk`               |
