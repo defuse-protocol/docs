@@ -61,7 +61,8 @@
             "group": "Developer ToolKit",
             "pages": [
                   "integration/devkit/react-widget",
-                  "integration/devkit/sdk"
+                  "integration/devkit/sdk",
+                  "integration/devkit/skills"
                 ]
           },
           {
