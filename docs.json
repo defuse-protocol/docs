@@ -11,7 +11,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Using Intents",
+        "tab": "Swaps",
         "groups": [
           { 
             "group": "Welcome",
@@ -27,7 +27,7 @@
             ]
           },
           {
-            "group": "1Click API",
+            "group": "Swap API",
             "openapi": "/api-reference/openapi.json",
             "pages": [
                   "integration/distribution-channels/1click-api/quickstart",
@@ -55,6 +55,13 @@
                       "GET /api/v0/transactions-pages"
                     ]
                   }
+                ]
+          },
+          {
+            "group": "Developer ToolKit",
+            "pages": [
+                  "integration/devkit/react-widget",
+                  "integration/devkit/sdk"
                 ]
           },
           {

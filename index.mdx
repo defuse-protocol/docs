@@ -5,14 +5,13 @@ mode: "wide"
 
 
 <h1 class="text-center mt-0 mb-1"> NEAR Intents </h1>
-<div class="mb-8 text-lg text-center prose prose-gray dark:prose-invert"><p>Welcome to the NEAR Intents Docs</p></div>
+<div class="mb-7 text-lg text-center prose prose-gray dark:prose-invert"><p>Welcome to the NEAR Intents Docs</p></div>
 
 <div class="landing pt-8 max-w-6xl mx-auto">
   <Columns cols={2}>
-    <div>
-      <h2 class="mb-2"> 1-Click API </h2>
-      <p class="text-sm"><Badge color="green">REST API</Badge>&nbsp;&nbsp;<Badge color="orange">Backend</Badge>&nbsp;&nbsp;<Badge color="blue">Frontend</Badge></p>
-      <p>Request quotes, execute cross-chain swaps, and track their status. </p>
+    <div class="mr-4">
+      <h2 class="mb-2"> 1-Click Swap API </h2>
+      <p >Request quotes, execute cross-chain swaps, and track their status. </p>
       <p><a href="/integration/distribution-channels/1click-api/quickstart"> Quickstart -> </a></p>
       <p><a href="/integration/distribution-channels/1click-api/about-1click-api"> Learn More -> </a></p>
     </div>
@@ -87,17 +86,73 @@ mode: "wide"
     </CodeGroup>
   </Columns>
 
+<Columns cols={2}>
+    <img src="/images/widget/swap-widget.png" alt="Swap Widget UI" class="rounded-lg border border-gray-950/10 dark:border-white/10 swap-widget-preview" />
+    <div>
+      <h2 class="mb-2"> React Widget </h2>
+      <p>Integrate a customizable, cross-chain swap interface into your app with just a few lines of code.</p>
+      <p><a href="/integration/devkit/react-widget"> Learn More -> </a></p>
+    </div>
+
+  </Columns>
+
+  <Columns cols={2}>
+    <div class="mr-4">
+      <h2 class="mb-2"> SDK Libraries </h2>
+      <p>Use SDKs for TypeScript, Go, and Rust to request quotes, submit deposits, and monitor execution status.</p>
+      <p><a href="/integration/devkit/sdk"> Learn More -> </a></p>
+    </div>
+    <CodeGroup>
+      ```typescript TypeScript
+      import { OpenAPI, OneClickService } from '@defuse-protocol/one-click-sdk-typescript';
+
+      OpenAPI.TOKEN = 'YOUR_JWT_TOKEN';
+
+      const tokens = await OneClickService.getTokens();
+      console.log(tokens.length);
+      ```
+
+      ```go Go
+      configuration := openapiclient.NewConfiguration()
+      apiClient := openapiclient.NewAPIClient(configuration)
+
+      tokens, _, err := apiClient.OneClickAPI.GetTokens(context.Background()).Execute()
+      if err != nil {
+        panic(err)
+      }
+      ```
+
+      ```rust Rust
+      use one_click_sdk_rs::apis::one_click_api;
+      use one_click_sdk_rs::apis::configuration::Configuration;
+
+      let config = Configuration::default();
+      let tokens = one_click_api::get_tokens(&config).await?;
+      println!("{}", tokens.len());
+      ```
+    </CodeGroup>
+  </Columns>
+
   <h2 class="ps-0"> Browse By Topic </h2>
 
   <Columns cols={4}>
-    <Card title="Quickstart" icon="rocket" href="/integration/distribution-channels/1click-api/quickstart" cta="Integrate" arrow>
+    <Card title="API Quickstart" icon="rocket" href="/integration/distribution-channels/1click-api/quickstart" cta="Integrate" arrow>
       Execute your first cross-chain swap in minutes.
+    </Card>
+
+    <Card title="React Widget" icon="palette" href="/integration/devkit/react-widget" cta="Integrate" arrow>
+      Embed a customizable swap UI with a ready-to-use React component.
+    </Card>
+
+    <Card title="SDK Libraries" icon="window-restore" href="/integration/devkit/sdk" cta="Explore" arrow>
+      Build with TypeScript, Go, and Rust SDKs for typed API integration.
     </Card>
 
     <Card title="What are intents?" icon="lightbulb" href="/getting-started/what-are-intents" cta="Read docs" arrow>
       Learn how the protocol works and core concepts.
     </Card>
-
+  </Columns>
+  <Columns cols={2}>
     <Card title="Market Makers" icon="users" href="/integration/market-makers/introduction" cta="Learn how" arrow>
       Provide liquidity by fulfilling cross-chain swap intents.
     </Card>
@@ -105,6 +160,7 @@ mode: "wide"
     <Card title="Verifier Contract" icon="credit-card" href="/integration/verifier-contract/introduction" cta="Read docs" arrow>
       Interact with the smart contract for custom integrations.
     </Card>
+
   </Columns>
 
 

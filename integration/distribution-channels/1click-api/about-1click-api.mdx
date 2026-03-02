@@ -1,6 +1,6 @@
 ---
 title: "1Click Swap API"
-sidebarTitle: 'What is 1Click Swap?'
+sidebarTitle: 'Overview'
 description: "REST API for cross-chain swaps powered by NEAR Intents"
 icon: "lightbulb"
 ---
@@ -59,15 +59,15 @@ Centralized exchanges (CEXes) often use intermediate or per-user deposit address
 
 ## Swap Statuses
 
-| Status | Description |
-|--------|-------------|
-| `PENDING_DEPOSIT` | Awaiting deposit to the deposit address |
-| `KNOWN_DEPOSIT_TX` | Deposit transaction detected |
-| `PROCESSING` | Swap being executed by Market Makers |
-| `SUCCESS` | Funds delivered to the destination address |
-| `INCOMPLETE_DEPOSIT` | Deposit received but below required amount |
-| `REFUNDED` | Swap not completed, funds returned to refund address |
-| `FAILED` | Swap failed due to an error |
+| Status               | Description                                          |
+|----------------------|------------------------------------------------------|
+| `PENDING_DEPOSIT`    | Awaiting deposit to the deposit address              |
+| `KNOWN_DEPOSIT_TX`   | Deposit transaction detected                         |
+| `PROCESSING`         | Swap being executed by Market Makers                 |
+| `SUCCESS`            | Funds delivered to the destination address           |
+| `INCOMPLETE_DEPOSIT` | Deposit received but below required amount           |
+| `REFUNDED`           | Swap not completed, funds returned to refund address |
+| `FAILED`             | Swap failed due to an error                          |
 
 ## API Specification
 
@@ -78,22 +78,6 @@ Auto-generate clients using the [OpenAPI spec](https://1click.chaindefuser.com/d
 <Tip>
 Use `dry: true` to preview quote pricing without generating a transaction. Set `dry: false` only at confirmation to reduce system load.
 </Tip>
-
-## SDKs
-
-Pre-built SDKs for popular languages:
-
-<CardGroup cols={3}>
-  <Card title="TypeScript" icon="js" href="https://github.com/defuse-protocol/one-click-sdk-typescript">
-    npm package
-  </Card>
-  <Card title="Go" icon="golang" href="https://github.com/defuse-protocol/one-click-sdk-go">
-    Go module
-  </Card>
-  <Card title="Rust" icon="rust" href="https://github.com/defuse-protocol/one-click-sdk-rs">
-    Cargo crate
-  </Card>
-</CardGroup>
 
 ## Earning Fees
 
