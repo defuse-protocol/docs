@@ -1,5 +1,5 @@
 .landing code {
-    max-height: 250px;
+    max-height: 190px;
     overflow: auto;
 }
 
@@ -14,6 +14,11 @@
 
 .intent-diagram-desktop-only {
     display: flex;
+}
+
+.swap-widget-preview {
+    max-height: 260px;
+    width: auto;
 }
 
 @media (max-width: 640px) {
