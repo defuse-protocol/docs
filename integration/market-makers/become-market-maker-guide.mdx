@@ -1,0 +1,236 @@
+---
+title: "Become a Market Maker"
+description: "Step-by-step guide to running a market maker solver on NEAR Intents"
+icon: "rocket"
+---
+
+Market makers on NEAR Intents are solvers -- programs that listen for swap requests, decide whether to fill them, and respond with signed quotes. In this guide, you'll set up and run an example solver that connects to the [Message Bus](/integration/market-makers/message-bus/introduction), receives live quote requests, and automatically responds to the ones it can fill.
+
+By the end, you'll have a working solver running locally and a clear understanding of how to customize it.
+
+<Info>
+**Prerequisites**
+
+- Node.js v20.18+ with npm
+- A NEAR mainnet account with a key pair (account ID + private key)
+- Tokens deposited into the Verifier contract (`intents.near`) for the pair you want to market-make
+- Basic familiarity with WebSockets and the [NEAR account model](https://docs.near.org/concepts/protocol/account-model)
+</Info>
+
+## How it works
+
+When a user wants to swap tokens, their app sends a quote request to the Message Bus -- a WebSocket-based relay that broadcasts the request to all connected solvers, including yours.
+
+Your solver sees the request and asks itself two questions: *do I support this token pair?* and *do I have enough liquidity to fill it?* If both answers are yes, it calculates a price, signs an intent with the proposed amounts, and sends a quote response back to the Message Bus.
+
+Multiple solvers compete for the same request by offering their best price. The Message Bus collects the responses and returns the top quotes to the user's app. If your quote is the most optimal for the user, it gets transmitted to the [Verifier contract](/integration/verifier-contract/introduction) where the swap settles on-chain -- tokens move atomically between the user's account and yours.
+
+For a deeper look at this architecture, see the [Market Makers introduction](/integration/market-makers/introduction) and the [Message Bus overview](/integration/market-makers/message-bus/introduction).
+
+Let's see this in action.
+
+## Run the example solver
+
+The [AMM Solver example](https://github.com/defuse-protocol/near-intents-amm-solver) is a Node.js application that implements everything described above. It uses a simple constant-product AMM formula to price quotes -- the same model used by Uniswap-style DEXs.
+
+<Steps>
+<Step title="Clone the repository">
+
+```bash
+git clone https://github.com/defuse-protocol/near-intents-amm-solver.git
+cd near-intents-amm-solver
+npm install
+```
+
+</Step>
+
+<Step title="Configure your environment">
+
+Create your environment file from the provided example:
+
+```bash
+cp env/.env.example env/.env.local
+```
+
+Open `env/.env.local` and fill in these values:
+
+```bash
+# Your NEAR account credentials
+NEAR_ACCOUNT_ID=your-solver.near
+NEAR_PRIVATE_KEY=ed25519:your_private_key_here
+
+# The token pair you want to market-make
+AMM_TOKEN1_ID=usdt.tether-token.near
+AMM_TOKEN2_ID=wrap.near
+
+# Network and mode
+NEAR_NETWORK_ID=mainnet
+TEE_ENABLED=false
+
+# Fee margin as a percentage (0.3 = 0.3%)
+MARGIN_PERCENT=0.3
+```
+
+The `MARGIN_PERCENT` controls your spread -- the difference between what you receive and what you give. A higher value means more profit per trade but fewer quotes accepted.
+
+Other settings like `RELAY_WS_URL` and `INTENTS_CONTRACT` have sensible defaults and don't need changing for most setups.
+
+**Get a Message Bus API key:**
+
+The default Message Bus WebSocket endpoint (`wss://solver-relay-v2.chaindefuser.com/ws`) requires an API key. To get one:
+
+1. Sign up at [partners.near-intents.org](https://partners.near-intents.org)
+2. Request an API key through the partner portal
+
+Once issued, open `src/services/websocket-connection.service.ts` and add your API key as a Bearer token in the WebSocket connection headers at line 35:
+
+```typescript
+headers: {
+  Authorization: `Bearer ${YOUR_API_KEY}`,
+}
+```
+
+<Warning>
+Never commit your private key or API key to version control. The `.env.local` file is already in `.gitignore`, but double-check before pushing any changes.
+</Warning>
+
+</Step>
+
+<Step title="Deposit liquidity">
+
+Your solver can only fill swaps if it has token balances inside the Verifier contract (`intents.near`). You need to do two things: register your solver's public key on the contract, and deposit tokens.
+
+**Register your public key:**
+
+```bash
+npx near-cli-rs contract call-function as-transaction intents.near add_public_key \
+  json-args '{"public_key":"ed25519:YOUR_PUBLIC_KEY"}' \
+  prepaid-gas '100.0 Tgas' attached-deposit '1 yoctoNEAR' \
+  sign-as SOLVER_ACCOUNT_ID network-config mainnet sign-with-keychain send
+```
+
+Replace `YOUR_PUBLIC_KEY` with the public key that corresponds to the private key in your `.env.local` file, and `SOLVER_ACCOUNT_ID` with your actual NEAR account ID.
+
+**Deposit tokens** using one of these methods:
+
+- The [Passive Deposit/Withdrawal Service](/integration/market-makers/deposit-withdrawal-service) -- deposit from any supported chain via API
+- [near-intents.org](https://near-intents.org/) -- a web interface for swapping and depositing tokens
+
+Your solver needs balances for both tokens in the configured pair. For example, if you're market-making USDT/wNEAR, you need both `usdt.tether-token.near` and `wrap.near` deposited into the contract.
+
+</Step>
+
+<Step title="Start the solver">
+
+Since the environment file is named `.env.local`, set `NODE_ENV=local` so the app picks it up:
+
+```bash
+NODE_ENV=local npm start
+```
+
+On startup, the solver connects to the Message Bus WebSocket, subscribes to quote events, and begins polling the Verifier contract for your current token balances every 15 seconds. You should see log output confirming the connection and your initial reserves.
+
+</Step>
+
+<Step title="Verify it's working">
+
+Check the health endpoint to confirm the solver is running:
+
+```bash
+curl http://localhost:3000
+```
+
+```json
+{"ready": true}
+```
+
+In the logs, look for:
+
+- Connection confirmed -- successful WebSocket connection to the Message Bus
+- Quote requests -- incoming swap requests being evaluated
+- Quote responses -- signed quotes being sent back for pairs your solver supports
+
+Your solver will only respond to requests for the token pair you configured. If a request comes in for a different pair, or if your reserves are too low to fill it, the solver silently skips it.
+
+<Tip>
+If you're not seeing any quote requests, that's normal during low-activity periods. The solver will respond as soon as a matching request arrives.
+</Tip>
+
+</Step>
+</Steps>
+
+## Understanding the code
+
+Now that your solver is running, let's look at what's happening under the hood. The project is organized into focused services, each handling one part of the workflow.
+
+### Connecting to the Message Bus
+
+The WebSocket connection service (`src/services/websocket-connection.service.ts`) manages the link to the Message Bus. On connect, it subscribes to two event types:
+
+```typescript
+// Subscribe to incoming quote requests
+this.subscribe(RelayEventKind.QUOTE);
+
+// Subscribe to settlement notifications
+this.subscribe(RelayEventKind.QUOTE_STATUS);
+```
+
+When a quote event arrives, the service checks whether the requested token pair matches your configuration. If it does, it passes the request to the quoter service for evaluation.
+
+### Evaluating and responding to quotes
+
+The quoter service (`src/services/quoter.service.ts`) is where the core decision-making happens. For each incoming request, it:
+
+1. Validates the deadline -- rejects requests with unreasonable timeframes
+2. Checks reserves -- looks up your current balances for both tokens
+3. Calculates the price -- uses a constant-product AMM formula with your configured margin
+4. Signs the response -- creates a `token_diff` intent and signs it with your NEAR key
+
+The AMM formula follows the classic `x * y = k` model:
+
+```typescript
+// Calculate how many tokens the user receives for their input
+getAmountOut(amountIn, reserveIn, reserveOut, marginBips) {
+  const amountInWithFee = amountIn * (10000 - marginBips);
+  return (amountInWithFee * reserveOut) / (reserveIn * 10000 + amountInWithFee);
+}
+```
+
+If the calculated output exceeds your available reserves, the solver skips the request -- it won't quote what it can't fill.
+
+### Keeping state fresh
+
+The solver doesn't just check reserves once. A cron service (`src/services/cron.service.ts`) refreshes your token balances from the Verifier contract every 15 seconds. This ensures that after a successful trade, your solver immediately knows its updated position and adjusts future quotes accordingly.
+
+## Making it your own
+
+The example uses a constant-product AMM formula, but you can plug in any pricing logic. The quoter service is the place to start -- replace the `getAmountOut` and `getAmountIn` functions with your own strategy, whether that's pulling prices from external APIs, using order books, or applying custom spread models.
+
+A few other things you might want to customize:
+
+- Support more token pairs -- add additional token IDs in the configuration
+- Add position limits -- cap how much of a token your solver is willing to commit
+- Implement risk controls -- set minimum trade sizes, maximum exposure, or rate limits
+
+<Tip>
+The `src/configs/` directory is a good starting point for customization. Each config file maps to a specific concern -- tokens, margins, WebSocket URLs, and more.
+</Tip>
+
+For production deployments, consider running your solver in TEE (Trusted Execution Environment) mode, which provides additional security guarantees. See the [repository README](https://github.com/defuse-protocol/near-intents-amm-solver) for TEE setup instructions.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Message Bus API" icon="code" href="/integration/market-makers/message-bus/api">
+    Full reference for all WebSocket and JSON-RPC methods
+  </Card>
+  <Card title="Usage Examples" icon="book-open" href="/integration/market-makers/message-bus/usage-examples">
+    TypeScript patterns for signing intents and responding to quotes
+  </Card>
+  <Card title="Deposit & Withdrawal" icon="arrow-right-arrow-left" href="/integration/market-makers/deposit-withdrawal-service">
+    Move liquidity in and out of the Verifier contract via API
+  </Card>
+  <Card title="Example Repository" icon="github" href="https://github.com/defuse-protocol/near-intents-amm-solver">
+    Browse the full source code and contribute
+  </Card>
+</CardGroup>

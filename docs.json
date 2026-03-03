@@ -103,6 +103,12 @@
             ]
           },
           {
+            "group": "Getting started",
+            "pages": [
+              "integration/market-makers/become-market-maker-guide"
+            ]
+          },
+          {
             "group": "Services",
             "pages": [
               "integration/market-makers/deposit-withdrawal-service"
