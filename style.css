@@ -3,6 +3,29 @@
     overflow: auto;
 }
 
+.landing-page {
+    min-height: calc(100vh - 7rem);
+    min-height: calc(100dvh - 7rem);
+    display: flex;
+    align-items: center;
+}
+
+body:has(.landing) .nav-tabs-item[href="/getting-started/what-are-intents"] {
+    color: rgb(75 85 99) !important;
+    /* text-gray-600 */
+    text-shadow: none !important;
+}
+
+.dark body:has(.landing) .nav-tabs-item[href="/getting-started/what-are-intents"],
+body.dark:has(.landing) .nav-tabs-item[href="/getting-started/what-are-intents"] {
+    color: rgb(156 163 175) !important;
+    /* dark:text-gray-400 */
+}
+
+body:has(.landing) .nav-tabs-item[href="/getting-started/what-are-intents"]>div {
+    background: transparent !important;
+}
+
 .primary {
     color: rgb(var(--primary));
 }
