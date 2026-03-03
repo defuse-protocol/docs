@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "mint",
   "name": "NEAR Intents",
   "colors": {
     "primary": "#fb4d01",
@@ -11,59 +11,14 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Swaps",
+        "tab": "Overview",
         "groups": [
-          { 
-            "group": "Welcome",
-            "pages": [
-              "/index"
-            ]
-          },
           {
-            "group": "Intents",
+            "group": "Introduction",
             "pages": [
               "/getting-started/what-are-intents",
               "/resources/chain-support"
             ]
-          },
-          {
-            "group": "Swap API",
-            "openapi": "/api-reference/openapi.json",
-            "pages": [
-                  "integration/distribution-channels/1click-api/quickstart",
-                  "integration/distribution-channels/1click-api/about-1click-api",
-                  "integration/distribution-channels/1click-api/authentication",
-                  "integration/distribution-channels/1click-api/fee-config",
-                  {
-                    "group": "API Reference",
-                    "icon": "code",
-                    "pages": [
-                      "GET /v0/tokens",
-                      "POST /v0/quote",
-                      "GET /v0/status",
-                      "GET /v0/any-input/withdrawals",
-                      "POST /v0/deposit/submit"
-                    ]
-                  },
-                  {
-                    "group": "Explorer API",
-                    "icon": "magnifying-glass",
-                    "openapi": "/api-reference/explorer-openapi.yaml",
-                    "pages": [
-                      "api-reference/explorer/introduction",
-                      "GET /api/v0/transactions",
-                      "GET /api/v0/transactions-pages"
-                    ]
-                  }
-                ]
-          },
-          {
-            "group": "Developer ToolKit",
-            "pages": [
-                  "integration/devkit/react-widget",
-                  "integration/devkit/sdk",
-                  "integration/devkit/skills"
-                ]
           },
           {
             "group": "Resources",
@@ -80,6 +35,53 @@
                   "security-compliance/terms-of-service"
                 ]
               }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": " ",
+            "pages": [
+              "integration/distribution-channels/1click-api/about-1click-api",
+              "integration/distribution-channels/1click-api/quickstart",
+              "integration/distribution-channels/1click-api/authentication",
+              "integration/distribution-channels/1click-api/fee-config"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "openapi": "/api-reference/openapi.json",
+            "pages": [
+              "GET /v0/tokens",
+              "POST /v0/quote",
+              "GET /v0/status",
+              "GET /v0/any-input/withdrawals",
+              "POST /v0/deposit/submit"
+            ]
+          },
+          {
+            "group": "Explorer API",
+            "openapi": "/api-reference/explorer-openapi.yaml",
+            "pages": [
+              "api-reference/explorer/introduction",
+              "GET /api/v0/transactions",
+              "GET /api/v0/transactions-pages"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Toolkit",
+        "groups": [
+          {
+            "group": " ",
+            "pages": [
+              "integration/devkit/react-widget",
+              "integration/devkit/sdk",
+              "integration/devkit/skills"
             ]
           }
         ]
@@ -157,7 +159,7 @@
   "navbar": {
     "links": [
       {
-        "label": "System Status",
+        "label": "Status",
         "href": "https://status.near-intents.org/posts/dashboard"
       },
       {
@@ -167,12 +169,16 @@
       {
         "label": "Support",
         "href": "https://t.me/near_intents"
+      },
+      {
+        "label": "Partners",
+        "href": "https://partners.near-intents.org/"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Partners",
-      "href": "https://partners.near-intents.org/"
+      "label": "App",
+      "href": "https://near.com/"
     }
   },
   "contextual": {
