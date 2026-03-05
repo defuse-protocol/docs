@@ -15,6 +15,7 @@
         "groups": [
           { 
             "group": "Welcome",
+            "hidden": true,
             "pages": [
               "/index"
             ]
