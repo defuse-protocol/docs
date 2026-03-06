@@ -4,30 +4,32 @@ description: "Step-by-step guide to running a market maker solver on NEAR Intent
 icon: "rocket"
 ---
 
-Market makers on NEAR Intents are solvers -- programs that listen for swap requests, decide whether to fill them, and respond with signed quotes. In this guide, you'll set up and run an example solver that connects to the [Message Bus](/integration/market-makers/message-bus/introduction), receives live quote requests, and automatically responds to the ones it can fill.
+Market makers on NEAR Intents are solvers -- programs that listen for swap requests, decide whether to fill them, and respond with signed quotes. In this guide, you will set up and run an example solver that connects to the [Message Bus](/integration/market-makers/message-bus/introduction), receives live quote requests, and automatically responds to the ones it can fill.
 
-By the end, you'll have a working solver running locally and a clear understanding of how to customize it.
+By the end, you will have a working solver running locally and a clear understanding of how to customize it.
 
 <Info>
 **Prerequisites**
 
 - Node.js v20.18+ with npm
-- A NEAR mainnet account with a key pair (account ID + private key)
-- Tokens deposited into the Verifier contract (`intents.near`) for the pair you want to market-make
+- A NEAR mainnet account
+- Liquidity in the Verifier contract (`intents.near`)
 - Basic familiarity with WebSockets and the [NEAR account model](https://docs.near.org/concepts/protocol/account-model)
 </Info>
 
+---
+
 ## How it works
 
-When a user wants to swap tokens, their app sends a quote request to the Message Bus -- a WebSocket-based relay that broadcasts the request to all connected solvers, including yours.
+When a user wants to swap tokens, they will send a quote request to the Message Bus -- a WebSocket-based relay that broadcasts the request to all connected solvers.
 
-Your solver sees the request and asks itself two questions: *do I support this token pair?* and *do I have enough liquidity to fill it?* If both answers are yes, it calculates a price, signs an intent with the proposed amounts, and sends a quote response back to the Message Bus.
+The solver evaluates whether the request matches the configured token pair and whether sufficient liquidity is available. If both conditions are met, it calculates a price, signs an intent with the proposed amounts, and sends a quote response back to the Message Bus.
 
-Multiple solvers compete for the same request by offering their best price. The Message Bus collects the responses and returns the top quotes to the user's app. If your quote is the most optimal for the user, it gets transmitted to the [Verifier contract](/integration/verifier-contract/introduction) where the swap settles on-chain -- tokens move atomically between the user's account and yours.
+Multiple solvers compete for the same request by offering prices. The Message Bus collects the responses and returns top quotes to the user application. If a quote is selected, it is transmitted to the [Verifier contract](/integration/verifier-contract/introduction) where the swap settles on-chain.
 
 For a deeper look at this architecture, see the [Market Makers introduction](/integration/market-makers/introduction) and the [Message Bus overview](/integration/market-makers/message-bus/introduction).
 
-Let's see this in action.
+The following steps show this flow in action.
 
 ## Run the example solver
 
@@ -73,7 +75,7 @@ MARGIN_PERCENT=0.3
 
 The `MARGIN_PERCENT` controls your spread -- the difference between what you receive and what you give. A higher value means more profit per trade but fewer quotes accepted.
 
-Other settings like `RELAY_WS_URL` and `INTENTS_CONTRACT` have sensible defaults and don't need changing for most setups.
+Other settings like `RELAY_WS_URL` and `INTENTS_CONTRACT` have sensible defaults and do not need changing for most setups.
 
 **Get a Message Bus API key:**
 
@@ -116,7 +118,7 @@ Replace `YOUR_PUBLIC_KEY` with the public key that corresponds to the private ke
 - The [Passive Deposit/Withdrawal Service](/integration/market-makers/deposit-withdrawal-service) -- deposit from any supported chain via API
 - [near-intents.org](https://near-intents.org/) -- a web interface for swapping and depositing tokens
 
-Your solver needs balances for both tokens in the configured pair. For example, if you're market-making USDT/wNEAR, you need both `usdt.tether-token.near` and `wrap.near` deposited into the contract.
+The solver needs balances for both tokens in the configured pair. For example, if you are market-making USDT/wNEAR, it needs both `usdt.tether-token.near` and `wrap.near` deposited into the contract.
 
 </Step>
 
@@ -128,11 +130,11 @@ Since the environment file is named `.env.local`, set `NODE_ENV=local` so the ap
 NODE_ENV=local npm start
 ```
 
-On startup, the solver connects to the Message Bus WebSocket, subscribes to quote events, and begins polling the Verifier contract for your current token balances every 15 seconds. You should see log output confirming the connection and your initial reserves.
+On startup, the solver connects to the Message Bus WebSocket, subscribes to quote events, and begins polling the Verifier contract for current token balances every 15 seconds. Log output confirms the connection and initial reserves.
 
 </Step>
 
-<Step title="Verify it's working">
+<Step title="Verify it is working">
 
 Check the health endpoint to confirm the solver is running:
 
@@ -150,10 +152,10 @@ In the logs, look for:
 - Quote requests -- incoming swap requests being evaluated
 - Quote responses -- signed quotes being sent back for pairs your solver supports
 
-Your solver will only respond to requests for the token pair you configured. If a request comes in for a different pair, or if your reserves are too low to fill it, the solver silently skips it.
+The solver only responds to requests for the configured token pair. If a request comes in for a different pair, or if reserves are too low to fill it, the solver skips it.
 
 <Tip>
-If you're not seeing any quote requests, that's normal during low-activity periods. The solver will respond as soon as a matching request arrives.
+If quote requests are not appearing, that is normal during low-activity periods. The solver sends responses when matching requests arrive.
 </Tip>
 
 </Step>
@@ -161,7 +163,7 @@ If you're not seeing any quote requests, that's normal during low-activity perio
 
 ## Understanding the code
 
-Now that your solver is running, let's look at what's happening under the hood. The project is organized into focused services, each handling one part of the workflow.
+Now that the solver is running, the sections below describe what happens under the hood. The project is organized into focused services, each handling one part of the workflow.
 
 ### Connecting to the Message Bus
 
@@ -175,16 +177,16 @@ this.subscribe(RelayEventKind.QUOTE);
 this.subscribe(RelayEventKind.QUOTE_STATUS);
 ```
 
-When a quote event arrives, the service checks whether the requested token pair matches your configuration. If it does, it passes the request to the quoter service for evaluation.
+When a quote event arrives, the service checks whether the requested token pair matches the configured pair. If it does, it passes the request to the quoter service for evaluation.
 
 ### Evaluating and responding to quotes
 
 The quoter service (`src/services/quoter.service.ts`) is where the core decision-making happens. For each incoming request, it:
 
 1. Validates the deadline -- rejects requests with unreasonable timeframes
-2. Checks reserves -- looks up your current balances for both tokens
-3. Calculates the price -- uses a constant-product AMM formula with your configured margin
-4. Signs the response -- creates a `token_diff` intent and signs it with your NEAR key
+2. Checks reserves -- looks up current balances for both tokens
+3. Calculates the price -- uses a constant-product AMM formula with the configured margin
+4. Signs the response -- creates a `token_diff` intent and signs it with the configured NEAR key
 
 The AMM formula follows the classic `x * y = k` model:
 
@@ -196,20 +198,20 @@ getAmountOut(amountIn, reserveIn, reserveOut, marginBips) {
 }
 ```
 
-If the calculated output exceeds your available reserves, the solver skips the request -- it won't quote what it can't fill.
+If the calculated output exceeds available reserves, the solver skips the request -- it does not quote what it cannot fill.
 
 ### Keeping state fresh
 
-The solver doesn't just check reserves once. A cron service (`src/services/cron.service.ts`) refreshes your token balances from the Verifier contract every 15 seconds. This ensures that after a successful trade, your solver immediately knows its updated position and adjusts future quotes accordingly.
+The solver does not only check reserves once. A cron service (`src/services/cron.service.ts`) refreshes token balances from the Verifier contract every 15 seconds. After a successful trade, the solver updates its position and adjusts future quotes accordingly.
 
 ## Making it your own
 
-The example uses a constant-product AMM formula, but you can plug in any pricing logic. The quoter service is the place to start -- replace the `getAmountOut` and `getAmountIn` functions with your own strategy, whether that's pulling prices from external APIs, using order books, or applying custom spread models.
+The example uses a constant-product AMM formula, but any pricing logic can be used. The quoter service is the place to start -- replace the `getAmountOut` and `getAmountIn` functions with a custom strategy, whether that is pulling prices from external APIs, using order books, or applying custom spread models.
 
-A few other things you might want to customize:
+A few additional areas to customize:
 
 - Support more token pairs -- add additional token IDs in the configuration
-- Add position limits -- cap how much of a token your solver is willing to commit
+- Add position limits -- cap how much of a token the solver can allocate
 - Implement risk controls -- set minimum trade sizes, maximum exposure, or rate limits
 
 <Tip>
