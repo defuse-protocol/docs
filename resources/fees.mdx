@@ -47,6 +47,16 @@ Developers and distribution channels can add their own fees using the [`appFees`
 
 This example charges a 0.5% fee (50 basis points) from the input token.
 
+### Revenue Share
+
+All partners participate in a **50/50 revenue share** by default. Half of the fee amount specified via `appFees` is automatically sent to the 1Click protocol address, and the other half goes to the partner's `recipient` address.
+
+For example, if you set `"fee": 10` (10 basis points), 5 bps go to your partner address and 5 bps go to the 1Click address.
+
+<Info>
+The 50/50 split is the default arrangement. Revenue share terms are negotiable — reach out through the [Partner Dashboard](https://partners.near-intents.org/) to discuss custom terms.
+</Info>
+
 <Card title="Fee Configuration Guide" icon="wallet" href="/integration/distribution-channels/1click-api/fee-config">
   Learn how to configure and collect fees from your integration
 </Card>
