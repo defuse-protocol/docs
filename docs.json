@@ -90,7 +90,8 @@
           {
             "group": "Market Makers",
             "pages": [
-              "integration/market-makers/introduction"
+              "integration/market-makers/introduction",
+              "integration/market-makers/quickstart"
             ]
           },
           {
@@ -100,12 +101,6 @@
               "integration/market-makers/message-bus/introduction",
               "integration/market-makers/message-bus/api",
               "integration/market-makers/message-bus/usage-examples"
-            ]
-          },
-          {
-            "group": "Guides",
-            "pages": [
-              "integration/market-makers/become-market-maker-guide"
             ]
           },
           {
