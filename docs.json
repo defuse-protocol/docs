@@ -15,6 +15,7 @@
         "groups": [
           { 
             "group": "Welcome",
+            "hidden": true,
             "pages": [
               "/index"
             ]
@@ -28,7 +29,7 @@
           },
           {
             "group": "Swap API",
-            "openapi": "/api-reference/openapi.json",
+            "openapi": "https://1click.chaindefuser.com/docs/v0/openapi.yaml",
             "pages": [
                   "integration/distribution-channels/1click-api/quickstart",
                   "integration/distribution-channels/1click-api/about-1click-api",
@@ -47,10 +48,10 @@
                   },
                   {
                     "group": "Explorer API",
-                    "icon": "magnifying-glass",
-                    "openapi": "/api-reference/explorer-openapi.yaml",
+                    "root": "integration/distribution-channels/1click-api/explorer/introduction",
+                    "icon": "magnifying-glass-chart",
+                    "openapi": "https://explorer.near-intents.org/api/v0/openapi.yaml",
                     "pages": [
-                      "api-reference/explorer/introduction",
                       "GET /api/v0/transactions",
                       "GET /api/v0/transactions-pages"
                     ]
@@ -225,7 +226,7 @@
     },
     {
       "source": "/near-intents/integration/distribution-channels/intents-explorer-api",
-      "destination": "/api-reference/explorer/introduction"
+      "destination": "/integration/distribution-channels/1click-api/explorer/introduction"
     },
     {
       "source": "/near-intents/market-makers",
