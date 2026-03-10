@@ -217,6 +217,10 @@ const quoteResp: IQuoteResponseData = {
 };
 ```
 
+<Tip>
+Note that the response includes the `quote_id` from the incoming request — this is how the Message Bus links the quote to the original request.
+</Tip>
+
 The WebSocket service then sends this response to the relay:
 
 ```typescript
