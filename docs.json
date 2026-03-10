@@ -92,7 +92,8 @@
             "group": "Market Makers",
             "pages": [
               "integration/market-makers/introduction",
-              "integration/market-makers/quickstart"
+              "integration/market-makers/quickstart",
+              "integration/market-makers/example"
             ]
           },
           {
@@ -100,8 +101,8 @@
             "icon": "message",
             "pages": [
               "integration/market-makers/message-bus/introduction",
-              "integration/market-makers/message-bus/usage-examples",
-              "integration/market-makers/message-bus/rpc"
+              "integration/market-makers/message-bus/rpc",
+              "integration/market-makers/message-bus/websocket"
             ]
           },
           {

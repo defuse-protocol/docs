@@ -151,51 +151,6 @@ If quote requests are not appearing, that is normal during low-activity periods.
 
 ---
 
-## Understanding the code
+## Next steps
 
-The project is organized into focused services, each handling one part of the workflow.
-
-### The Message Bus
-
-The WebSocket connection service (`src/services/websocket-connection.service.ts`) manages the link to the Message Bus. On connect, it subscribes to two event types:
-
-```typescript
-// Subscribe to incoming quote requests
-this.subscribe(RelayEventKind.QUOTE);
-
-// Subscribe to settlement notifications
-this.subscribe(RelayEventKind.QUOTE_STATUS);
-```
-
-When a quote event arrives, the service checks whether the requested token pair matches the configured pair. If it does, it passes the request to the quoter service for evaluation.
-
-### Quoter Service
-
-The quoter service (`src/services/quoter.service.ts`) is where the core decision-making happens. For each incoming request, it:
-
-1. Validates the deadline - rejects requests with unreasonable timeframes
-2. Checks reserves - looks up current balances for both tokens
-3. Calculates the price - uses a constant-product AMM formula with the configured margin
-4. Signs the response - creates a `token_diff` intent and signs it with the configured NEAR key
-
-### Cron Service
-
-A cron service (`src/services/cron.service.ts`) refreshes token balances from the Verifier contract every 15 seconds. After a successful trade, the solver updates its position and adjusts future quotes accordingly.
-
----
-
-## Next Steps
-
-The example uses a constant-product AMM formula, but any pricing logic can be used. The quoter service is the place to start - replace the `getAmountOut` and `getAmountIn` functions with a custom strategy, whether that is pulling prices from external APIs, using order books, or applying custom spread models.
-
-A few additional areas to customize:
-
-- Support more token pairs - add additional token IDs in the configuration
-- Add position limits - cap how much of a token the solver can allocate
-- Implement risk controls - set minimum trade sizes, maximum exposure, or rate limits
-
-<Tip>
-The `src/configs/` directory is a good starting point for customization. Each config file maps to a specific concern - tokens, margins, WebSocket URLs, and more.
-</Tip>
-
-For production deployments, consider running your solver in TEE (Trusted Execution Environment) mode, which provides additional security guarantees. See the [repository README](https://github.com/defuse-protocol/near-intents-amm-solver) for TEE setup instructions.
+Now that the solver is running, read the [Example Solver](/integration/market-makers/example) guide to understand how the code works — from WebSocket connection through intent signing and settlement — and learn how to customize the pricing logic for your own strategy.
