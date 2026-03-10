@@ -66,11 +66,18 @@ To become a Market Maker you will need to request an API Key through the [Partne
     2. Request an API key through the partner portal
     3. Undergo KYC/KYB verification as part of the application process
 
-    Once issued, open `src/services/websocket-connection.service.ts` and add your API key as a Bearer token in the WebSocket connection headers at line 35:
+    Once issued, add your API key to `env/.env.local`:
+
+    ```bash
+    # Message Bus API key
+    SOLVER_BUS_API_KEY=your_api_key_here
+    ```
+
+    Then open `src/services/websocket-connection.service.ts` and update the WebSocket connection headers at line 35 to use the environment variable:
 
     ```typescript
     headers: {
-      Authorization: `Bearer ${YOUR_API_KEY}`,
+      Authorization: `Bearer ${process.env.SOLVER_BUS_API_KEY}`,
     }
     ```
 
