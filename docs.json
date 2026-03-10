@@ -99,8 +99,8 @@
             "icon": "message",
             "pages": [
               "integration/market-makers/message-bus/introduction",
-              "integration/market-makers/message-bus/api",
-              "integration/market-makers/message-bus/usage-examples"
+              "integration/market-makers/message-bus/usage-examples",
+              "integration/market-makers/message-bus/rpc"
             ]
           },
           {
@@ -237,7 +237,7 @@
     },
     {
       "source": "/near-intents/market-makers/bus/solver-relay",
-      "destination": "/integration/market-makers/message-bus/api"
+      "destination": "/integration/market-makers/message-bus/rpc"
     },
     {
       "source": "/near-intents/market-makers/bus/usage-examples",
