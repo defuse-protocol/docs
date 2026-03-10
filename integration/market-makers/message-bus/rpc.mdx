@@ -197,15 +197,6 @@ Check the status of an intent's execution.
   Intent identifier
 </ParamField>
 
-<Accordion title="Status values">
-  | Status | Description |
-  |--------|-------------|
-  | `PENDING` | Intent received, awaiting execution |
-  | `TX_BROADCASTED` | Transaction sent to the Verifier contract |
-  | `SETTLED` | Successfully settled on-chain |
-  | `NOT_FOUND_OR_NOT_VALID` | Intent not received, expired, or execution error |
-</Accordion>
-
 <Accordion title="Example request">
 
 ```json
@@ -243,5 +234,13 @@ Response fields:
 - `intent_hash` - Intent identifier
 - `status` - Execution status (see status values below)
 - `data.hash` - NEAR transaction hash (if available)
+
+| Status                   | Description                                      |
+|--------------------------|--------------------------------------------------|
+| `PENDING`                | Intent received, awaiting execution              |
+| `TX_BROADCASTED`         | Transaction sent to the Verifier contract        |
+| `SETTLED`                | Successfully settled on-chain                    |
+| `NOT_FOUND_OR_NOT_VALID` | Intent not received, expired, or execution error |
+
 
 </Accordion>
