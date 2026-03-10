@@ -4,7 +4,7 @@ description: 'Understand how the AMM Solver example works'
 icon: 'window-restore'
 ---
 
-The [Quickstart](./quickstart) tutorial explains how to setup an [example AMM Solver](https://github.com/defuse-protocol/near-intents-amm-solver),
+The [Quickstart](./quickstart) tutorial explains how to set up an [example AMM Solver](https://github.com/defuse-protocol/near-intents-amm-solver),
 lets dive into understanding how it works: from connecting to the Message Bus through to settlement.
 
 ---
@@ -60,7 +60,7 @@ ws.onopen = () => {
 ```
 
 <Warning>
-The WebSocket endpoint requires an API key. Pass it as a Bearer token in the connection headers. See the [Quickstart](/integration/market-makers/quickstart) for how to obtain one.
+The WebSocket endpoint requires an API key. Pass it as a Bearer token in the connection headers. See the [Quickstart](./quickstart) for how to obtain one.
 </Warning>
 
 ---
@@ -161,7 +161,7 @@ const signature = await nearService.signMessage(quoteHash);
 
 <Accordion title="Generating a nonce">
 
-Every intent requires a [unique nonce](/integration/verifier-contract/intent-types-and-execution#nonce-structure). The example solver uses a deterministic approach — it hashes the current token reserves with SHA-256, so the nonce only changes when the solver's balances change (i.e. after a trade settles):
+Every intent requires a [unique nonce](../verifier-contract/intent-types-and-execution#nonce-structure). The example solver uses a deterministic approach — it hashes the current token reserves with SHA-256, so the nonce only changes when the solver's balances change (i.e. after a trade settles):
 
 ```typescript
 import { createHash } from 'crypto';
