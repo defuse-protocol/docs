@@ -21,6 +21,10 @@
     width: auto;
 }
 
+.landing-sections > * + * {
+    margin-top: 2rem;
+}
+
 @media (max-width: 640px) {
     .intent-diagram-desktop-only {
         display: none;
