@@ -105,18 +105,17 @@
               "integration/market-makers/message-bus/rpc",
               "integration/market-makers/message-bus/websocket"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Bridges",
+        "groups": [
           {
-            "group": "Services",
+            "group": "Bridges",
             "pages": [
+              "integration/bridging/overview",
               "integration/market-makers/deposit-withdrawal-service"
-            ]
-          },
-          {
-            "group": "Token Bridges",
-            "icon": "bridge",
-            "pages": [
-              "integration/bridging/overview"
             ]
           }
         ]
