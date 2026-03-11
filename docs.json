@@ -31,8 +31,9 @@
             "group": "Swap API",
             "openapi": "https://1click.chaindefuser.com/docs/v0/openapi.yaml",
             "pages": [
-                  "integration/distribution-channels/1click-api/quickstart",
                   "integration/distribution-channels/1click-api/about-1click-api",
+                  "integration/distribution-channels/1click-api/quickstart",
+                  "integration/distribution-channels/1click-api/sdk",
                   "integration/distribution-channels/1click-api/authentication",
                   "integration/distribution-channels/1click-api/fee-config",
                   {
@@ -62,7 +63,7 @@
             "group": "Developer ToolKit",
             "pages": [
                   "integration/devkit/react-widget",
-                  "integration/devkit/sdk",
+                  "integration/devkit/intents-sdk",
                   "integration/devkit/skills"
                 ]
           },
