@@ -5,7 +5,7 @@ description: 'Fulfill cross-chain swap intents as a liquidity provider'
 icon: 'book-open'
 ---
 
-Market Makers compete to fulfill user [Swap intents](../distribution-channels/introduction). They listen for swap requests, evaluate whether they can fill them based on their available liquidity and pricing strategy, and respond with signed quotes.
+Market Makers compete to fulfill user [Swap intents](../distribution-channels/introduction). They listen for swap requests on the [Message Bus](./message-bus/introduction.mdx), evaluate whether they can fill the request, and respond with signed quotes.
 
 <img className="block dark:hidden" src="/images/diagrams/market-makers-intro-light.png" alt="NEAR Intents Market Makers" />
 <img className="hidden dark:block" src="/images/diagrams/market-makers-intro-dark.png" alt="NEAR Intents Market Makers" />
