@@ -176,7 +176,14 @@ const generateDeterministicNonce = (input: string): string => {
 const nonce = generateDeterministicNonce(
   `reserves:${reserves.join(':')}`
 );
+
 ```
+
+<Tip>
+In the example the nonce updates only after a trade settles, which results in a maximum throughput of roughly **1 swap per second**.
+
+Consider changing it for an incrementing counter, pending submission tracking, or multiple signing accounts to improve parallelism.
+</Tip>
 
 This avoids fetching the contract salt on every request. The nonce is recomputed whenever the cron service refreshes balances.
 
