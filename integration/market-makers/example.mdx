@@ -180,9 +180,9 @@ const nonce = generateDeterministicNonce(
 ```
 
 <Tip>
-This nonce only changes after a trade settles and your balances update, which forces **serial execution**. Maximum throughput is roughly **1 swap every 1–2 seconds**.
+In the example the nonce updates only after a trade settles, which results in a maximum throughput of roughly **1 swap per second**.
 
-For production solvers, use a locally incremented counter, pending submission tracking, or multiple signing accounts for parallelism.
+Consider changing it for an incrementing counter, pending submission tracking, or multiple signing accounts to improve parallelism.
 </Tip>
 
 This avoids fetching the contract salt on every request. The nonce is recomputed whenever the cron service refreshes balances.
