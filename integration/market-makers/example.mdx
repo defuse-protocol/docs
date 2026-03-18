@@ -176,7 +176,12 @@ const generateDeterministicNonce = (input: string): string => {
 const nonce = generateDeterministicNonce(
   `reserves:${reserves.join(':')}`
 );
-```
+
+<Warning>
+**Known limitation** — This nonce only changes after a trade settles and balances update, forcing **serial execution**. Maximum throughput is roughly **1 swap every 1–2 seconds**.
+
+For production solvers, consider a locally incremented counter, pending submission tracking, or multiple signing accounts for parallelism. See the [README Known Limitations](https://github.com/defuse-protocol/near-intents-amm-solver#known-limitations) for details.
+</Warning>
 
 This avoids fetching the contract salt on every request. The nonce is recomputed whenever the cron service refreshes balances.
 
