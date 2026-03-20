@@ -5,7 +5,7 @@ mode: "custom"
 <div class="landing-page">
 <div class="my-auto w-full">
 
-  <h1 className="text-center text-4xl font-semibold tracking-tight text-gray-800 dark:text-white pb-3">
+  <h1 className="text-center text-4xl font-semibold tracking-tight text-gray-800 dark:text-white pt-9">
     NEAR Intents Documentation
   </h1>
 
@@ -28,6 +28,11 @@ mode: "custom"
         Learn how the protocol works and core concepts.
       </Card>
     </Columns>
+    <Callout color="#ff7043">
+      <p class="text-center">
+      AI Agent Skills: `npx skills add near/agent-skills --skill near-intents`
+      </p>
+    </Callout>
     <Columns cols={2}>
       <Card title="Market Makers" icon="users" href="/integration/market-makers/introduction" cta="Learn how" arrow>
         Provide liquidity by fulfilling cross-chain swap intents.
