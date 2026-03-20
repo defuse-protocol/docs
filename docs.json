@@ -14,7 +14,14 @@
         "tab": "Overview",
         "groups": [
           {
-            "group": "Introduction",
+            "group": "Welcome",
+            "hidden": true,
+            "pages": [
+              "/index"
+            ]
+          },
+          {
+            "group": "Intents",
             "pages": [
               "/getting-started/what-are-intents",
               "/resources/chain-support"
@@ -74,7 +81,7 @@
         ]
       },
       {
-        "tab": "Toolkit",
+        "tab": "Dev Toolkit",
         "groups": [
           {
             "group": " ",
@@ -90,7 +97,7 @@
         "tab": "Market Makers",
         "groups": [
           {
-            "group": "Market Makers",
+            "group": " ",
             "pages": [
               "integration/market-makers/introduction"
             ]
@@ -103,18 +110,17 @@
               "integration/market-makers/message-bus/api",
               "integration/market-makers/message-bus/usage-examples"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Bridges",
+        "groups": [
           {
-            "group": "Services",
+            "group": "Bridges",
             "pages": [
+              "integration/bridging/overview",
               "integration/market-makers/deposit-withdrawal-service"
-            ]
-          },
-          {
-            "group": "Token Bridges",
-            "icon": "bridge",
-            "pages": [
-              "integration/bridging/overview"
             ]
           }
         ]
@@ -159,7 +165,7 @@
   "navbar": {
     "links": [
       {
-        "label": "Status",
+        "label": "System Status",
         "href": "https://status.near-intents.org/posts/dashboard"
       },
       {
@@ -169,16 +175,12 @@
       {
         "label": "Support",
         "href": "https://t.me/near_intents"
-      },
-      {
-        "label": "Partners",
-        "href": "https://partners.near-intents.org/"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "App",
-      "href": "https://near.com/"
+      "label": "Partners",
+      "href": "https://partners.near-intents.org/"
     }
   },
   "contextual": {
