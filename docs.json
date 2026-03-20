@@ -21,7 +21,7 @@
             ]
           },
           {
-            "group": "Intents",
+            "group": " ",
             "pages": [
               "/getting-started/what-are-intents",
               "/resources/chain-support"
@@ -60,7 +60,7 @@
           },
           {
             "group": "API Reference",
-            "openapi": "/api-reference/openapi.json",
+            "openapi": "https://1click.chaindefuser.com/docs/v0/openapi.yaml",
             "pages": [
               "GET /v0/tokens",
               "POST /v0/quote",
@@ -71,9 +71,9 @@
           },
           {
             "group": "Explorer API",
-            "openapi": "/api-reference/explorer-openapi.yaml",
+            "openapi": "https://explorer.near-intents.org/api/v0/openapi.yaml",
             "pages": [
-              "api-reference/explorer/introduction",
+              "integration/distribution-channels/1click-api/explorer/introduction",
               "GET /api/v0/transactions",
               "GET /api/v0/transactions-pages"
             ]
@@ -87,7 +87,8 @@
             "group": " ",
             "pages": [
               "integration/devkit/react-widget",
-              "integration/devkit/sdk",
+              "integration/distribution-channels/1click-api/sdk",
+              "integration/devkit/intents-sdk",
               "integration/devkit/skills"
             ]
           }
@@ -119,7 +120,7 @@
         "tab": "Bridges",
         "groups": [
           {
-            "group": "Bridges",
+            "group": " ",
             "pages": [
               "integration/bridging/overview",
               "integration/market-makers/deposit-withdrawal-service"
@@ -131,7 +132,7 @@
         "tab": "Verifier Contract",
         "groups": [
           {
-            "group": "Verifier Contract",
+            "group": " ",
             "pages": [
               "integration/verifier-contract/introduction",
               "integration/verifier-contract/account-abstraction"
@@ -167,7 +168,7 @@
   "navbar": {
     "links": [
       {
-        "label": "System Status",
+        "label": "Status",
         "href": "https://status.near-intents.org/posts/dashboard"
       },
       {
@@ -234,7 +235,7 @@
     },
     {
       "source": "/near-intents/integration/distribution-channels/intents-explorer-api",
-      "destination": "/integration/distribution-channels/1click-api/explorer/introduction"
+      "destination": "/api-reference/explorer/introduction"
     },
     {
       "source": "/near-intents/market-makers",
