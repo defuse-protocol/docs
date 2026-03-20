@@ -1,13 +1,23 @@
 ---
-title: 'Message Bus'
-description: 'Off-chain message bus for communication between market makers and users'
-icon: 'message'
+title: 'Overview'
+description: 'Off-chain bus communicating market makers and users'
+icon: 'book-open'
 ---
 
 The Message Bus is a system component that optimizes price discovery between users and market makers. It handles communication and submits settlement transactions to the Verifier contract.
 
 <img className="block dark:hidden" src="/images/diagrams/msg-bus-light.png" alt="Message Bus Architecture" />
 <img className="hidden dark:block" src="/images/diagrams/msg-bus-dark.png" alt="Message Bus Architecture" />
+
+<Info>
+The protocol can operate without the Message Bus:
+
+- **Frontends** can use any quoting mechanism to compose and publish signed intents
+- **Market makers** can index the NEAR blockchain directly to find intents to fill
+</Info>
+
+---
+
 ## How it works
 
 1. **User requests a quote** - A frontend sends a quote request to the Message Bus
@@ -16,29 +26,15 @@ The Message Bus is a system component that optimizes price discovery between use
 4. **User accepts a quote** - The frontend displays options to the user, who selects and signs their intent
 5. **Settlement** - The Message Bus bundles the matching intents and submits them to the Verifier contract
 
-## Optional component
-
-<Info>
-The NEAR Intents protocol can operate without the Message Bus:
-
-- **Frontends** can use any quoting mechanism to compose and publish signed intents
-- **Market makers** can index the NEAR blockchain directly to find intents to fill
-</Info>
-
-## Endpoints
-
-| Type | Endpoint |
-|------|----------|
-| JSON-RPC (Frontend) | `https://solver-relay-v2.chaindefuser.com/rpc` |
-| WebSocket (Solvers) | `wss://solver-relay-v2.chaindefuser.com/ws` |
+---
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="API Reference" icon="code" href="/integration/market-makers/message-bus/api">
-    Full API documentation for the Message Bus
+  <Card title="API Reference" icon="code" href="/integration/market-makers/message-bus/rpc">
+    Read the API documentation for the Message Bus
   </Card>
-  <Card title="Usage Examples" icon="book-open" href="/integration/market-makers/message-bus/usage-examples">
-    TypeScript examples for implementing a solver
+  <Card title="WebSocket Reference" icon="code" href="/integration/market-makers/message-bus/websocket">
+    Subscribe and respond to quote requests in real-time
   </Card>
 </CardGroup>

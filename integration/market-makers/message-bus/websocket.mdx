@@ -1,0 +1,193 @@
+---
+title: 'WebSocket Reference'
+description: 'Subscribe and respond to quote requests in real-time'
+icon: 'code'
+---
+
+NEAR Intents exposes a WebSocket endpoint for market makers (solvers) to receive and respond to quote requests in real-time.
+
+**Endpoint:** `wss://solver-relay-v2.chaindefuser.com/ws`
+
+---
+
+## subscribe
+
+Subscribe to quote requests or quote status events.
+
+<ParamField body="params[0]" type="string" required>
+  Subscription name: `"quote"` or `"quote_status"`
+</ParamField>
+
+<Accordion title="Example request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "subscribe",
+  "params": ["quote"]
+}
+```
+
+</Accordion>
+
+<Accordion title="Example response">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "00000000-0000-0000-0000-000000000000"
+}
+```
+
+Response fields:
+- `result` - Subscription ID used for receiving events and unsubscribing
+
+</Accordion>
+
+### `quote` events
+
+After subscribing to `"quote"`, you'll receive events like this:
+
+```json Event
+{
+  "jsonrpc": "2.0",
+  "method": "subscribe",
+  "params": {
+    "subscription": "00000000-0000-0000-0000-000000000000",
+    "quote_id": "00000000-0000-0000-0000-000000000000",
+    "defuse_asset_identifier_in": "nep141:ft1.near",
+    "defuse_asset_identifier_out": "nep141:ft2.near",
+    "exact_amount_in": "1000",
+    "min_deadline_ms": 60000
+  }
+}
+```
+
+<Info>
+Only one of `exact_amount_in` or `exact_amount_out` will be specified in each request.
+</Info>
+
+### `quote_status` events
+
+After subscribing to `"quote_status"`, you'll receive settlement notifications:
+
+```json Event
+{
+  "jsonrpc": "2.0",
+  "method": "subscribe",
+  "params": {
+    "quote_hash": "00000000000000000000000000000000",
+    "intent_hash": "00000000000000000000000000000000",
+    "tx_hash": "8yFNEk7GmRcM3NMJihwCKXt8ZANLpL2koVFWWH1MEEj"
+  }
+}
+```
+
+
+---
+
+## quote_response
+
+Respond to a quote request with a signed intent. A unique `id` is required in the JSON-RPC message.
+
+<ParamField body="quote_id" type="string" required>
+  Quote request identifier from the event
+</ParamField>
+
+<ParamField body="quote_output" type="object" required>
+  - `amount_out` - Proposed amount for `exact_amount_in` requests
+  - `amount_in` - Proposed amount for `exact_amount_out` requests
+</ParamField>
+
+<ParamField body="signed_data" type="object" required>
+  Signed intent data (same format as `publish_intent`)
+</ParamField>
+
+<ParamField body="other_quote_hashes" type="string[]">
+  Optional hashes of other quotes needed to fulfill this intent
+</ParamField>
+
+<Accordion title="Example request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "quote_response",
+  "params": [
+    {
+      "quote_id": "00000000-0000-0000-0000-000000000000",
+      "quote_output": {
+        "amount_out": "300"
+      },
+      "signed_data": {
+        "standard": "nep413",
+        "payload": {
+          "recipient": "intents.near",
+          "nonce": "Vij2xgAlKBKzAEiS6N1S/hcQLaHzX2s1fNKhBDblXT4=",
+          "message": "{\"deadline\":\"2024-10-14T12:53:40.000Z\",\"intents\":[{\"intent\":\"token_diff\",\"diff\":{\"nep141:ft2.near\":\"-300\",\"nep141:ft1.near\":\"500\"}}],\"signer_id\":\"solver.near\"}"
+        },
+        "public_key": "ed25519:C3jXhkGhEx88Gj7XKtUziJKXEBMRaJ67bWFkxJikVxZ2",
+        "signature": "ed25519:WQXG37prMyT4f1vp6JSvamsjqDR5fSnDiinSPaCoq9sPcDgFGPRiMWX7csqqudDbzc8i6wrfpemgpVX2wQDmwww"
+      }
+    }
+  ]
+}
+```
+
+</Accordion>
+
+<Accordion title="Example response">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "OK"
+}
+```
+
+Response fields:
+- `result` - `"OK"` when the quote response is accepted
+
+</Accordion>
+
+---
+
+## unsubscribe
+
+Unsubscribe from a subscription.
+
+<ParamField body="params[0]" type="string" required>
+  Subscription ID returned by `subscribe`
+</ParamField>
+
+<Accordion title="Example request">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "unsubscribe",
+  "params": ["00000000-0000-0000-0000-000000000000"]
+}
+```
+
+</Accordion>
+
+<Accordion title="Example response">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "OK"
+}
+```
+
+Response fields:
+- `result` - `"OK"` when unsubscribed successfully
+
+</Accordion>
