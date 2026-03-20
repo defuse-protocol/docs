@@ -99,7 +99,9 @@
           {
             "group": " ",
             "pages": [
-              "integration/market-makers/introduction"
+              "integration/market-makers/introduction",
+              "integration/market-makers/quickstart",
+              "integration/market-makers/example"
             ]
           },
           {
@@ -107,8 +109,8 @@
             "icon": "message",
             "pages": [
               "integration/market-makers/message-bus/introduction",
-              "integration/market-makers/message-bus/api",
-              "integration/market-makers/message-bus/usage-examples"
+              "integration/market-makers/message-bus/rpc",
+              "integration/market-makers/message-bus/websocket"
             ]
           }
         ]
@@ -232,7 +234,7 @@
     },
     {
       "source": "/near-intents/integration/distribution-channels/intents-explorer-api",
-      "destination": "/api-reference/explorer/introduction"
+      "destination": "/integration/distribution-channels/1click-api/explorer/introduction"
     },
     {
       "source": "/near-intents/market-makers",
@@ -244,7 +246,7 @@
     },
     {
       "source": "/near-intents/market-makers/bus/solver-relay",
-      "destination": "/integration/market-makers/message-bus/api"
+      "destination": "/integration/market-makers/message-bus/rpc"
     },
     {
       "source": "/near-intents/market-makers/bus/usage-examples",

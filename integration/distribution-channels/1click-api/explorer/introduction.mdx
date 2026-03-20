@@ -1,10 +1,17 @@
 ---
 title: "Explorer API"
 description: "Programmatic access to historical 1Click Swap transactions"
-icon: "magnifying-glass-chart"
 ---
 
 The Explorer API provides read-only access to historical 1Click Swap transactions and their statuses, mirroring the data available on the [NEAR Intents Explorer](https://explorer.near-intents.org/).
+
+<Callout color="#ff7043">
+
+**Base URL:** `https://explorer.near-intents.org/api/v0`
+
+</Callout>
+
+---
 
 ## Overview
 
@@ -19,17 +26,7 @@ This API is designed for distribution channels and analytical services that need
 The Explorer API is read-only and specifically for 1Click Swap transactions.
 </Info>
 
-## Base URL
-
-```
-https://explorer.near-intents.org/api
-```
-
 ## Authentication
-
-<Warning>
-A JWT token is **required** for all requests. Get your token from the [Partner Dashboard](https://partners.near-intents.org/).
-</Warning>
 
 Include the token in your requests:
 
@@ -37,6 +34,12 @@ Include the token in your requests:
 curl -X GET "https://explorer.near-intents.org/api/v0/transactions" \
   -H "Authorization: Bearer YOUR_JWT_TOKEN"
 ```
+
+<Warning>
+A JWT token is **required** for all requests. Get your token from the [Partner Dashboard](https://partners.near-intents.org/).
+</Warning>
+
+---
 
 ## Rate Limiting
 
@@ -46,17 +49,21 @@ All API endpoints are rate-limited per partner:
 - Rate limits are enforced based on your JWT token
 - Exceeding the limit returns `429 Too Many Requests`
 
+---
+
 ## Endpoints
 
 <CardGroup cols={2}>
-<Card title="Get Transactions" icon="list" href="/api-reference/explorer/transactions">
+<Card title="Get Transactions" icon="list" href="/integration/distribution-channels/1click-api/explorer/transactions">
   Cursor-based pagination for efficient traversal
 </Card>
 
-<Card title="Get Transactions (Paginated)" icon="book-open" href="/api-reference/explorer/transactions-pages">
+<Card title="Get Transactions (Paginated)" icon="book-open" href="/integration/distribution-channels/1click-api/explorer/transactions-pages">
   Page-based pagination with total counts
 </Card>
 </CardGroup>
+
+---
 
 ## API Specification
 
