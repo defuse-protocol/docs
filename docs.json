@@ -24,7 +24,8 @@
             "group": "Intents",
             "pages": [
               "/getting-started/what-are-intents",
-              "/resources/chain-support"
+              "/resources/chain-support",
+              "resources/asset-support"
             ]
           },
           {
