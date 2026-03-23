@@ -57,6 +57,14 @@ For example, if you set `"fee": 10` (10 basis points), 5 bps go to your partner 
 The 50/50 split is the default arrangement. Revenue share terms are negotiable — reach out through the [Partner Dashboard](https://partners.near-intents.org/) to discuss custom terms.
 </Info>
 
+### Quote improvement fee (1Click / NEAR Intents)
+
+**Definition:** If a swap execution gets **filled at a better price than the quoted price**, that difference is split **50/50** between you and the protocol.
+
+**Eligible orders:** Real cross-asset swaps (not same-token moves). Only applies while the quote is still **fresh—within about 30 minutes** of when it was issued—and only when there is a **strict improvement** versus what the quote guaranteed (after normal fees on the quote).
+
+**Fee calculation:** **Direct 50/50 split** of the measured improvement, or **zero** if execution did not beat the quote.
+
 <Card title="Fee Configuration Guide" icon="wallet" href="/integration/distribution-channels/1click-api/fee-config">
   Learn how to configure and collect fees from your integration
 </Card>
