@@ -32,6 +32,16 @@ icon: "dollar-sign"
 [Apply for an API key](https://partners.near-intents.org/) to avoid the 0.2% unauthenticated fee.
 </Tip>
 
+
+### Quote improvement fee (1Click / NEAR Intents)
+
+**Definition:** If a swap execution gets **filled at a better price than the quoted price**, that difference is split **50/50** between you and the protocol.
+
+**Eligible orders:** Real cross-asset swaps (not same-token moves). Only applies while the quote is still **fresh—within about 30 minutes** of when it was issued. 
+
+**Fee calculation:** **Direct 50/50 split** of the measured improvement, or **zero** if execution did not beat the quote.
+
+
 ### Distribution Channel Fees
 
 Developers and distribution channels can add their own fees using the [`appFees`](/integration/distribution-channels/1click-api/fee-config) parameter when requesting quotes.
