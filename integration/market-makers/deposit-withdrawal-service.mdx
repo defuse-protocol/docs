@@ -55,6 +55,9 @@ Returns a list of tokens supported by the service for each network.
   - `min_deposit_amount` - Minimum amount to trigger transfer
   - `min_withdrawal_amount` - Minimum amount for withdrawal
   - `withdrawal_fee` - Fee charged for withdrawals
+  - `standard` - Token standard (for example `nep141` or `nep245`)
+  - `intents_token_id` - Intents token identifier
+  - `multi_token_id` - Multi-token identifier for supported multi-token assets
 </Accordion>
 
 ```json Request
@@ -83,7 +86,10 @@ Returns a list of tokens supported by the service for each network.
         "asset_name": "PEPE",
         "min_deposit_amount": "100000",
         "min_withdrawal_amount": "10000",
-        "withdrawal_fee": "1000"
+        "withdrawal_fee": "1000",
+        "standard": "nep141",
+        "intents_token_id": "nep141:v2_1.omni.hot.tg",
+        "multi_token_id": "optional"
       }
     ]
   }
@@ -100,6 +106,10 @@ Returns the address for depositing supported tokens or native currency.
 
 <ParamField body="chain" type="string" required>
   Network type and chain ID (e.g., `eth:42161` for Arbitrum, `btc:mainnet` for Bitcoin)
+</ParamField>
+
+<ParamField body="deposit_mode" type="string">
+  Optional. For Stellar, set this to `MEMO`.
 </ParamField>
 
 ```json Request
@@ -122,7 +132,8 @@ Returns the address for depositing supported tokens or native currency.
   "id": 1,
   "result": {
     "address": "0x...",
-    "chain": "eth:42161"
+    "chain": "eth:42161",
+    "memo": "optional-for-stellar"
   }
 }
 ```
@@ -135,20 +146,36 @@ Returns information on recent deposits for an account.
   Your NEAR Intents account
 </ParamField>
 
-<ParamField body="chain" type="string" required>
-  Network type and chain ID
+<ParamField body="chain" type="string">
+  Optional network type and chain ID
+</ParamField>
+
+<ParamField body="status" type="string">
+  Optional status filter: `PENDING`, `CREDITED`, `COMPLETED`, or `FAILED`
+</ParamField>
+
+<ParamField body="limit" type="number">
+  Optional page size. Defaults to `20` and is capped at `100`.
+</ParamField>
+
+<ParamField body="offset" type="number">
+  Optional pagination offset. Defaults to `0`.
 </ParamField>
 
 <Accordion title="Response fields">
   For each deposit:
   - `tx_hash` - Transaction hash (EVM networks only)
+  - `mint_tx_hash` - Mint transaction hash on NEAR
   - `chain` - Network type and chain ID
   - `defuse_asset_identifier` - Token identifier
+  - `near_token_id` - Token identifier on NEAR
   - `decimals` - Token decimals
   - `amount` - Asset amount
   - `account_id` - NEAR Intents account
   - `address` - Deposit address
-  - `status` - `COMPLETED`, `PENDING`, or `FAILED`
+  - `status` - `PENDING`, `CREDITED`, `COMPLETED`, or `FAILED`
+  - `created_at` - Deposit creation time
+  - `from` - Sender address
 </Accordion>
 
 ```json Request
@@ -167,21 +194,28 @@ Returns information on recent deposits for an account.
 
 ```json Response
 {
+  "id": "string-or-number",
   "jsonrpc": "2.0",
-  "id": 1,
   "result": {
     "deposits": [
       {
-        "tx_hash": "0x...",
-        "chain": "eth:42161",
-        "defuse_asset_identifier": "eth:42161:0x123",
-        "decimals": 18,
-        "amount": "10000000000",
-        "account_id": "user.near",
-        "address": "0x123",
-        "status": "COMPLETED"
+        "tx_hash": "string",
+        "mint_tx_hash": "string",
+        "chain": "string",
+        "defuse_asset_identifier": "string",
+        "near_token_id": "string",
+        "decimals": 0,
+        "amount": 0,
+        "account_id": "string",
+        "address": "string",
+        "status": "PENDING|CREDITED|COMPLETED|FAILED",
+        "created_at": "date-time",
+        "from": "string"
       }
-    ]
+    ],
+    "total": 0,
+    "limit": 20,
+    "offset": 0
   }
 }
 ```
@@ -200,10 +234,14 @@ Returns the status of a withdrawal.
   - `data.transfer_tx_hash` - Transfer transaction hash on destination chain
   - `data.chain` - Network type and chain ID
   - `data.defuse_asset_identifier` - Token identifier
+  - `data.near_token_id` - Token identifier on NEAR
   - `data.decimals` - Token decimals
   - `data.amount` - Asset amount
   - `data.account_id` - User account
-  - `data.address` - Withdrawal address
+  - `data.address` - Token address saved for the withdrawal record
+  - `data.created_at` - Withdrawal creation time
+  - `data.withdrawal_fee` - Fee charged for the withdrawal
+  - `data.withdraw_amount` - Amount sent to destination after fee handling
 </Accordion>
 
 ```json Request
@@ -230,11 +268,69 @@ Returns the status of a withdrawal.
       "transfer_tx_hash": "0x...",
       "chain": "eth:42161",
       "defuse_asset_identifier": "eth:42161:0x123",
+      "near_token_id": "eth.omft.near",
       "decimals": 18,
-      "amount": "10000000000",
+      "amount": 10000000000,
       "account_id": "user.near",
-      "address": "0x123"
+      "address": "0x123",
+      "created_at": "2026-04-22T00:00:00.000Z",
+      "withdrawal_fee": "1000",
+      "withdraw_amount": "9999999000"
     }
+  }
+}
+```
+
+### recent_withdrawals
+
+Returns recent withdrawals for an account.
+
+<ParamField body="account_id" type="string" required>
+  Your NEAR Intents account
+</ParamField>
+
+<ParamField body="chain" type="string">
+  Optional network type and chain ID
+</ParamField>
+
+```json Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "recent_withdrawals",
+  "params": [
+    {
+      "account_id": "user.near",
+      "chain": "eth:42161"
+    }
+  ]
+}
+```
+
+```json Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "withdrawals": [
+      {
+        "status": "PENDING",
+        "data": {
+          "tx_hash": "8yFNEk7GmRcM3NMJihwCKXt8ZANLpL2koVFWWH1MEEj",
+          "transfer_tx_hash": "0x...",
+          "chain": "eth:42161",
+          "defuse_asset_identifier": "eth:42161:0x123",
+          "near_token_id": "eth.omft.near",
+          "decimals": 18,
+          "amount": 10000000000,
+          "account_id": "user.near",
+          "address": "0x123",
+          "created_at": "2026-04-22T00:00:00.000Z",
+          "withdrawal_fee": "1000",
+          "withdraw_amount": "9999999000"
+        }
+      }
+    ]
   }
 }
 ```
@@ -242,6 +338,10 @@ Returns the status of a withdrawal.
 ### notify_deposit
 
 Optional method to notify the service about your deposit for faster processing.
+
+<ParamField body="chain" type="string" required>
+  Network type and chain ID (for example `eth:8453`, `near:mainnet`, or `stellar:mainnet`)
+</ParamField>
 
 <ParamField body="deposit_address" type="string" required>
   Address you received from the API
@@ -251,6 +351,14 @@ Optional method to notify the service about your deposit for faster processing.
   Hash of your deposit transaction
 </ParamField>
 
+<ParamField body="near_sender_account" type="string">
+  Required when `chain` is `near:mainnet`.
+</ParamField>
+
+<ParamField body="memo" type="string">
+  Required when `chain` is `stellar:mainnet`. Max length: `32`.
+</ParamField>
+
 ```json Request
 {
   "jsonrpc": "2.0",
@@ -258,10 +366,19 @@ Optional method to notify the service about your deposit for faster processing.
   "method": "notify_deposit",
   "params": [
     {
+      "chain": "eth:8453",
       "deposit_address": "0x...",
       "tx_hash": "0x..."
     }
   ]
+}
+```
+
+```json Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {}
 }
 ```
 
@@ -314,12 +431,106 @@ Estimate fees for a withdrawal transaction.
     "withdrawalFee": "12500000000000000",
     "withdrawalFeeDecimals": 18,
     "token": {
-      "defuse_asset_identifier": "0x123abc...",
+      "defuse_asset_identifier": "eth:1:0x123abc...",
       "near_token_id": "eth.omft.near",
       "decimals": 18,
       "asset_name": "ETH",
-      "min_deposit_amount": "0.001"
+      "min_deposit_amount": "0.001",
+      "min_withdrawal_amount": "0.001",
+      "withdrawal_fee": "12500000000000000",
+      "standard": "nep141",
+      "intents_token_id": "nep141:eth.omft.near"
     }
+  }
+}
+```
+
+### hot_omni_withdraw
+
+Triggers a hot OMNI withdrawal flow.
+
+<ParamField body="account_id" type="string" required>
+  Your NEAR Intents account
+</ParamField>
+
+<ParamField body="tx_hash" type="string" required>
+  NEAR transaction hash for the withdrawal request
+</ParamField>
+
+<ParamField body="receiver" type="string" required>
+  Recipient address on destination chain
+</ParamField>
+
+<ParamField body="chain_id" type="string" required>
+  Destination chain ID
+</ParamField>
+
+```json Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "hot_omni_withdraw",
+  "params": [
+    {
+      "account_id": "user.near",
+      "tx_hash": "8yFNEk7GmRcM3NMJihwCKXt8ZANLpL2koVFWWH1MEEj",
+      "receiver": "0x123...",
+      "chain_id": "8453"
+    }
+  ]
+}
+```
+
+```json Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "status": "PENDING",
+    "data": {
+      "transfer_tx_hash": null
+    }
+  }
+}
+```
+
+<Info>
+The `hot_omni_withdraw` result is passed through from backend services and may include additional fields over time.
+</Info>
+
+### attestation
+
+Fetches an attestation payload/signature used by downstream integrations.
+
+<ParamField body="data" type="string" required>
+  Payload to be attested
+</ParamField>
+
+<ParamField body="networkType" type="string" required>
+  Network type for attestation context
+</ParamField>
+
+```json Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "attestation",
+  "params": [
+    {
+      "data": "0xabc...",
+      "networkType": "eth"
+    }
+  ]
+}
+```
+
+```json Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "version": 1,
+    "signature": "0x..."
   }
 }
 ```
