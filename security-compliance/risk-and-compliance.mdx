@@ -31,15 +31,3 @@ Every quote request undergoes automated compliance checks against multiple trust
 
 These checks identify any overlap between addresses provided in the request and addresses flagged in external databases.
 
-### Enhanced screening for non-dry quotes
-
-All non-dry quote requests (actual swaps, not previews) are additionally screened against [TRM Labs](https://www.trmlabs.com/) datasets.
-
-We automatically block quote issuance for any address that TRM Labs flags with:
-
-- **Sanctions** (with `riskType: OWNERSHIP`)
-- **Blocking behavior**
-
-<Warning>
-When a match is detected, the quote request is immediately rejected. The user or distribution channel receives a clear response that the quote has been blocked, ensuring potentially tainted flows are contained at the first interaction point.
-</Warning>
