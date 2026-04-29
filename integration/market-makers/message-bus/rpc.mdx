@@ -8,6 +8,16 @@ NEAR Intents exposes an RPC endpoint to request quotes, publish signed intents, 
 
 **Endpoint:** `POST https://solver-relay-v2.chaindefuser.com/rpc`
 
+## Authentication
+
+This endpoint requires a JWT authentication token. Include the token in the `X-API-Key` header:
+
+```bash
+X-API-Key: <your_jwt_token>
+```
+
+To obtain an API key, register through the [Partner Portal](https://partners.near-intents.org).
+
 <Warning>
  Developers searching to integrate swap functionality should use the [1Click Swap API](../../distribution-channels/1click-api/about-1click-api) instead.
 </Warning>
