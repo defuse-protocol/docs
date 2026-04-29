@@ -10,10 +10,10 @@ NEAR Intents exposes an RPC endpoint to request quotes, publish signed intents, 
 
 ## Authentication
 
-This endpoint requires a JWT authentication token. Include the token in the `Authorization` header:
+This endpoint requires a JWT authentication token. Include the token in the `X-API-Key` header:
 
 ```bash
-Authorization: Bearer <your_jwt_token>
+X-API-Key: <your_jwt_token>
 ```
 
 To obtain an API key, register through the [Partner Portal](https://partners.near-intents.org).
