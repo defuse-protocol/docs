@@ -1,173 +1,51 @@
 ---
-hidden: true
-mode: "wide"
+mode: "custom"
 ---
 
+<div class="landing-page">
+<div class="my-auto w-full">
 
-<h1 class="text-center mt-0 mb-1"> NEAR Intents </h1>
-<div class="mb-8 text-lg text-center prose prose-gray dark:prose-invert"><p>Welcome to the NEAR Intents Docs</p></div>
+  <h1 className="text-center text-4xl font-semibold tracking-tight text-gray-800 dark:text-white pt-9">
+    NEAR Intents Documentation
+  </h1>
 
-<div class="landing pt-8 max-w-6xl mx-auto landing-sections">
-  <Columns cols={2}>
-    <div class="mr-4">
-      <h2 class="mb-2"> 1-Click Swap API </h2>
-      <p >Request quotes, execute cross-chain swaps, and track their status. </p>
-      <p><a href="/integration/distribution-channels/1click-api/quickstart"> Quickstart -> </a></p>
-      <p><a href="/integration/distribution-channels/1click-api/about-1click-api"> Learn More -> </a></p>
-    </div>
-    <CodeGroup>
-      ```bash cURL
-      # Query supported tokens
-      curl https://1click.chaindefuser.com/v0/tokens
+  <div class="landing pt-5 max-w-6xl mx-auto space-y-2">
 
-      # Request a quote
-      curl -X POST https://1click.chaindefuser.com/v0/quote \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-        -d '{
-          "swapType": "EXACT_INPUT",
-          "originAsset": "nep141:wrap.near",
-          "depositType": "ORIGIN_CHAIN",
-          "destinationAsset": "nep141:arb-0x912ce59144191c1204e64559fe8253a0e49e6548.omft.near",
-          "amount": "100000000000000000000000",
-          ...
-        }'
-      ```
+    <Columns cols={4}>
+      <Card title="API Quickstart" icon="rocket" href="/integration/distribution-channels/1click-api/quickstart" cta="Integrate" arrow>
+        Execute your first cross-chain swap in minutes.
+      </Card>
 
-      ```typescript TypeScript
-      // Query supported tokens
-      const tokensResponse = await fetch('https://1click.chaindefuser.com/v0/tokens');
-      const tokens = await tokensResponse.json();
+      <Card title="React Widget" icon="palette" href="/integration/devkit/react-widget" cta="Integrate" arrow>
+        Embed a customizable swap UI with a ready-to-use React component.
+      </Card>
 
-      // Request a quote
-      const quote = await fetch('https://1click.chaindefuser.com/v0/quote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_JWT_TOKEN'
-        },
-        body: JSON.stringify({
-          swapType: 'EXACT_INPUT',
-          originAsset: 'nep141:wrap.near',
-          depositType: 'ORIGIN_CHAIN',
-          destinationAsset: 'nep141:arb-0x912ce59144191c1204e64559fe8253a0e49e6548.omft.near',
-          amount: '100000000000000000000000',
-          // ...
-        })
-      });
-      const result = await quote.json();
-      ```
+      <Card title="SDK Libraries" icon="window-restore" href="/integration/distribution-channels/1click-api/sdk" cta="Explore" arrow>
+        Build with TypeScript, Go, and Rust SDKs for typed API integration.
+      </Card>
 
-      ```python Python
-      import requests
-
-      # Query supported tokens
-      tokens_response = requests.get('https://1click.chaindefuser.com/v0/tokens')
-      tokens = tokens_response.json()
-
-      # Request a quote
-      quote = requests.post(
-        'https://1click.chaindefuser.com/v0/quote',
-        headers={
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_JWT_TOKEN'
-        },
-        json={
-          'swapType': 'EXACT_INPUT',
-          'originAsset': 'nep141:wrap.near',
-          'depositType': 'ORIGIN_CHAIN',
-          'destinationAsset': 'nep141:arb-0x912ce59144191c1204e64559fe8253a0e49e6548.omft.near',
-          'amount': '100000000000000000000000',
-          # ...
-        }
-      )
-      result = quote.json()
-      ```
-    </CodeGroup>
-  </Columns>
-
-  <div class="pb-8">
+      <Card title="What are intents?" icon="lightbulb" href="/getting-started/what-are-intents" cta="Read docs" arrow>
+        Learn how the protocol works and core concepts.
+      </Card>
+    </Columns>
     <Callout color="#ff7043">
       <p class="text-center">
       AI Agent Skills: `npx skills add near/agent-skills --skill near-intents`
       </p>
     </Callout>
+    <Columns cols={2}>
+      <Card title="Market Makers" icon="users" href="/integration/market-makers/introduction" cta="Learn how" arrow>
+        Provide liquidity by fulfilling cross-chain swap intents.
+      </Card>
+
+      <Card title="Verifier Contract" icon="credit-card" href="/integration/verifier-contract/introduction" cta="Read docs" arrow>
+        Interact with the smart contract for custom integrations.
+      </Card>
+
+    </Columns>
+
+
   </div>
 
-  <Columns cols={2}>
-    <img src="/images/widget/swap-widget.png" alt="Swap Widget UI" class="rounded-lg border border-gray-950/10 dark:border-white/10 swap-widget-preview" />
-    <div>
-      <h2 class="mb-2"> React Widget </h2>
-      <p>Integrate a customizable, cross-chain swap interface into your app with just a few lines of code.</p>
-      <p><a href="/integration/devkit/react-widget"> Learn More -> </a></p>
-    </div>
-
-  </Columns>
-
-  <Columns cols={2}>
-    <div class="mr-4">
-      <h2 class="mb-2"> SDK Libraries </h2>
-      <p>Use SDKs for TypeScript, Go, and Rust to request quotes, submit deposits, and monitor execution status.</p>
-      <p><a href="/integration/distribution-channels/1click-api/sdk"> Learn More -> </a></p>
-    </div>
-    <CodeGroup>
-      ```typescript TypeScript
-      import { OpenAPI, OneClickService } from '@defuse-protocol/one-click-sdk-typescript';
-
-      OpenAPI.TOKEN = 'YOUR_JWT_TOKEN';
-
-      const tokens = await OneClickService.getTokens();
-      console.log(tokens.length);
-      ```
-
-      ```go Go
-      configuration := openapiclient.NewConfiguration()
-      apiClient := openapiclient.NewAPIClient(configuration)
-
-      tokens, _, err := apiClient.OneClickAPI.GetTokens(context.Background()).Execute()
-      if err != nil {
-        panic(err)
-      }
-      ```
-
-      ```rust Rust
-      use one_click_sdk_rs::apis::one_click_api;
-      use one_click_sdk_rs::apis::configuration::Configuration;
-
-      let config = Configuration::default();
-      let tokens = one_click_api::get_tokens(&config).await?;
-      println!("{}", tokens.len());
-      ```
-    </CodeGroup>
-  </Columns>
-
-  <h2 class="ps-0"> Browse By Topic </h2>
-
-  <CardGroup cols="3">
-    <Card title="API Quickstart" icon="rocket" href="/integration/distribution-channels/1click-api/quickstart" cta="Integrate" arrow>
-      Execute your first cross-chain swap in minutes.
-    </Card>
-
-    <Card title="React Widget" icon="palette" href="/integration/devkit/react-widget" cta="Integrate" arrow>
-      Embed a customizable swap UI with a ready-to-use React component.
-    </Card>
-
-    <Card title="Swap Libraries" icon="window-restore" href="/integration/distribution-channels/1click-api/sdk" cta="Explore" arrow>
-      Build with TypeScript, Go, and Rust SDKs for typed API integration.
-    </Card>
-    <Card title="What are intents?" icon="lightbulb" href="/getting-started/what-are-intents" cta="Read docs" arrow>
-      Learn how the protocol works and core concepts.
-    </Card>
-
-    <Card title="Market Makers" icon="users" href="/integration/market-makers/introduction" cta="Learn how" arrow>
-      Provide liquidity by fulfilling cross-chain swap intents.
-    </Card>
-
-    <Card title="Verifier Contract" icon="credit-card" href="/integration/verifier-contract/introduction" cta="Read docs" arrow>
-      Interact with the smart contract for custom integrations.
-    </Card>
-
-  </CardGroup>
-
-
+</div>
 </div>

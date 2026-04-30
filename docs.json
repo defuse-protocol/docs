@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "mint",
   "name": "NEAR Intents",
   "colors": {
     "primary": "#fb4d01",
@@ -11,9 +11,9 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Swaps",
+        "tab": "Overview",
         "groups": [
-          { 
+          {
             "group": "Welcome",
             "hidden": true,
             "pages": [
@@ -21,52 +21,12 @@
             ]
           },
           {
-            "group": "Intents",
+            "group": " ",
             "pages": [
               "/getting-started/what-are-intents",
               "/resources/chain-support",
               "resources/asset-support"
             ]
-          },
-          {
-            "group": "Swap API",
-            "openapi": "https://1click.chaindefuser.com/docs/v0/openapi.yaml",
-            "pages": [
-                  "integration/distribution-channels/1click-api/about-1click-api",
-                  "integration/distribution-channels/1click-api/quickstart",
-                  "integration/distribution-channels/1click-api/sdk",
-                  "integration/distribution-channels/1click-api/authentication",
-                  "integration/distribution-channels/1click-api/fee-config",
-                  {
-                    "group": "API Reference",
-                    "icon": "code",
-                    "pages": [
-                      "GET /v0/tokens",
-                      "POST /v0/quote",
-                      "GET /v0/status",
-                      "GET /v0/any-input/withdrawals",
-                      "POST /v0/deposit/submit"
-                    ]
-                  },
-                  {
-                    "group": "Explorer API",
-                    "root": "integration/distribution-channels/1click-api/explorer/introduction",
-                    "icon": "magnifying-glass-chart",
-                    "openapi": "https://explorer.near-intents.org/api/v0/openapi.yaml",
-                    "pages": [
-                      "GET /api/v0/transactions",
-                      "GET /api/v0/transactions-pages"
-                    ]
-                  }
-                ]
-          },
-          {
-            "group": "Developer ToolKit",
-            "pages": [
-                  "integration/devkit/react-widget",
-                  "integration/devkit/intents-sdk",
-                  "integration/devkit/skills"
-                ]
           },
           {
             "group": "Resources",
@@ -88,10 +48,58 @@
         ]
       },
       {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": " ",
+            "pages": [
+              "integration/distribution-channels/1click-api/about-1click-api",
+              "integration/distribution-channels/1click-api/quickstart",
+              "integration/distribution-channels/1click-api/authentication",
+              "integration/distribution-channels/1click-api/fee-config"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "openapi": "https://1click.chaindefuser.com/docs/v0/openapi.yaml",
+            "pages": [
+              "GET /v0/tokens",
+              "POST /v0/quote",
+              "GET /v0/status",
+              "GET /v0/any-input/withdrawals",
+              "POST /v0/deposit/submit"
+            ]
+          },
+          {
+            "group": "Explorer API",
+            "openapi": "https://explorer.near-intents.org/api/v0/openapi.yaml",
+            "pages": [
+              "integration/distribution-channels/1click-api/explorer/introduction",
+              "GET /api/v0/transactions",
+              "GET /api/v0/transactions-pages"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Dev Toolkit",
+        "groups": [
+          {
+            "group": " ",
+            "pages": [
+              "integration/devkit/react-widget",
+              "integration/distribution-channels/1click-api/sdk",
+              "integration/devkit/intents-sdk",
+              "integration/devkit/skills"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Market Makers",
         "groups": [
           {
-            "group": "Market Makers",
+            "group": " ",
             "pages": [
               "integration/market-makers/introduction",
               "integration/market-makers/quickstart",
@@ -113,7 +121,7 @@
         "tab": "Bridges",
         "groups": [
           {
-            "group": "Bridges",
+            "group": " ",
             "pages": [
               "integration/bridging/overview",
               "integration/market-makers/deposit-withdrawal-service"
@@ -125,7 +133,7 @@
         "tab": "Verifier Contract",
         "groups": [
           {
-            "group": "Verifier Contract",
+            "group": " ",
             "pages": [
               "integration/verifier-contract/introduction",
               "integration/verifier-contract/account-abstraction"
@@ -161,7 +169,7 @@
   "navbar": {
     "links": [
       {
-        "label": "System Status",
+        "label": "Status",
         "href": "https://status.near-intents.org/posts/dashboard"
       },
       {
@@ -228,7 +236,7 @@
     },
     {
       "source": "/near-intents/integration/distribution-channels/intents-explorer-api",
-      "destination": "/integration/distribution-channels/1click-api/explorer/introduction"
+      "destination": "/api-reference/explorer/introduction"
     },
     {
       "source": "/near-intents/market-makers",
